@@ -46,7 +46,8 @@ export default function BridalApp() {
             </h2>
           </div>
 
-          <h1 className="text-white font-serif text-5xl md:text-7xl tracking-wide uppercase font-light leading-none pt-1">
+          {/* Single Line Typography Fix */}
+          <h1 className="text-white font-serif text-3xl sm:text-5xl md:text-6xl tracking-wide uppercase font-light leading-tight pt-1 whitespace-nowrap">
             MAKEUP ARTIST
           </h1>
 
