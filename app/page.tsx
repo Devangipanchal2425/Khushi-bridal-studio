@@ -1,97 +1,36 @@
-import Image from "next/image";
-import Link from "next/link";
+'use client';
 
-export default function Home() {
+import React from 'react';
+
+export default function Page() {
+  // Studio contact number formatted without '+' or spaces for wa.me API
+  const phoneNumber = "918128154675"; 
+  const defaultMessage = encodeURIComponent("Hello! I would like to inquire about Bridal Studio bookings.");
+
+  const openWhatsApp = () => {
+    // Opens direct chat window with pre-filled message
+    window.open(`https://wa.me/${phoneNumber}?text=${defaultMessage}`, '_blank');
+  };
+
   return (
-    <main className="min-h-screen bg-neutral-950 text-white relative overflow-hidden flex flex-col justify-between">
-      {/* Background Image Container - Full Clarity & Brightness */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/bride.jpeg"
-          alt="Khushi Patel - Makeup Artist"
-          className="w-full h-full object-cover object-center opacity-100"
-        />
-        {/* Soft subtle gradient for text contrast without darkening the whole face */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
-      </div>
-
-      {/* Navigation / Header */}
-      <nav className="relative z-10 flex justify-between items-center px-6 py-6 max-w-7xl mx-auto w-full">
-        <button 
-          aria-label="Toggle Menu" 
-          className="p-3 rounded-full bg-pink-900/40 text-pink-300 hover:bg-pink-900/60 transition-colors backdrop-blur-md border border-pink-500/20"
+    <div className="flex items-center justify-center p-4">
+      {/* Bridal Studio WhatsApp Button */}
+      <button 
+        onClick={openWhatsApp}
+        className="flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full hover:bg-[#20ba5a] transition-all shadow-lg font-medium cursor-pointer"
+      >
+        {/* Exact Official WhatsApp SVG Logo */}
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="22" 
+          height="22" 
+          viewBox="0 0 448 512" 
+          fill="currentColor"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </nav>
-
-      {/* Hero Content */}
-      <section className="relative z-10 max-w-7xl mx-auto px-6 py-12 w-full flex-1 flex flex-col justify-center">
-        <div className="space-y-6 max-w-xl">
-          <div className="space-y-2">
-            <div className="w-12 h-1 bg-pink-400 mb-4"></div>
-            <h2 className="text-pink-400 font-medium tracking-widest uppercase text-xs sm:text-sm md:text-base drop-shadow-md">
-              KHUSHI PATEL
-            </h2>
-            {/* MAKEUP ARTIST in 1 Single Line */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif tracking-tight leading-tight text-white whitespace-nowrap drop-shadow-lg">
-              MAKEUP ARTIST
-            </h1>
-          </div>
-
-          <div className="pt-2">
-            <Link 
-              href="#about"
-              className="inline-block bg-pink-600 hover:bg-pink-700 text-white font-semibold px-8 py-3 rounded-md transition-all shadow-xl hover:shadow-pink-600/30"
-            >
-              ABOUT ME
-            </Link>
-          </div>
-
-          {/* Social Icons */}
-          <div className="flex gap-4 pt-4">
-            <a 
-              href="https://www.instagram.com/" 
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="w-10 h-10 rounded-full border border-neutral-600 bg-black/40 backdrop-blur-md flex items-center justify-center text-white hover:text-pink-400 hover:border-pink-400 transition-colors shadow-md"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" strokeWidth="2" />
-                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" strokeWidth="2" />
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" strokeWidth="2" />
-              </svg>
-            </a>
-            <a 
-              href="#" 
-              aria-label="Facebook"
-              className="w-10 h-10 rounded-full border border-neutral-600 bg-black/40 backdrop-blur-md flex items-center justify-center text-white hover:text-pink-400 hover:border-pink-400 transition-colors shadow-md"
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Floating WhatsApp Button */}
-      <div className="fixed bottom-6 right-6 z-50">
-        <a 
-          href="https://wa.me/" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          aria-label="Chat on WhatsApp"
-          className="w-14 h-14 bg-emerald-500 hover:bg-emerald-600 rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-105 transition-transform"
-        >
-          <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
-          </svg>
-        </a>
-      </div>
-    </main>
+          <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+        <span>Book via WhatsApp</span>
+      </button>
+    </div>
   );
 }
