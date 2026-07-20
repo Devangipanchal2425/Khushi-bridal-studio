@@ -54,7 +54,7 @@ export default function Home() {
               </svg>
             </a>
             <a 
-              href="#" 
+              href="href="https://www.instagram.com/khushiimakeover_official/"" 
               aria-label="Facebook"
               className="w-10 h-10 rounded-full border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-pink-400 hover:border-pink-400 transition-colors"
             >
