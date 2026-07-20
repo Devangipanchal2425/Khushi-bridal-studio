@@ -3,12 +3,23 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-neutral-950 text-white relative overflow-hidden">
+    <main className="min-h-screen bg-neutral-950 text-white relative overflow-hidden flex flex-col justify-between">
+      {/* Background Image Container */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/bride.jpeg"
+          alt="Khushi Patel - Makeup Artist"
+          className="w-full h-full object-cover object-center opacity-40 md:opacity-50"
+        />
+        {/* Dark Gradient Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/60 to-neutral-950/80 md:to-transparent"></div>
+      </div>
+
       {/* Navigation / Header */}
-      <nav className="flex justify-between items-center px-6 py-6 max-w-7xl mx-auto">
+      <nav className="relative z-10 flex justify-between items-center px-6 py-6 max-w-7xl mx-auto w-full">
         <button 
           aria-label="Toggle Menu" 
-          className="p-3 rounded-full bg-pink-300/20 text-pink-300 hover:bg-pink-300/30 transition-colors"
+          className="p-3 rounded-full bg-pink-300/20 text-pink-300 hover:bg-pink-300/30 transition-colors backdrop-blur-sm"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
@@ -16,36 +27,37 @@ export default function Home() {
         </button>
       </nav>
 
-      {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-6 pt-8 pb-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        {/* Left Column: Text & CTA */}
-        <div className="space-y-6 z-10">
+      {/* Hero Content (Overlayed on Top of Image) */}
+      <section className="relative z-10 max-w-7xl mx-auto px-6 py-12 w-full flex-1 flex flex-col justify-center">
+        <div className="space-y-6 max-w-lg">
           <div className="space-y-2">
             <div className="w-12 h-1 bg-pink-400 mb-4"></div>
             <h2 className="text-pink-400 font-medium tracking-widest uppercase text-sm md:text-base">
               KHUSHI PATEL
             </h2>
-            <h1 className="text-5xl md:text-7xl font-serif tracking-tight leading-none text-neutral-100">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif tracking-tight leading-none text-neutral-100 drop-shadow-md">
               MAKEUP <br />
               ARTIST
             </h1>
           </div>
 
-          <div className="pt-4">
+          <div className="pt-2">
             <Link 
               href="#about"
-              className="inline-block bg-pink-400 hover:bg-pink-500 text-neutral-950 font-semibold px-8 py-3 rounded-md transition-all shadow-lg hover:shadow-pink-400/20"
+              className="inline-block bg-pink-500 hover:bg-pink-600 text-white font-semibold px-8 py-3 rounded-md transition-all shadow-lg hover:shadow-pink-500/20 backdrop-blur-sm"
             >
               ABOUT ME
             </Link>
           </div>
 
           {/* Social Icons */}
-          <div className="flex gap-4 pt-8">
+          <div className="flex gap-4 pt-4">
             <a 
-              href="#" 
+              href="https://www.instagram.com/" 
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Instagram"
-              className="w-10 h-10 rounded-full border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-pink-400 hover:border-pink-400 transition-colors"
+              className="w-10 h-10 rounded-full border border-neutral-700 bg-neutral-900/50 backdrop-blur-sm flex items-center justify-center text-neutral-300 hover:text-pink-400 hover:border-pink-400 transition-colors"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" strokeWidth="2" />
@@ -54,25 +66,14 @@ export default function Home() {
               </svg>
             </a>
             <a 
-              href="href="https://www.instagram.com/khushiimakeover_official/"" 
+              href="#" 
               aria-label="Facebook"
-              className="w-10 h-10 rounded-full border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-pink-400 hover:border-pink-400 transition-colors"
+              className="w-10 h-10 rounded-full border border-neutral-700 bg-neutral-900/50 backdrop-blur-sm flex items-center justify-center text-neutral-300 hover:text-pink-400 hover:border-pink-400 transition-colors"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
               </svg>
             </a>
-          </div>
-        </div>
-
-        {/* Right Column: Hero Image */}
-        <div className="relative flex justify-center items-center">
-          <div className="relative w-full max-w-md h-[450px] md:h-[550px] rounded-2xl overflow-hidden shadow-2xl border border-neutral-800">
-            <img
-              src="/bride.jpeg"
-              alt="Khushi Patel - Makeup Artist"
-              className="w-full h-full object-cover"
-            />
           </div>
         </div>
       </section>
