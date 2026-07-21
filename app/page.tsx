@@ -64,7 +64,7 @@ export default function BridalApp() {
           </div>
         </div>
 
-        {/* Bottom Bar: Social Links + Exact Squircle WhatsApp App Icon */}
+        {/* Bottom Bar: Social Links + Direct Image WhatsApp Squircle Icon */}
         <div className="relative z-10 flex items-center justify-between w-full mb-4">
           <div className="flex items-center space-x-3">
             {/* Active Instagram Link */}
@@ -87,21 +87,21 @@ export default function BridalApp() {
             </a>
           </div>
 
-          {/* Exact Squircle WhatsApp Icon (Same as image provided) */}
-{/* Exact Squircle WhatsApp App Icon using Direct Official Asset */}
-<a 
-  href={whatsappUrl} 
-  target="_blank" 
-  rel="noreferrer" 
-  aria-label="Chat on WhatsApp"
-  className="w-14 h-14 rounded-[18px] bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-all duration-200 overflow-hidden p-2.5"
->
-  <img 
-    src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-    alt="WhatsApp" 
-    className="w-full h-full object-contain filter brightness-0 invert" 
-  />
-</a>        </div>
+          {/* Direct WhatsApp Image Asset inside Squircle Container */}
+          <a 
+            href={whatsappUrl} 
+            target="_blank" 
+            rel="noreferrer" 
+            aria-label="Chat on WhatsApp"
+            className="w-14 h-14 rounded-[18px] bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-all duration-200 overflow-hidden p-2.5"
+          >
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+              alt="WhatsApp" 
+              className="w-full h-full object-contain filter brightness-0 invert" 
+            />
+          </a>
+        </div>
 
       </div>
     );
