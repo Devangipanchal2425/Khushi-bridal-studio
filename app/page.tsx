@@ -64,7 +64,7 @@ export default function BridalApp() {
           </div>
         </div>
 
-        {/* Bottom Bar: Live Social Links + Original WhatsApp Green Icon */}
+        {/* Bottom Bar: Social Links + Exact Official WhatsApp Floating Button */}
         <div className="relative z-10 flex items-center justify-between w-full mb-4">
           <div className="flex items-center space-x-3">
             {/* Active Instagram Link */}
@@ -87,14 +87,15 @@ export default function BridalApp() {
             </a>
           </div>
 
-          {/* Original Green WhatsApp Button with Direct Pre-filled Text Link */}
+          {/* Exact Official Floating WhatsApp Button */}
           <a 
             href={whatsappUrl} 
             target="_blank" 
             rel="noreferrer" 
-            className="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-2xl hover:scale-105 transition-all"
+            aria-label="Chat on WhatsApp"
+            className="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-[0_4px_12px_rgba(37,211,102,0.4)] hover:bg-[#20ba5a] hover:scale-105 active:scale-95 transition-all duration-200"
           >
-            <svg viewBox="0 0 24 24" className="w-8 h-8 fill-current">
+            <svg viewBox="0 0 24 24" className="w-7 h-7 fill-white drop-shadow-sm">
               <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.528 1.977 14.053.953 11.428.951 5.992.951 1.566 5.323 1.563 10.753c-.001 1.706.463 3.372 1.346 4.866l-.995 3.636 3.733-.951z"/>
             </svg>
           </a>
