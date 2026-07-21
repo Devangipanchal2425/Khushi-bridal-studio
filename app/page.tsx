@@ -50,7 +50,6 @@ export default function BridalApp() {
             </h2>
           </div>
 
-          {/* Guaranteed Single Line Heading */}
           <h1 className="text-white font-serif text-2xl sm:text-4xl md:text-6xl tracking-normal uppercase font-light leading-tight pt-1 whitespace-nowrap overflow-hidden">
             MAKEUP ARTIST
           </h1>
@@ -65,10 +64,9 @@ export default function BridalApp() {
           </div>
         </div>
 
-        {/* Bottom Bar: Live Social Links + Direct Image WhatsApp Squircle Icon */}
+        {/* Bottom Bar: Social Links + Official WhatsApp Logo Icon */}
         <div className="relative z-10 flex items-center justify-between w-full mb-4">
           <div className="flex items-center space-x-3">
-            {/* Active Instagram Link */}
             <a 
               href="https://instagram.com/khushimakeover_official" 
               target="_blank" 
@@ -88,19 +86,17 @@ export default function BridalApp() {
             </a>
           </div>
 
-          {/* Direct WhatsApp Image Asset inside Squircle Container */}
+          {/* Exact WhatsApp Green Icon with Phone-inside-Bubble vector */}
           <a 
             href={whatsappUrl} 
             target="_blank" 
             rel="noreferrer" 
             aria-label="Chat on WhatsApp"
-            className="w-14 h-14 rounded-[18px] bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-all duration-200 overflow-hidden p-2.5"
+            className="w-14 h-14 rounded-[18px] bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
           >
-            <img 
-              src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-              alt="WhatsApp" 
-              className="w-full h-full object-contain filter brightness-0 invert" 
-            />
+            <svg className="w-8 h-8 fill-white" viewBox="0 0 32 32">
+              <path d="M16 2A13 13 0 0 0 4.69 21.25L3 27.5l6.43-1.68A13 13 0 1 0 16 2zm0 23.8a10.74 10.74 0 0 1-5.48-1.5l-.39-.23-4.07 1.07 1.08-3.95-.25-.4A10.8 10.8 0 1 1 16 25.8zm5.92-8.08c-.32-.16-1.92-.95-2.22-1.06s-.52-.16-.74.16-.85 1.06-1.04 1.28-.39.24-.71.08a9 9 0 0 1-2.65-1.63 9.87 9.87 0 0 1-1.83-2.28c-.19-.32 0-.49.15-.65s.32-.37.48-.56a2.16 2.16 0 0 0 .32-.53.59.59 0 0 0 0-.56c-.08-.16-.74-1.78-1.01-2.44s-.54-.56-.74-.57h-.63a1.21 1.21 0 0 0-.88.41A3.7 3.7 0 0 0 8.5 13a6.43 6.43 0 0 0 1.34 3.42 14.7 14.7 0 0 0 5.62 4.96c2.37 1 2.85.83 3.37.78a2.87 2.87 0 0 0 1.89-1.33 2.33 2.33 0 0 0 .16-1.33c-.08-.13-.24-.21-.56-.37z"/>
+            </svg>
           </a>
         </div>
 
@@ -168,17 +164,13 @@ export default function BridalApp() {
         {/* ABOUT ME SECTION / TAB */}
         {(activeTab === 'about' || activeTab === 'home') && (
           <div className={`animate-fadeIn max-w-5xl mx-auto py-6 ${activeTab === 'home' ? 'pt-8' : ''}`}>
-            {/* Header Title */}
             <div className="text-center max-w-xl mx-auto mb-10 space-y-2">
               <span className="text-[#D46A83] text-xs font-medium tracking-[0.25em] uppercase">Behind The Art</span>
               <h2 className="font-serif text-3xl md:text-4xl text-[#333333]">About Khushi Patel</h2>
               <div className="w-12 h-[2px] bg-[#D46A83] mx-auto pt-1"></div>
             </div>
 
-            {/* Profile Overview Card */}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center bg-white rounded-2xl p-6 md:p-10 shadow-sm border border-gray-100 mb-10">
-              
-              {/* Left: Artist Image Frame */}
               <div className="md:col-span-5 relative">
                 <div className="w-full h-80 md:h-[420px] rounded-xl overflow-hidden shadow-md relative group">
                   <img 
@@ -194,7 +186,6 @@ export default function BridalApp() {
                 </div>
               </div>
 
-              {/* Right: Personal Bio & Story */}
               <div className="md:col-span-7 space-y-5">
                 <div className="space-y-1">
                   <span className="text-[#D46A83] text-xs font-medium tracking-widest uppercase">Certified Bridal Makeup Artist</span>
@@ -209,7 +200,6 @@ export default function BridalApp() {
                   Every bride deserves to look and feel extraordinary on her special day. Through precise skin prep, high-end international makeup products, and personalized consultations, I ensure your makeover stays flawless, lightweight, and camera-ready all night long.
                 </p>
 
-                {/* Feature Highlights Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                   <div className="flex items-start space-x-3 bg-[#FFFDF9] p-3.5 rounded-lg border border-gray-100">
                     <Sparkles className="text-[#D46A83] w-5 h-5 flex-shrink-0 mt-0.5" />
@@ -227,7 +217,6 @@ export default function BridalApp() {
                   </div>
                 </div>
 
-                {/* Call to Actions & Direct WhatsApp Integration */}
                 <div className="pt-4 flex flex-wrap items-center gap-4">
                   <button 
                     onClick={() => setActiveTab('booking')}
@@ -282,19 +271,17 @@ export default function BridalApp() {
         )}
       </main>
 
-      {/* Floating Squircle WhatsApp Button for Direct Access */}
+      {/* Floating Squircle Official WhatsApp Logo Button */}
       <a 
         href={whatsappUrl} 
         target="_blank" 
         rel="noreferrer" 
         aria-label="Chat on WhatsApp"
-        className="fixed bottom-20 md:bottom-8 right-6 z-50 w-14 h-14 rounded-[18px] bg-[#25D366] text-white flex items-center justify-center shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200 p-2.5"
+        className="fixed bottom-20 md:bottom-8 right-6 z-50 w-14 h-14 rounded-[18px] bg-[#25D366] text-white flex items-center justify-center shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200"
       >
-        <img 
-          src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
-          alt="WhatsApp" 
-          className="w-full h-full object-contain filter brightness-0 invert" 
-        />
+        <svg className="w-8 h-8 fill-white" viewBox="0 0 32 32">
+          <path d="M16 2A13 13 0 0 0 4.69 21.25L3 27.5l6.43-1.68A13 13 0 1 0 16 2zm0 23.8a10.74 10.74 0 0 1-5.48-1.5l-.39-.23-4.07 1.07 1.08-3.95-.25-.4A10.8 10.8 0 1 1 16 25.8zm5.92-8.08c-.32-.16-1.92-.95-2.22-1.06s-.52-.16-.74.16-.85 1.06-1.04 1.28-.39.24-.71.08a9 9 0 0 1-2.65-1.63 9.87 9.87 0 0 1-1.83-2.28c-.19-.32 0-.49.15-.65s.32-.37.48-.56a2.16 2.16 0 0 0 .32-.53.59.59 0 0 0 0-.56c-.08-.16-.74-1.78-1.01-2.44s-.54-.56-.74-.57h-.63a1.21 1.21 0 0 0-.88.41A3.7 3.7 0 0 0 8.5 13a6.43 6.43 0 0 0 1.34 3.42 14.7 14.7 0 0 0 5.62 4.96c2.37 1 2.85.83 3.37.78a2.87 2.87 0 0 0 1.89-1.33 2.33 2.33 0 0 0 .16-1.33c-.08-.13-.24-.21-.56-.37z"/>
+        </svg>
       </a>
 
       {/* Mobile Bottom Navigation Bar */}
