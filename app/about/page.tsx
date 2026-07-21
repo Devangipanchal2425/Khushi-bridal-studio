@@ -3,7 +3,6 @@ import React from 'react';
 import Link from 'next/link';
 
 export default function AboutPage() {
-  const brideImageUrl = "/bride.jpeg";
   const artistImageUrl = "/khushi.jpeg";
 
   const phoneNumber = "919870085600";
