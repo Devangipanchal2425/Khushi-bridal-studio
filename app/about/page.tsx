@@ -3,10 +3,12 @@ import React from 'react';
 import Link from 'next/link';
 
 export default function AboutPage() {
-  const artistImageUrl = "/Khushi.jpeg";
+  // Image path for Khushi Patel (make sure this file is uploaded in public folder)
+  const artistImageUrl = "/khushi.jpeg"; 
 
   const phoneNumber = "919870085600";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=Hello%20Khushi,%20I%20would%20like%20to%20inquire%20about%20your%20bridal%20makeup%20services.`;
+  const instagramUrl = "https://instagram.com/khushiimakeover_official";
 
   return (
     <div className="min-h-screen bg-white text-[#333333] flex flex-col md:flex-row font-sans selection:bg-[#D46A83] selection:text-white">
@@ -38,7 +40,7 @@ export default function AboutPage() {
         {/* Sidebar Footer Social Links */}
         <div className="pt-8 border-t border-gray-800 space-y-3">
           <div className="flex items-center space-x-4">
-            <a href="https://instagram.com/khushimakeover_official" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
+            <a href={instagramUrl} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -67,9 +69,6 @@ export default function AboutPage() {
                   src={artistImageUrl} 
                   alt="Khushi Patel" 
                   className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.src = brideImageUrl;
-                  }}
                 />
               </div>
             </div>
@@ -89,7 +88,7 @@ export default function AboutPage() {
 
                 <div className="flex items-center space-x-2">
                   <a 
-                    href="https://instagram.com/khushimakeover_official" 
+                    href={instagramUrl} 
                     target="_blank" 
                     rel="noreferrer"
                     className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-[#EFA7B3] hover:text-white transition-all"
