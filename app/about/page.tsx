@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 
 export default function AboutPage() {
-  const artistImageUrl = "khushi.jpeg";
+  const artistImageUrl = "Khushi.jpeg";
 
   const phoneNumber = "919870085600";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=Hello%20Khushi,%20I%20would%20like%20to%20inquire%20about%20your%20bridal%20makeup%20services.`;
