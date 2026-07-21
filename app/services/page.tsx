@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 
 export default function ServicesPage() {
-  const phoneNumber = "918128154675";
+  const phoneNumber = "9870085600";
   const instagramUrl = "https://instagram.com/khushiimakeover_official";
   
   type TabType = 'korean' | 'bridal' | 'prebridal' | 'salon';
