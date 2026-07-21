@@ -69,7 +69,7 @@ export default function BridalApp() {
           <div className="flex items-center space-x-3">
             {/* Active Instagram Link */}
             <a 
-              href="https://instagram.com/khushimakeover_official" 
+              href="https://instagram.com/khushiimakeover_official" 
               target="_blank" 
               rel="noreferrer" 
               className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white flex items-center justify-center hover:bg-white/20 transition-all"
