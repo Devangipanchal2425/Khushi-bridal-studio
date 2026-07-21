@@ -5,7 +5,10 @@ import Link from 'next/link';
 export default function ServicesPage() {
   const phoneNumber = "918128154675";
   const instagramUrl = "https://instagram.com/khushiimakeover_official";
-  const [activeTab, setActiveTab] = useState<'korean' | 'bridal' | 'prebridal' | 'salon'>('korean');
+  
+  // Tab State Type Definition
+  type TabType = 'korean' | 'bridal' | 'prebridal' | 'salon';
+  const [activeTab, setActiveTab] = useState<TabType>('korean');
 
   const buildWhatsappLink = (packageName: string, price: string) => {
     return `https://wa.me/${phoneNumber}?text=Hello%20Khushi,%20I%20would%20like%20to%20inquire%20and%20book%20the%20*${encodeURIComponent(packageName)}*%20(${encodeURIComponent(price)}).`;
@@ -102,8 +105,16 @@ export default function ServicesPage() {
     { title: "LUXURY PRE-BRIDAL", price: "₹13,000/-", features: ["Threading", "Rica Full Hands, Legs & Underarms Wax & Bikini Wax", "Hydra / O3+ / Raga Facial & Face Mask", "Body Polishing & Full Body Pack, Scrub & Massage", "Hair Spa, Clean Up, D-Tan Face & Neck"] }
   ];
 
+  const tabs: { id: TabType; label: string }[] = [
+    { id: 'korean', label: '✨ KOREAN GLASS PACKAGES' },
+    { id: 'bridal', label: '👑 BRIDAL & PRE-FUNCTION' },
+    { id: 'prebridal', label: '🌸 PRE-BRIDAL SPA' },
+    { id: 'salon', label: '💄 SALON MENU (HAIR, SKIN, NAILS)' },
+  ];
+
   return (
     <div className="min-h-screen bg-white text-[#333333] flex flex-col md:flex-row font-sans">
+      {/* Sidebar Navigation */}
       <aside className="w-full md:w-64 bg-black text-white md:min-h-screen flex flex-col justify-between p-8 flex-shrink-0 z-40">
         <div className="space-y-12">
           <Link href="/" className="block bg-[#EFA7B3] text-black p-6 text-center shadow-md hover:bg-[#d88c99] transition-all">
@@ -125,6 +136,7 @@ export default function ServicesPage() {
         </div>
       </aside>
 
+      {/* Main Content Area */}
       <main className="flex-1 bg-white p-6 md:p-12 overflow-y-auto">
         <div className="max-w-6xl mx-auto space-y-10">
           
@@ -138,43 +150,27 @@ export default function ServicesPage() {
             <div className="w-16 h-[2px] bg-[#EFA7B3] mx-auto md:mx-0 mt-3"></div>
           </div>
 
+          {/* Active Navigation Tabs */}
           <div className="flex flex-wrap justify-center md:justify-start gap-2 border-b border-gray-200 pb-4">
-            <button 
-              onClick={() => setActiveTab('korean')}
-              className={`px-5 py-2.5 text-xs font-semibold tracking-widest uppercase transition-all ${
-                activeTab === 'korean' ? 'bg-[#EFA7B3] text-black shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
-            >
-              ✨ KOREAN GLASS PACKAGES
-            </button>
-            <button 
-              onClick={() => setActiveTab('bridal')}
-              className={`px-5 py-2.5 text-xs font-semibold tracking-widest uppercase transition-all ${
-                activeTab === 'bridal' ? 'bg-[#EFA7B3] text-black shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
-            >
-              👑 BRIDAL & PRE-FUNCTION
-            </button>
-            <button 
-              onClick={() => setActiveTab('prebridal')}
-              className={`px-5 py-2.5 text-xs font-semibold tracking-widest uppercase transition-all ${
-                activeTab === 'prebridal' ? 'bg-[#EFA7B3] text-black shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
-            >
-              🌸 PRE-BRIDAL SPA
-            </button>
-            <button 
-              onClick={() => setActiveTab('salon')}
-              className={`px-5 py-2.5 text-xs font-semibold tracking-widest uppercase transition-all ${
-                activeTab === 'salon' ? 'bg-[#EFA7B3] text-black shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
-            >
-              💄 SALON MENU (HAIR, SKIN, NAILS)
-            </button>
+            {tabs.map((tab) => (
+              <button 
+                key={tab.id}
+                type="button"
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-5 py-2.5 text-xs font-semibold tracking-widest uppercase transition-all duration-200 cursor-pointer ${
+                  activeTab === tab.id 
+                    ? 'bg-[#EFA7B3] text-black shadow-md ring-2 ring-[#EFA7B3] scale-105' 
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-black'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
 
+          {/* Tab 1: Korean Glass */}
           {activeTab === 'korean' && (
-            <div className="space-y-6">
+            <div className="space-y-6 animate-fadeIn">
               <div className="bg-pink-50/50 p-4 border-l-4 border-[#EFA7B3]">
                 <h4 className="font-serif text-lg font-bold text-black uppercase">Korean Glass Skin Transformations</h4>
                 <p className="text-xs text-gray-600 font-light mt-1">Specialized ultra-dewy, luminescent Korean makeup techniques & specialized hair therapy.</p>
@@ -214,8 +210,9 @@ export default function ServicesPage() {
             </div>
           )}
 
+          {/* Tab 2: Bridal */}
           {activeTab === 'bridal' && (
-            <div className="space-y-6">
+            <div className="space-y-6 animate-fadeIn">
               <div className="bg-gray-50 p-4 border-l-4 border-black">
                 <h4 className="font-serif text-lg font-bold text-black uppercase">Bridal & Pre-Function Glam</h4>
                 <p className="text-xs text-gray-600 font-light mt-1">HD & Airbrush signature bridal makeovers for Wedding, Reception, Haldi & Sangeet.</p>
@@ -250,8 +247,9 @@ export default function ServicesPage() {
             </div>
           )}
 
+          {/* Tab 3: Pre-Bridal */}
           {activeTab === 'prebridal' && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fadeIn">
               {preBridalPackages.map((item, idx) => (
                 <div key={idx} className="border border-gray-200 p-6 bg-white flex flex-col justify-between">
                   <div>
@@ -279,8 +277,9 @@ export default function ServicesPage() {
             </div>
           )}
 
+          {/* Tab 4: Salon Menu */}
           {activeTab === 'salon' && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs animate-fadeIn">
               <div className="border border-gray-200 p-6 space-y-4">
                 <h4 className="font-serif text-base font-bold text-black border-b pb-2 uppercase">Facials & Skin Treatments</h4>
                 <div className="space-y-2">
