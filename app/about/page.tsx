@@ -24,18 +24,13 @@ export default function AboutPage() {
           </Link>
 
           {/* Navigation Menu */}
-          <nav className="flex flex-col space-y-5 text-xs font-semibold tracking-[0.25em] uppercase text-left">
-            <Link href="/" className="text-gray-300 hover:text-[#EFA7B3] transition-colors">
-              HOME
-            </Link>
-            <Link href="/about" className="text-[#EFA7B3]">
-              ABOUT
-            </Link>
-            <span className="text-gray-500 cursor-not-allowed">SERVICES</span>
-            <span className="text-gray-500 cursor-not-allowed">PORTFOLIO</span>
-            <span className="text-gray-500 cursor-not-allowed">CONTACT</span>
-          </nav>
-        </div>
+<nav className="flex flex-col space-y-5 text-xs font-semibold tracking-[0.25em] uppercase text-left">
+  <Link href="/" className="text-gray-300 hover:text-[#EFA7B3] transition-colors">HOME</Link>
+  <Link href="/about" className="text-[#EFA7B3]">ABOUT</Link>
+  <Link href="/services" className="text-gray-300 hover:text-[#EFA7B3] transition-colors">SERVICES</Link>
+  <span className="text-gray-500 cursor-not-allowed">PORTFOLIO</span>
+  <span className="text-gray-500 cursor-not-allowed">CONTACT</span>
+</nav>        </div>
 
         {/* Sidebar Footer Social Links */}
         <div className="pt-8 border-t border-gray-800 space-y-3">
