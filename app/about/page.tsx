@@ -67,7 +67,7 @@ export default function AboutPage() {
               <div className="w-full h-[450px] md:h-[550px] bg-gray-100 overflow-hidden shadow-sm">
                 <img 
                   src={artistImageUrl} 
-                  alt="Khushi Patel" 
+                  alt="Khushi.jpeg" 
                   className="w-full h-full object-cover"
                 />
               </div>
