@@ -3,12 +3,13 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 
 export default function ServicesPage() {
-  const phoneNumber = "919870085600";
+  const phoneNumber = "918128154675";
   const instagramUrl = "https://instagram.com/khushiimakeover_official";
   
-  // Tab State Type Definition
   type TabType = 'korean' | 'bridal' | 'prebridal' | 'salon';
   const [activeTab, setActiveTab] = useState<TabType>('korean');
+  const [showCustomModal, setShowCustomModal] = useState(false);
+  const [selectedService, setSelectedService] = useState('');
 
   const buildWhatsappLink = (packageName: string, price: string) => {
     return `https://wa.me/${phoneNumber}?text=Hello%20Khushi,%20I%20would%20like%20to%20inquire%20and%20book%20the%20*${encodeURIComponent(packageName)}*%20(${encodeURIComponent(price)}).`;
@@ -113,7 +114,7 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-[#333333] flex flex-col md:flex-row font-sans">
+    <div className="min-h-screen bg-white text-[#333333] flex flex-col md:flex-row font-sans relative">
       {/* Sidebar Navigation */}
       <aside className="w-full md:w-64 bg-black text-white md:min-h-screen flex flex-col justify-between p-8 flex-shrink-0 z-40">
         <div className="space-y-12">
@@ -170,7 +171,7 @@ export default function ServicesPage() {
 
           {/* Tab 1: Korean Glass */}
           {activeTab === 'korean' && (
-            <div className="space-y-6 animate-fadeIn">
+            <div className="space-y-6">
               <div className="bg-pink-50/50 p-4 border-l-4 border-[#EFA7B3]">
                 <h4 className="font-serif text-lg font-bold text-black uppercase">Korean Glass Skin Transformations</h4>
                 <p className="text-xs text-gray-600 font-light mt-1">Specialized ultra-dewy, luminescent Korean makeup techniques & specialized hair therapy.</p>
@@ -212,7 +213,7 @@ export default function ServicesPage() {
 
           {/* Tab 2: Bridal */}
           {activeTab === 'bridal' && (
-            <div className="space-y-6 animate-fadeIn">
+            <div className="space-y-6">
               <div className="bg-gray-50 p-4 border-l-4 border-black">
                 <h4 className="font-serif text-lg font-bold text-black uppercase">Bridal & Pre-Function Glam</h4>
                 <p className="text-xs text-gray-600 font-light mt-1">HD & Airbrush signature bridal makeovers for Wedding, Reception, Haldi & Sangeet.</p>
@@ -249,7 +250,7 @@ export default function ServicesPage() {
 
           {/* Tab 3: Pre-Bridal */}
           {activeTab === 'prebridal' && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fadeIn">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {preBridalPackages.map((item, idx) => (
                 <div key={idx} className="border border-gray-200 p-6 bg-white flex flex-col justify-between">
                   <div>
@@ -277,38 +278,130 @@ export default function ServicesPage() {
             </div>
           )}
 
-          {/* Tab 4: Salon Menu */}
+          {/* Tab 4: Salon Menu (Hair, Skin & NOW NAILS!) */}
           {activeTab === 'salon' && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs animate-fadeIn">
-              <div className="border border-gray-200 p-6 space-y-4">
-                <h4 className="font-serif text-base font-bold text-black border-b pb-2 uppercase">Facials & Skin Treatments</h4>
-                <div className="space-y-2">
-                  <div className="flex justify-between"><span>Tan Clear Facial (Tanned Skin)</span><span className="font-bold">₹800</span></div>
-                  <div className="flex justify-between"><span>Glovite Facial (Dry Skin)</span><span className="font-bold">₹1,200</span></div>
-                  <div className="flex justify-between"><span>Sensi Glow Facial (Sensitive Skin)</span><span className="font-bold">₹1,800</span></div>
-                  <div className="flex justify-between"><span>Light & Bright Facial</span><span className="font-bold">₹2,100</span></div>
-                  <div className="flex justify-between"><span>O3+ Glowing Skin Facial</span><span className="font-bold">₹2,500</span></div>
-                  <div className="flex justify-between text-[#D46A83] font-bold"><span>Hydra Boost Skin Facial</span><span>₹5,000</span></div>
-                  <div className="flex justify-between text-[#D46A83] font-bold"><span>Korean Glass Skin Facial</span><span>₹5,600</span></div>
+            <div className="space-y-8 text-xs">
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                {/* Facials */}
+                <div className="border border-gray-200 p-6 space-y-4 bg-white shadow-sm hover:border-[#EFA7B3] transition-all">
+                  <h4 className="font-serif text-base font-bold text-black border-b pb-2 uppercase tracking-wide flex items-center justify-between">
+                    <span>✨ Facials & Skin</span>
+                    <span className="text-[10px] bg-pink-100 text-[#D46A83] px-2 py-0.5 rounded">SKIN CARE</span>
+                  </h4>
+                  <div className="space-y-2.5">
+                    <div className="flex justify-between"><span>Tan Clear Facial</span><span className="font-bold">₹800</span></div>
+                    <div className="flex justify-between"><span>Glovite Facial</span><span className="font-bold">₹1,200</span></div>
+                    <div className="flex justify-between"><span>Sensi Glow Facial</span><span className="font-bold">₹1,800</span></div>
+                    <div className="flex justify-between"><span>Light & Bright Facial</span><span className="font-bold">₹2,100</span></div>
+                    <div className="flex justify-between"><span>O3+ Glowing Facial</span><span className="font-bold">₹2,500</span></div>
+                    <div className="flex justify-between text-[#D46A83] font-bold"><span>Hydra Boost Facial</span><span>₹5,000</span></div>
+                    <div className="flex justify-between text-[#D46A83] font-bold"><span>Korean Glass Facial</span><span>₹5,600</span></div>
+                  </div>
                 </div>
+
+                {/* Hair Spa */}
+                <div className="border border-gray-200 p-6 space-y-4 bg-white shadow-sm hover:border-[#EFA7B3] transition-all">
+                  <h4 className="font-serif text-base font-bold text-black border-b pb-2 uppercase tracking-wide flex items-center justify-between">
+                    <span>💇‍♀️ Hair Treatments</span>
+                    <span className="text-[10px] bg-pink-100 text-[#D46A83] px-2 py-0.5 rounded">HAIR CARE</span>
+                  </h4>
+                  <div className="space-y-2.5">
+                    <div className="flex justify-between"><span>L Oreal Professional Spa</span><span className="font-bold">₹600 - ₹2,100</span></div>
+                    <div className="flex justify-between text-[#D46A83] font-bold"><span>Korean Hair Therapy</span><span>₹2,000 - ₹5,600</span></div>
+                    <div className="flex justify-between"><span>Hair Straightening</span><span className="font-bold">₹2,500 - ₹8,900</span></div>
+                    <div className="flex justify-between"><span>Botox Hair Treatment</span><span className="font-bold">₹2,500 - ₹7,500</span></div>
+                    <div className="flex justify-between"><span>Pro Keratin Treatment</span><span className="font-bold">₹2,900 - ₹8,900</span></div>
+                    <div className="flex justify-between"><span>Nanoplastia Treatment</span><span className="font-bold">₹3,900 - ₹9,900</span></div>
+                  </div>
+                </div>
+
+                {/* NAILS SECTION (NEWLY ADDED) */}
+                <div className="border border-[#EFA7B3] p-6 space-y-4 bg-pink-50/20 shadow-sm hover:shadow-md transition-all relative">
+                  <span className="absolute -top-3 right-4 bg-[#EFA7B3] text-black font-bold text-[8px] uppercase tracking-widest px-2 py-0.5 rounded shadow">
+                    NEW MENU
+                  </span>
+                  <h4 className="font-serif text-base font-bold text-black border-b border-[#EFA7B3] pb-2 uppercase tracking-wide flex items-center justify-between">
+                    <span>💅 Nails Studio & Spa</span>
+                    <span className="text-[10px] bg-[#EFA7B3] text-black px-2 py-0.5 rounded font-semibold">NAIL ART</span>
+                  </h4>
+                  <div className="space-y-2.5">
+                    <div className="flex justify-between"><span>Classic Gel Polish</span><span className="font-bold">₹799</span></div>
+                    <div className="flex justify-between"><span>Aesthetic Press-On Nails</span><span className="font-bold">₹1,299</span></div>
+                    <div className="flex justify-between"><span>Acrylic Nail Extensions</span><span className="font-bold">₹1,899</span></div>
+                    <div className="flex justify-between"><span>Gel Extensions + Nail Art</span><span className="font-bold">₹2,499</span></div>
+                    <div className="flex justify-between"><span>Luxury Spa Pedicure</span><span className="font-bold">₹1,100</span></div>
+                    <div className="flex justify-between text-[#D46A83] font-bold"><span>Korean Glass Nail Art</span><span>₹2,999</span></div>
+                    <div className="flex justify-between text-[#D46A83] font-bold"><span>Bridal Chrome & Stone Nails</span><span>₹3,500</span></div>
+                  </div>
+                </div>
+
               </div>
 
-              <div className="border border-gray-200 p-6 space-y-4">
-                <h4 className="font-serif text-base font-bold text-black border-b pb-2 uppercase">Hair Spa & Treatments</h4>
-                <div className="space-y-2">
-                  <div className="flex justify-between"><span>L Oreal Professional Spa</span><span className="font-bold">₹600 - ₹2,100</span></div>
-                  <div className="flex justify-between text-[#D46A83] font-bold"><span>Korean Hair Spa Therapy (Massage)</span><span>₹2,000 - ₹5,600</span></div>
-                  <div className="flex justify-between"><span>Hair Straightening Treatment</span><span className="font-bold">₹2,500 - ₹8,900</span></div>
-                  <div className="flex justify-between"><span>Botox Hair Treatment</span><span className="font-bold">₹2,500 - ₹7,500</span></div>
-                  <div className="flex justify-between"><span>Pro Keratin Treatment</span><span className="font-bold">₹2,900 - ₹8,900</span></div>
-                  <div className="flex justify-between"><span>Nanoplastia Treatment</span><span className="font-bold">₹3,900 - ₹9,900</span></div>
-                </div>
+              {/* NEW INTERACTIVE FEATURE: Custom Package Builder Trigger */}
+              <div className="bg-black text-white p-6 text-center space-y-3 rounded-none mt-6 shadow-md border-t-2 border-[#EFA7B3]">
+                <h4 className="font-serif text-xl font-bold tracking-wide">✨ Want a Custom Salon Combo?</h4>
+                <p className="text-gray-300 text-xs font-light">Mix & match Hair, Skin, and Nails services for exclusive combo discounts!</p>
+                <button
+                  type="button"
+                  onClick={() => setShowCustomModal(true)}
+                  className="mt-2 inline-block bg-[#EFA7B3] text-black font-bold text-xs uppercase tracking-widest px-6 py-3 hover:bg-white transition-all duration-300 transform hover:scale-105"
+                >
+                  Build Custom Package
+                </button>
               </div>
+
             </div>
           )}
 
         </div>
       </main>
+
+      {/* INTERACTIVE MODAL (Pop-up Feature) */}
+      {showCustomModal && (
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white text-black p-8 max-w-md w-full shadow-2xl relative space-y-6 border-2 border-[#EFA7B3]">
+            <button 
+              onClick={() => setShowCustomModal(false)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-black font-bold text-lg"
+            >
+              ✕
+            </button>
+            
+            <div className="text-center space-y-2">
+              <h3 className="font-serif text-2xl font-bold uppercase tracking-wide">Custom Package Inquiry</h3>
+              <p className="text-xs text-gray-600">Select your preferred salon service mix to get an instant quote on WhatsApp!</p>
+            </div>
+
+            <div className="space-y-4 text-xs">
+              <label className="block font-semibold">Choose Your Main Focus:</label>
+              <select 
+                value={selectedService} 
+                onChange={(e) => setSelectedService(e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-none focus:outline-none focus:border-[#EFA7B3]"
+              >
+                <option value="">-- Select Service Combo --</option>
+                <option value="Hair Spa + Korean Glass Nails">Hair Spa + Korean Glass Nails</option>
+                <option value="Hydra Facial + Gel Extensions">Hydra Facial + Gel Extensions</option>
+                <option value="Complete Head-to-Toe Beauty Combo">Complete Head-to-Toe Beauty Combo</option>
+              </select>
+
+              <a
+                href={`https://wa.me/${phoneNumber}?text=Hello%20Khushi,%20I%20want%20to%20customize%20a%20package%20for:%20*${encodeURIComponent(selectedService || "Custom Salon Services")}*.`}
+                target="_blank"
+                rel="noreferrer"
+                className={`block text-center py-3 text-xs font-bold uppercase tracking-widest transition-all ${
+                  selectedService ? 'bg-black text-white hover:bg-[#EFA7B3] hover:text-black' : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                }`}
+              >
+                Send Inquiry on WhatsApp 📱
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
