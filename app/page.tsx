@@ -30,15 +30,25 @@ export default function BridalApp() {
 
         {/* Top Header Row with Circle Hamburger */}
         <div className="relative z-10 flex justify-between items-center w-full mt-4">
-          <button 
-            onClick={() => setShowMainApp(true)}
-            className="w-12 h-12 rounded-full bg-[#D46A83] text-white flex flex-col items-center justify-center space-y-1 shadow-md hover:bg-[#b8546c] transition-all"
-          >
-            <span className="w-5 h-[2px] bg-white"></span>
-            <span className="w-5 h-[2px] bg-white"></span>
-            <span className="w-5 h-[2px] bg-white"></span>
-          </button>
-        </div>
+<button
+  onClick={() => setShowMainApp(true)}
+  className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-xl flex items-center justify-center hover:scale-110 transition-all duration-300"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="w-7 h-7 text-white"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2.5}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M4 6h16M4 12h16M4 18h16"
+    />
+  </svg>
+</button>        </div>
 
         {/* Central Core Branding & Typography Stack */}
         <div className="relative z-10 my-auto text-left pl-2 max-w-xl space-y-2">
