@@ -65,7 +65,7 @@ export default function Home() {
       <div className="relative z-10 flex items-center justify-between w-full mb-4">
         <div className="flex items-center space-x-3">
           <a 
-            href="https://instagram.com/khushimakeover_official" 
+            href="https://instagram.com/khushiimakeover_official" 
             target="_blank" 
             rel="noreferrer" 
             className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white flex items-center justify-center hover:bg-white/20 transition-all"
