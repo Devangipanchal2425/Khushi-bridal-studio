@@ -30,25 +30,15 @@ export default function BridalApp() {
 
         {/* Top Header Row with Circle Hamburger */}
         <div className="relative z-10 flex justify-between items-center w-full mt-4">
-<button
-  onClick={() => setShowMainApp(true)}
-  className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/30 shadow-xl flex items-center justify-center hover:scale-110 transition-all duration-300"
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="w-7 h-7 text-white"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    strokeWidth={2.5}
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M4 6h16M4 12h16M4 18h16"
-    />
-  </svg>
-</button>        </div>
+          <button 
+            onClick={() => setShowMainApp(true)}
+            className="w-12 h-12 rounded-full bg-[#D46A83] text-white flex flex-col items-center justify-center space-y-1 shadow-md hover:bg-[#b8546c] transition-all"
+          >
+            <span className="w-5 h-[2px] bg-white"></span>
+            <span className="w-5 h-[2px] bg-white"></span>
+            <span className="w-5 h-[2px] bg-white"></span>
+          </button>
+        </div>
 
         {/* Central Core Branding & Typography Stack */}
         <div className="relative z-10 my-auto text-left pl-2 max-w-xl space-y-2">
@@ -74,7 +64,7 @@ export default function BridalApp() {
           </div>
         </div>
 
-        {/* Bottom Bar: Social Links + Exact Official WhatsApp Floating Button */}
+        {/* Bottom Bar: Social Links + Exact Squircle WhatsApp App Icon */}
         <div className="relative z-10 flex items-center justify-between w-full mb-4">
           <div className="flex items-center space-x-3">
             {/* Active Instagram Link */}
@@ -97,15 +87,15 @@ export default function BridalApp() {
             </a>
           </div>
 
-          {/* Exact Official Floating WhatsApp Button */}
+          {/* Exact Squircle WhatsApp Icon (Same as image provided) */}
           <a 
             href={whatsappUrl} 
             target="_blank" 
             rel="noreferrer" 
             aria-label="Chat on WhatsApp"
-            className="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-[0_4px_12px_rgba(37,211,102,0.4)] hover:bg-[#20ba5a] hover:scale-105 active:scale-95 transition-all duration-200"
+            className="w-14 h-14 rounded-[18px] bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
           >
-            <svg viewBox="0 0 24 24" className="w-7 h-7 fill-white drop-shadow-sm">
+            <svg viewBox="0 0 24 24" className="w-8 h-8 fill-white">
               <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.528 1.977 14.053.953 11.428.951 5.992.951 1.566 5.323 1.563 10.753c-.001 1.706.463 3.372 1.346 4.866l-.995 3.636 3.733-.951z"/>
             </svg>
           </a>
@@ -141,7 +131,7 @@ export default function BridalApp() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                 <div className="relative z-10 text-white max-w-xl">
                   <h2 className="font-serif text-2xl md:text-5xl tracking-wide mb-2">WHAT BEST SUITS YOUR NEEDS?</h2>
-                  <button onClick={() => setActiveTab('booking')} className="bg-[#D46A83] text-white text-[10px] md:text-xs uppercase tracking-widest font-medium px-5 py-3 rounded-sm shadow-md mt-4">Book Services</button>
+                  <button onClick={() => setActiveTab('booking')} className="bg-[#D46A83] text-[#FFFDF9] text-[10px] md:text-xs uppercase tracking-widest font-medium px-5 py-3 rounded-sm shadow-md mt-4">Book Services</button>
                 </div>
               </div>
             </div>
