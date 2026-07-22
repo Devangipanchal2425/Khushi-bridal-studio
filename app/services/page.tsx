@@ -265,8 +265,8 @@ export default function ServicesPage() {
       <aside className="w-full md:w-64 bg-black text-white md:min-h-screen flex flex-col justify-between p-8 flex-shrink-0 z-40">
         <div className="space-y-12">
           
-          {/* IMAGE LOGO CONTAINER */}
-          <Link href="/" className="block bg-[#EFA7B3] p-4 text-center shadow-md hover:bg-[#d88c99] transition-all">
+          {/* IMAGE LOGO CONTAINER WITH UPDATED COLOR (#C3A492) */}
+          <Link href="/" className="block bg-[#C3A492] p-4 text-center shadow-md hover:bg-[#b29381] transition-all">
             <img 
               src="/logo.jpeg" 
               alt="Khushi Makeover Logo" 
