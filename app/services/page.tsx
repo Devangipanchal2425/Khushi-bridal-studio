@@ -12,8 +12,46 @@ export default function ServicesPage() {
   const [selectedService, setSelectedService] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
 
+  // Glam Quiz State
+  const [eventType, setEventType] = useState('');
+  const [glamStyle, setGlamStyle] = useState('');
+  const [skinType, setSkinType] = useState('');
+  const [showResult, setShowResult] = useState(false);
+
   const buildWhatsappLink = (packageName: string, price: string) => {
     return `https://wa.me/${phoneNumber}?text=Hello%20Khushi,%20I%20would%20like%20to%20inquire%20and%20book%20the%20*${encodeURIComponent(packageName)}*%20(${encodeURIComponent(price)}).`;
+  };
+
+  const getRecommendation = () => {
+    if (glamStyle === 'korean') {
+      return {
+        title: "✨ Korean Glass Dewy Transformation",
+        desc: "Ultra-hydrated, glass glow base with subtle eye accent and real flower hair styling.",
+        package: "Pre-Function Korean Glass Glam / Bridal Korean Glass",
+        price: "₹13,000 - ₹22,000"
+      };
+    } else if (eventType === 'bridal') {
+      return {
+        title: "👑 Airbrush / HD Couture Bridal Look",
+        desc: "Long-lasting, sweat-proof flawlessness with custom lashes, lenses & jewellery draping.",
+        package: "Airbrush Luxury Bridal Glam",
+        price: "₹28,000"
+      };
+    } else {
+      return {
+        title: "🌸 HD Signature Sider & Party Glam",
+        desc: "Soft matte high-definition glam tailored for your outfit and face shape.",
+        package: "HD Sider / Party Glam",
+        price: "₹5,500 - ₹10,000"
+      };
+    }
+  };
+
+  const rec = getRecommendation();
+
+  const sendQuizToWhatsapp = () => {
+    const text = `Hello Khushi! ✨ I took the Glam Quiz on your website:\n\n• *Event:* ${eventType || 'Not Specified'}\n• *Preferred Style:* ${glamStyle || 'Not Specified'}\n• *Recommended Package:* ${rec.title}\n\nI would love to check availability for my date!`;
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`, '_blank');
   };
 
   const koreanPackages = [
@@ -114,7 +152,6 @@ export default function ServicesPage() {
     { id: 'salon', label: '💄 SALON MENU (FULL SKIN, HAIR & NAILS)' },
   ];
 
-  // Complete Salon Services Categorized List
   const salonCategories = [
     {
       category: "🧵 Threading & Waxing",
@@ -142,7 +179,7 @@ export default function ServicesPage() {
       badge: "PURE RELAXATION",
       items: [
         { name: "Aromatherapy Full Body Oil Massage", price: "₹2,200" },
-        { name: "Full Body Scrubing & D-Tan Pack", price: "₹2,800" },
+        { name: "Full Body Scrubbing & D-Tan Pack", price: "₹2,800" },
         { name: "Luxurious Body Polishing (Glow Therapy)", price: "₹4,500" },
       ]
     },
@@ -207,7 +244,7 @@ export default function ServicesPage() {
 
       {/* Main Content Area */}
       <main className="flex-1 bg-white p-6 md:p-12 overflow-y-auto">
-        <div className="max-w-6xl mx-auto space-y-10">
+        <div className="max-w-6xl mx-auto space-y-12">
           
           <div className="text-center md:text-left space-y-3">
             <h3 className="text-[#EFA7B3] text-xs md:text-sm font-semibold tracking-[0.25em] uppercase">
@@ -346,7 +383,7 @@ export default function ServicesPage() {
             </div>
           )}
 
-          {/* Tab 4: EXPANDED FULL SALON MENU */}
+          {/* Tab 4: Salon Menu */}
           {activeTab === 'salon' && (
             <div className="space-y-8 text-xs">
               
@@ -409,6 +446,127 @@ export default function ServicesPage() {
             </div>
           )}
 
+          {/* STANDALONE UNIQUE FEATURE: BRIDAL & GLAM CONCIERGE QUIZ */}
+          <section className="bg-gradient-to-b from-gray-50 to-pink-50/30 py-12 px-6 md:px-10 my-12 border-y border-[#EFA7B3]/40">
+            <div className="max-w-5xl mx-auto space-y-10">
+              
+              <div className="text-center space-y-3">
+                <span className="bg-[#EFA7B3] text-black text-[10px] font-bold tracking-[0.3em] uppercase px-4 py-1.5 rounded-full inline-block">
+                  EXCLUSIVE STUDIO FEATURE
+                </span>
+                <h2 className="text-3xl md:text-5xl font-serif text-black uppercase tracking-tight">
+                  THE BRIDAL & GLAM CONCIERGE
+                </h2>
+                <p className="text-xs md:text-sm text-gray-600 max-w-xl mx-auto font-light">
+                  Not sure which makeover suits your event? Discover your personalized glam match in seconds!
+                </p>
+                <div className="w-12 h-[2px] bg-[#EFA7B3] mx-auto mt-2"></div>
+              </div>
+
+              <div className="bg-white p-6 md:p-10 border border-[#EFA7B3] shadow-xl relative overflow-hidden">
+                <h3 className="font-serif text-xl font-bold text-black border-b pb-3 uppercase flex items-center justify-between">
+                  <span>✨ Find Your Signature Look</span>
+                  <span className="text-xs text-[#D46A83] font-sans">Step-by-Step Match</span>
+                </h3>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 text-xs">
+                  
+                  <div className="space-y-2">
+                    <label className="font-bold text-gray-800 uppercase tracking-wider block">1. What's the Occasion?</label>
+                    <select 
+                      value={eventType}
+                      onChange={(e) => { setEventType(e.target.value); setShowResult(true); }}
+                      className="w-full p-3 border border-gray-300 focus:outline-none focus:border-[#EFA7B3] bg-gray-50"
+                    >
+                      <option value="">-- Select Occasion --</option>
+                      <option value="bridal">Main Wedding / Bridal Day</option>
+                      <option value="sangeet">Sangeet / Haldi / Engagement</option>
+                      <option value="party">Reception / Party / Sider Glam</option>
+                    </select>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="font-bold text-gray-800 uppercase tracking-wider block">2. Preferred Makeup Vibe?</label>
+                    <select 
+                      value={glamStyle}
+                      onChange={(e) => { setGlamStyle(e.target.value); setShowResult(true); }}
+                      className="w-full p-3 border border-gray-300 focus:outline-none focus:border-[#EFA7B3] bg-gray-50"
+                    >
+                      <option value="">-- Select Finish --</option>
+                      <option value="korean">Luminescent Korean Glass Skin Glow</option>
+                      <option value="hd">High Definition (HD) Flawless Look</option>
+                      <option value="airbrush">Airbrush Royal Glam (Waterproof)</option>
+                    </select>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="font-bold text-gray-800 uppercase tracking-wider block">3. Skin Sensitivity Focus?</label>
+                    <select 
+                      value={skinType}
+                      onChange={(e) => setSkinType(e.target.value)}
+                      className="w-full p-3 border border-gray-300 focus:outline-none focus:border-[#EFA7B3] bg-gray-50"
+                    >
+                      <option value="">-- Select Skin Need --</option>
+                      <option value="dry">Dry / Dehydrated (Needs Hydration)</option>
+                      <option value="oily">Oily / Combination (Needs Matte Base)</option>
+                      <option value="sensitive">Sensitive (Needs Organic Products)</option>
+                    </select>
+                  </div>
+
+                </div>
+
+                {showResult && (
+                  <div className="mt-8 bg-pink-50/60 border-l-4 border-[#EFA7B3] p-6 space-y-4">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <span className="text-[10px] font-bold text-[#D46A83] tracking-widest uppercase">RECOMMENDED MATCH FOR YOU</span>
+                        <h4 className="font-serif text-xl font-bold text-black mt-1">{rec.title}</h4>
+                        <p className="text-xs text-gray-600 mt-1">{rec.desc}</p>
+                      </div>
+                      <div className="text-right">
+                        <span className="text-xs text-gray-500 block">Est. Range</span>
+                        <span className="text-lg font-serif font-bold text-[#D46A83]">{rec.price}</span>
+                      </div>
+                    </div>
+
+                    <div className="pt-2 flex flex-col sm:flex-row gap-3">
+                      <button
+                        type="button"
+                        onClick={sendQuizToWhatsapp}
+                        className="bg-black text-white hover:bg-[#EFA7B3] hover:text-black font-bold text-xs uppercase tracking-widest py-3 px-6 transition-all duration-300 cursor-pointer"
+                      >
+                        Consult Khushi Patel for this Look 📱
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+              </div>
+
+              {/* VIP Experience Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+                <div className="bg-white p-6 border border-gray-200 space-y-2 text-center hover:border-[#EFA7B3] transition-all">
+                  <span className="text-3xl">☕</span>
+                  <h4 className="font-serif font-bold text-black uppercase text-sm">Private Bridal Suite</h4>
+                  <p className="text-xs text-gray-500 font-light">Relaxed, air-conditioned studio environment with custom refreshments and personalized music space.</p>
+                </div>
+
+                <div className="bg-white p-6 border border-gray-200 space-y-2 text-center hover:border-[#EFA7B3] transition-all">
+                  <span className="text-3xl">🪞</span>
+                  <h4 className="font-serif font-bold text-black uppercase text-sm">Skin Prep & Consultation</h4>
+                  <p className="text-xs text-gray-500 font-light">Every makeover starts with a tailored skin prep mask session to ensure effortless, non-cakey glow.</p>
+                </div>
+
+                <div className="bg-white p-6 border border-gray-200 space-y-2 text-center hover:border-[#EFA7B3] transition-all">
+                  <span className="text-3xl">👑</span>
+                  <h4 className="font-serif font-bold text-black uppercase text-sm">High-End Luxury Brands</h4>
+                  <p className="text-xs text-gray-500 font-light">Only certified, ultra-premium dermatologically tested products used for flawless long-stay looks.</p>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
         </div>
       </main>
 
@@ -418,7 +576,7 @@ export default function ServicesPage() {
           <div className="bg-white text-black p-8 max-w-md w-full shadow-2xl relative space-y-6 border-2 border-[#EFA7B3]">
             <button 
               onClick={() => setShowCustomModal(false)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-black font-bold text-lg"
+              className="absolute top-4 right-4 text-gray-500 hover:text-black font-bold text-lg cursor-pointer"
             >
               ✕
             </button>
