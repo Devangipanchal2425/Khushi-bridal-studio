@@ -266,8 +266,7 @@ export default function ServicesPage() {
         <div className="space-y-12">
           
           {/* IMAGE LOGO CONTAINER WITH UPDATED COLOR (#C3A492) */}
-<Link href="/" className="block bg-[#C3A492] p-4 text-center shadow-md hover:bg-[#b29381] transition-all">
-  <img 
+<Link href="/" className="block bg-[#C3A492] p-4 text-center shadow-md hover:bg-[#b29381] transition-all">  <img 
     src="/logo.jpeg?v=2" 
     alt="Khushi Makeover Logo" 
     className="w-full h-auto max-h-28 object-contain mx-auto"
