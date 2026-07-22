@@ -266,14 +266,13 @@ export default function ServicesPage() {
         <div className="space-y-12">
           
           {/* IMAGE LOGO CONTAINER WITH UPDATED COLOR (#C3A492) */}
-          <Link href="/" className="block bg-[#C3A492] p-4 text-center shadow-md hover:bg-[#b29381] transition-all">
-            <img 
-              src="/logo.jpeg" 
-              alt="Khushi Makeover Logo" 
-              className="w-full h-auto max-h-28 object-contain mx-auto"
-            />
-          </Link>
-
+<Link href="/" className="block bg-[#C3A492] p-4 text-center shadow-md hover:bg-[#b29381] transition-all">
+  <img 
+    src="/logo.jpeg?v=2" 
+    alt="Khushi Makeover Logo" 
+    className="w-full h-auto max-h-28 object-contain mx-auto"
+  />
+</Link>
           <nav className="flex flex-col space-y-5 text-xs font-semibold tracking-[0.25em] uppercase text-left">
             <Link href="/" className="text-gray-300 hover:text-[#EFA7B3] transition-colors">HOME</Link>
             <Link href="/about" className="text-gray-300 hover:text-[#EFA7B3] transition-colors">ABOUT</Link>
