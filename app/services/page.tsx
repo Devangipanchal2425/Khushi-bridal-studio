@@ -4,7 +4,6 @@ import Link from 'next/link';
 
 export default function ServicesPage() {
   const phoneNumber = "919870085600";
-  const instagramUrl = "https://instagram.com/khushiimakeover_official";
   
   type TabType = 'bridal' | 'korean' | 'prebridal' | 'salon';
   const [activeTab, setActiveTab] = useState<TabType>('bridal');
@@ -96,57 +95,6 @@ export default function ServicesPage() {
     { length: "Hair up to Waist", price: "₹4,600/-" },
     { length: "Hair Below Waist", price: "₹5,600/-" },
     { length: "Face Mask with Hair Spa (Relaxing Massage Therapy)", price: "₹8,900/-", special: true }
-  ];
-
-  const koreanPackages = [
-    {
-      title: "KOREAN GLASS MAKEUP (SIDER / PARTY)",
-      price: "₹7,500/-",
-      features: [
-        "Glass Glow Finish Makeup",
-        "Hairstyle (Real Flower styling)",
-        "Eye Lashes & Premium Eye Lenses",
-        "Saree / Outfit Draping",
-        "Hair Extension Included"
-      ],
-      tag: "TRENDING LOOK"
-    },
-    {
-      title: "PRE-FUNCTION KOREAN GLASS GLAM",
-      price: "₹13,000/-",
-      features: [
-        "Korean Glass Makeup (Sangeet/Haldi/Mahendi/Engagement)",
-        "Hair Style with Real Flowers & Decoration",
-        "Eye Lashes & Eye Lenses",
-        "Saree / Outfit Draping"
-      ],
-      tag: "MOST POPULAR"
-    },
-    {
-      title: "BRIDAL KOREAN GLASS MAKEOVER",
-      price: "₹22,000/-",
-      features: [
-        "Signature Korean Glass Skin Makeup",
-        "Hair Style (Brooch Decoration / Real Flowers)",
-        "Damani, Tikko & Nath Placement",
-        "Eye Lashes & Eye Lenses",
-        "Hair Accessories & Extensions",
-        "Saree / Dupatta Draping"
-      ],
-      tag: "LUXURY BRIDAL"
-    },
-    {
-      title: "ULTIMATE KOREAN PRE-BRIDAL PACKAGE",
-      price: "₹19,000/-",
-      features: [
-        "Korean Glass Glowing Skin Facial & Face Pack",
-        "Korean Hair Spa Therapy (With Face Mask & Massage)",
-        "Rica Full Body Waxing & Body Polishing",
-        "Full Body Oil Massage, Scrubbing & Pack",
-        "Clean Up, D-Tan, Manicure, Pedicure, Threading"
-      ],
-      tag: "FULL TREATMENT"
-    }
   ];
 
   const preBridalPackages = [
@@ -325,7 +273,7 @@ export default function ServicesPage() {
           {activeTab === 'korean' && (
             <div className="space-y-10">
               
-              {/* SECTION A: KOREAN HAIR SPA BY HAIR LENGTH */}
+              {/* KOREAN HAIR SPA BY HAIR LENGTH */}
               <div className="bg-white border-2 border-[#EFA7B3] p-6 md:p-8 shadow-sm relative space-y-6">
                 <span className="bg-[#EFA7B3] text-black text-[9px] font-bold tracking-widest uppercase px-3 py-1 absolute top-0 right-0">
                   NEW SPECIAL THERAPY
@@ -364,46 +312,6 @@ export default function ServicesPage() {
                         className="mt-3 block text-center bg-black text-white hover:bg-[#EFA7B3] hover:text-black text-[9px] font-bold tracking-widest uppercase py-1.5 transition-all"
                       >
                         Book Spa Session
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* SECTION B: KOREAN MAKEUP & PACKAGES */}
-              <div className="space-y-6">
-                <div className="bg-pink-50/50 p-4 border-l-4 border-[#EFA7B3]">
-                  <h4 className="font-serif text-lg font-bold text-black uppercase">Korean Glass Skin Transformations</h4>
-                  <p className="text-xs text-gray-600 font-light mt-1">Specialized ultra-dewy, luminescent Korean makeup techniques & full pre-bridal treatments.</p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {koreanPackages.map((item, idx) => (
-                    <div key={idx} className="border border-[#EFA7B3] p-6 bg-white relative flex flex-col justify-between hover:shadow-lg transition-all">
-                      {item.tag && (
-                        <span className="absolute top-0 right-0 bg-[#EFA7B3] text-black text-[9px] font-bold tracking-widest uppercase px-3 py-1">
-                          {item.tag}
-                        </span>
-                      )}
-                      <div>
-                        <h3 className="font-serif text-xl font-bold text-black">{item.title}</h3>
-                        <p className="text-2xl font-serif text-[#D46A83] font-bold mt-2">{item.price}</p>
-                        <ul className="space-y-2 mt-4">
-                          {item.features.map((f, i) => (
-                            <li key={i} className="text-xs text-gray-600 flex items-start space-x-2">
-                              <span className="text-[#EFA7B3]">✦</span>
-                              <span>{f}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <a
-                        href={buildWhatsappLink(item.title, item.price)}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="mt-6 block text-center bg-black text-white hover:bg-[#EFA7B3] hover:text-black text-[10px] font-bold tracking-widest uppercase py-3 transition-all"
-                      >
-                        BOOK KOREAN GLAM
                       </a>
                     </div>
                   ))}
@@ -506,7 +414,7 @@ export default function ServicesPage() {
             </div>
           )}
 
-          {/* STANDALONE UNIQUE FEATURE: BRIDAL & GLAM CONCIERGE QUIZ */}
+          {/* BRIDAL & GLAM CONCIERGE QUIZ */}
           <section className="bg-gradient-to-b from-gray-50 to-pink-50/30 py-12 px-6 md:px-10 my-12 border-y border-[#EFA7B3]/40">
             <div className="max-w-5xl mx-auto space-y-10">
               
