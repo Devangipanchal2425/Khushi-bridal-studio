@@ -264,10 +264,14 @@ export default function ServicesPage() {
       {/* Sidebar Navigation */}
       <aside className="w-full md:w-64 bg-black text-white md:min-h-screen flex flex-col justify-between p-8 flex-shrink-0 z-40">
         <div className="space-y-12">
-          <Link href="/" className="block bg-[#EFA7B3] text-black p-6 text-center shadow-md hover:bg-[#d88c99] transition-all">
-            <h1 className="font-serif text-3xl tracking-wider font-bold">KP</h1>
-            <h2 className="text-xs uppercase tracking-[0.2em] font-semibold mt-1">KHUSHI PATEL</h2>
-            <p className="text-[8px] uppercase tracking-widest text-gray-800 mt-0.5">Bridal Studio & Salon</p>
+          
+          {/* IMAGE LOGO CONTAINER */}
+          <Link href="/" className="block bg-[#EFA7B3] p-4 text-center shadow-md hover:bg-[#d88c99] transition-all">
+            <img 
+              src="/logo.jpeg" 
+              alt="Khushi Makeover Logo" 
+              className="w-full h-auto max-h-28 object-contain mx-auto"
+            />
           </Link>
 
           <nav className="flex flex-col space-y-5 text-xs font-semibold tracking-[0.25em] uppercase text-left">
