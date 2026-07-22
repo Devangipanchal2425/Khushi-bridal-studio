@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Sidebar from '@/components/Sidebar';
 
 export default function ServicesPage() {
   const phoneNumber = "919870085600";
@@ -261,30 +262,8 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen bg-white text-[#333333] flex flex-col md:flex-row font-sans relative">
-      {/* Sidebar Navigation */}
-      <aside className="w-full md:w-64 bg-black text-white md:min-h-screen flex flex-col justify-between p-8 flex-shrink-0 z-40">
-        <div className="space-y-12">
-          
-          {/* IMAGE LOGO CONTAINER WITH UPDATED COLOR (#C3A492) */}
-{/* UPDATED LOGO CODE */}
-<Link href="/" className="block bg-[#C3A492] p-4 text-center shadow-md hover:bg-[#b29381] transition-all">  <img 
-    src="/studio-logo.jpeg" 
-    alt="Khushi Makeover Logo" 
-    key={Date.now()}
-    className="w-full h-auto max-h-28 object-contain mx-auto"
-  />
-</Link>          <nav className="flex flex-col space-y-5 text-xs font-semibold tracking-[0.25em] uppercase text-left">
-            <Link href="/" className="text-gray-300 hover:text-[#EFA7B3] transition-colors">HOME</Link>
-            <Link href="/about" className="text-gray-300 hover:text-[#EFA7B3] transition-colors">ABOUT</Link>
-            <Link href="/services" className="text-[#EFA7B3]">SERVICES</Link>
-          </nav>
-        </div>
-
-        <div className="pt-8 border-t border-gray-800 space-y-3">
-          <p className="text-[10px] text-gray-400 font-light">📍 South Bopal, Ahmedabad</p>
-          <p className="text-[10px] text-gray-500 font-light">©2026 KHUSHI MAKEOVER</p>
-        </div>
-      </aside>
+      {/* Shared Sidebar Component */}
+      <Sidebar />
 
       {/* Main Content Area */}
       <main className="flex-1 bg-white p-6 md:p-12 overflow-y-auto">
