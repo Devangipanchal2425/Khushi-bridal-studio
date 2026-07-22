@@ -98,9 +98,53 @@ export default function ServicesPage() {
   ];
 
   const preBridalPackages = [
-    { title: "BASIC PRE-BRIDAL", price: "₹6,500/-", features: ["Threading (Eyebrow, Forehead, Upper lips)", "Full Hands, Legs & Underarms Normal Wax", "Clean Up & O3+ Facial", "Regular Manicure & Pedicure"] },
-    { title: "ADVANCED PRE-BRIDAL", price: "₹10,000/-", features: ["Threading", "Rica Waxing (Full Hands, Legs, Underarms) & Bikini Wax", "Hydra Facial, Clean Up & D-Tan Face", "Regular Manicure, Pedicure & Loreal Hair Spa"] },
-    { title: "LUXURY PRE-BRIDAL", price: "₹13,000/-", features: ["Threading", "Rica Full Hands, Legs & Underarms Wax & Bikini Wax", "Hydra / O3+ / Raga Facial & Face Mask", "Body Polishing & Full Body Pack, Scrub & Massage", "Hair Spa, Clean Up, D-Tan Face & Neck"] }
+    { 
+      title: "BASIC PRE-BRIDAL", 
+      price: "₹6,500/-", 
+      features: [
+        "Threading (Eyebrow, Forehead, Upper lips)", 
+        "Full Hands, Legs & Underarms Normal Wax", 
+        "Clean Up & O3+ Facial", 
+        "Regular Manicure & Pedicure"
+      ] 
+    },
+    { 
+      title: "ADVANCED PRE-BRIDAL", 
+      price: "₹10,000/-", 
+      features: [
+        "Threading (Eyebrow, Forehead, Upper lips)", 
+        "Rica Waxing (Full Hands, Legs, Underarms) & Bikini Wax", 
+        "Hydra Facial, Clean Up & D-Tan Face", 
+        "Regular Manicure, Pedicure & Loreal Hair Spa"
+      ] 
+    },
+    { 
+      title: "LUXURY PRE-BRIDAL", 
+      price: "₹13,000/-", 
+      features: [
+        "Threading (Eyebrow, Forehead, Upper lips)", 
+        "Rica Full Hands, Legs & Underarms Wax & Bikini Wax", 
+        "Hydra / O3+ / Raga Facial & Face Mask", 
+        "Body Polishing & Full Body Pack, Scrub & Massage", 
+        "Hair Spa, Clean Up, D-Tan Face & Neck"
+      ] 
+    },
+    { 
+      title: "ULTIMATE KOREAN PRE-BRIDAL", 
+      price: "₹19,000/-", 
+      features: [
+        "Threading (Eyebrow, Forehead, Upper lips)", 
+        "Rica Full Body Waxing", 
+        "Clean Up & D-Tan", 
+        "Korean Glass / Glowing Skin Facial", 
+        "Korean Glass Face Pack", 
+        "Manicure & Pedicure", 
+        "Body Oil Massage", 
+        "Body Polishing (Full Body, Scrubbing, Cream Massage, Full Body Pack)", 
+        "Korean Hair Spa Therapy (With Face Mask, Massage)"
+      ],
+      tag: "FULL KOREAN SPA"
+    }
   ];
 
   const tabs: { id: TabType; label: string }[] = [
@@ -323,9 +367,14 @@ export default function ServicesPage() {
 
           {/* Tab 3: Pre-Bridal */}
           {activeTab === 'prebridal' && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
               {preBridalPackages.map((item, idx) => (
-                <div key={idx} className="border border-gray-200 p-6 bg-white flex flex-col justify-between">
+                <div key={idx} className={`border p-6 bg-white flex flex-col justify-between relative ${item.tag ? 'border-[#EFA7B3] shadow-md' : 'border-gray-200'}`}>
+                  {item.tag && (
+                    <span className="absolute top-0 right-0 bg-[#EFA7B3] text-black text-[9px] font-bold tracking-widest uppercase px-3 py-1">
+                      {item.tag}
+                    </span>
+                  )}
                   <div>
                     <h3 className="font-serif text-lg font-bold text-black">{item.title}</h3>
                     <p className="text-2xl font-serif text-[#D46A83] font-bold mt-2">{item.price}</p>
