@@ -667,20 +667,17 @@ export default function ServicesPage() {
               </select>
 
               <a
-                href={`https://wa.me/${phoneNumber}?text=Hello%20Khushi,%20I%20want%20to%20customize%20a%20package%20for:%20*${encodeURIComponent(selectedService || "Custom Salon Services")}*.`}
+                href={`https://wa.me/${phoneNumber}?text=Hello%20Khushi,%20I%20want%20a%20custom%20quote%20for:%20${encodeURIComponent(selectedService || 'Custom Salon Combo')}`}
                 target="_blank"
                 rel="noreferrer"
-                className={`block text-center py-3 text-xs font-bold uppercase tracking-widest transition-all ${
-                  selectedService ? 'bg-black text-white hover:bg-[#EFA7B3] hover:text-black' : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                }`}
+                className="block text-center bg-black text-white font-bold text-xs uppercase tracking-widest py-3 hover:bg-[#EFA7B3] hover:text-black transition-all"
               >
-                Send Inquiry on WhatsApp 📱
+                Send Request on WhatsApp 📱
               </a>
             </div>
           </div>
         </div>
       )}
-
     </div>
   );
 }
