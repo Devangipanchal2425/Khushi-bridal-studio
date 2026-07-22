@@ -267,8 +267,7 @@ export default function ServicesPage() {
           
           {/* IMAGE LOGO CONTAINER WITH UPDATED COLOR (#C3A492) */}
 {/* UPDATED LOGO CODE */}
-<Link href="/" className="block bg-[#C3A492] p-4 text-center shadow-md hover:bg-[#b29381] transition-all">
-  <img 
+<Link href="/" className="block bg-[#C3A492] p-4 text-center shadow-md hover:bg-[#b29381] transition-all">  <img 
     src="/studio-logo.jpeg" 
     alt="Khushi Makeover Logo" 
     key={Date.now()}
