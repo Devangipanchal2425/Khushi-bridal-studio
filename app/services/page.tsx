@@ -26,7 +26,7 @@ export default function ServicesPage() {
       return {
         title: "✨ Korean Glass Dewy Transformation",
         desc: "Ultra-hydrated, glass glow base with subtle eye accent and real flower hair styling.",
-        package: "Pre-Function Korean Glass Glam / Bridal Korean Glass",
+        package: "Pre-Function Glass Glam / Bridal Glass Makeover",
         price: "₹13,000 - ₹22,000"
       };
     } else if (eventType === 'bridal') {
@@ -55,6 +55,44 @@ export default function ServicesPage() {
 
   const bridalPackages = [
     {
+      title: "GLASS MAKEOVER (SIDER / PARTY)",
+      price: "₹7,500/-",
+      features: [
+        "Glass Makeup",
+        "Hair Style (Real Flowers)",
+        "Eye Lashes",
+        "Eye Lenses",
+        "Saree Draping",
+        "Hair Extension Included"
+      ]
+    },
+    {
+      title: "PRE-FUNCTION GLASS GLAM",
+      price: "₹13,000/-",
+      features: [
+        "Glass Makeup",
+        "Hair Style (Real Flowers)",
+        "Eye Lashes",
+        "Eye Lenses",
+        "Hair Decoration",
+        "Saree Draping"
+      ]
+    },
+    {
+      title: "BRIDAL GLASS MAKEOVER",
+      price: "₹22,000/-",
+      features: [
+        "Glass Makeup",
+        "Hair Style (Brooch Decoration / Real Flowers)",
+        "Eye Lashes",
+        "Eye Lenses",
+        "Damani, Tikko & Nath Placement",
+        "Saree Draping",
+        "Hair Accessories"
+      ],
+      tag: "GLASS GLOW SPECIAL"
+    },
+    {
       title: "NORMAL SIDER GLAM",
       price: "₹3,500/-",
       features: ["Normal Makeup", "Hair Straightening / Curling & Pinup", "Saree Draping"]
@@ -65,27 +103,9 @@ export default function ServicesPage() {
       features: ["High Definition (HD) Makeup", "Hair Styling & Hair Extension", "Eye Lashes", "Saree Draping"]
     },
     {
-      title: "KOREAN GLASS MAKEUP (SIDER / PARTY)",
-      price: "₹7,500/-",
-      features: [
-        "Glass Makeup", 
-        "Hair Style (Real Flowers)", 
-        "Eye Lashes", 
-        "Eye Lenses", 
-        "Saree Draping", 
-        "Hair Extension Included"
-      ],
-      tag: "TRENDING LOOK"
-    },
-    {
       title: "WATER RESISTANT PARTY GLAM",
       price: "₹10,000/-",
       features: ["Water Resistant Long-Wear Makeup", "Hair Style with Real Flowers & Decoration", "Eye Lashes & Eye Lenses", "Tikko & Nath Placement", "Saree Draping"]
-    },
-    {
-      title: "HD BRIDAL MAKEOVER",
-      price: "₹17,000/-",
-      features: ["HD Bridal Makeup", "Hair Style (Real Flowers)", "Eye Lashes & Lenses", "Tikko & Nath Styling", "Saree / Dupatta Draping"]
     },
     {
       title: "PRE-FUNCTION WATER RESISTANT GLAM",
@@ -93,18 +113,9 @@ export default function ServicesPage() {
       features: ["Water Resistant Makeup (Haldi/Sangeet/Roka/Engagement)", "Hair Style & Hair Decoration", "Damani, Tikko, Nath Placement", "Eye Lashes & Eye Lenses", "Saree Draping"]
     },
     {
-      title: "BRIDAL KOREAN GLASS MAKEOVER",
-      price: "₹22,000/-",
-      features: [
-        "Glass Makeup", 
-        "Hair Style (Brooch Decoration / Real Flowers)", 
-        "Eye Lashes", 
-        "Eye Lenses", 
-        "Damani, Tikko & Nath Placement", 
-        "Saree Draping", 
-        "Hair Accessories"
-      ],
-      tag: "LUXURY BRIDAL"
+      title: "HD BRIDAL MAKEOVER",
+      price: "₹17,000/-",
+      features: ["HD Bridal Makeup", "Hair Style (Real Flowers)", "Eye Lashes & Lenses", "Tikko & Nath Styling", "Saree / Dupatta Draping"]
     },
     {
       title: "AIR BRUSH LUXURY BRIDAL GLAM",
@@ -303,24 +314,24 @@ export default function ServicesPage() {
             ))}
           </div>
 
-          {/* Tab 1: Bridal */}
+          {/* Tab 1: Bridal & Pre-Function */}
           {activeTab === 'bridal' && (
             <div className="space-y-6">
               <div className="bg-gray-50 p-4 border-l-4 border-black">
                 <h4 className="font-serif text-lg font-bold text-black uppercase">Bridal & Pre-Function Glam</h4>
-                <p className="text-xs text-gray-600 font-light mt-1">HD, Korean Glass & Airbrush signature bridal makeovers for Wedding, Reception, Haldi & Sangeet.</p>
+                <p className="text-xs text-gray-600 font-light mt-1">Glass, HD & Airbrush signature bridal makeovers for Wedding, Reception, Haldi & Sangeet.</p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {bridalPackages.map((item, idx) => (
-                  <div key={idx} className={`border p-6 bg-white flex flex-col justify-between relative transition-all ${item.tag ? 'border-[#EFA7B3] shadow-md' : 'border-gray-200 hover:border-[#EFA7B3]'}`}>
+                  <div key={idx} className={`border p-6 bg-white flex flex-col justify-between hover:border-[#EFA7B3] transition-all relative ${item.tag ? 'border-[#EFA7B3] shadow-md' : 'border-gray-200'}`}>
                     {item.tag && (
                       <span className="absolute top-0 right-0 bg-[#EFA7B3] text-black text-[9px] font-bold tracking-widest uppercase px-3 py-1">
                         {item.tag}
                       </span>
                     )}
                     <div>
-                      <h3 className="font-serif text-lg font-bold text-black pr-16">{item.title}</h3>
+                      <h3 className="font-serif text-lg font-bold text-black">{item.title}</h3>
                       <p className="text-xl font-serif text-[#D46A83] font-bold mt-2">{item.price}</p>
                       <ul className="space-y-2 mt-4">
                         {item.features.map((f, i) => (
@@ -542,7 +553,7 @@ export default function ServicesPage() {
                       className="w-full p-3 border border-gray-300 focus:outline-none focus:border-[#EFA7B3] bg-gray-50"
                     >
                       <option value="">-- Select Finish --</option>
-                      <option value="korean">Luminescent Korean Glass Skin Glow</option>
+                      <option value="korean">Luminescent Glass Skin Glow</option>
                       <option value="hd">High Definition (HD) Flawless Look</option>
                       <option value="airbrush">Airbrush Royal Glam (Waterproof)</option>
                     </select>
