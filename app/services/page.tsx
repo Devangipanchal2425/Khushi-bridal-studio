@@ -53,7 +53,18 @@ export default function ServicesPage() {
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`, '_blank');
   };
 
+  // SORTED PRICE-WISE (LOW TO HIGH)
   const bridalPackages = [
+    {
+      title: "NORMAL SIDER GLAM",
+      price: "₹3,500/-",
+      features: ["Normal Makeup", "Hair Straightening / Curling & Pinup", "Saree Draping"]
+    },
+    {
+      title: "HD SIDER / PARTY GLAM",
+      price: "₹5,500/-",
+      features: ["High Definition (HD) Makeup", "Hair Styling & Hair Extension", "Eye Lashes", "Saree Draping"]
+    },
     {
       title: "GLASS MAKEOVER (SIDER / PARTY)",
       price: "₹7,500/-",
@@ -67,6 +78,11 @@ export default function ServicesPage() {
       ]
     },
     {
+      title: "WATER RESISTANT PARTY GLAM",
+      price: "₹10,000/-",
+      features: ["Water Resistant Long-Wear Makeup", "Hair Style with Real Flowers & Decoration", "Eye Lashes & Eye Lenses", "Tikko & Nath Placement", "Saree Draping"]
+    },
+    {
       title: "PRE-FUNCTION GLASS GLAM",
       price: "₹13,000/-",
       features: [
@@ -77,6 +93,16 @@ export default function ServicesPage() {
         "Hair Decoration",
         "Saree Draping"
       ]
+    },
+    {
+      title: "HD BRIDAL MAKEOVER",
+      price: "₹17,000/-",
+      features: ["HD Bridal Makeup", "Hair Style (Real Flowers)", "Eye Lashes & Lenses", "Tikko & Nath Styling", "Saree / Dupatta Draping"]
+    },
+    {
+      title: "PRE-FUNCTION WATER RESISTANT GLAM",
+      price: "₹18,000/-",
+      features: ["Water Resistant Makeup (Haldi/Sangeet/Roka/Engagement)", "Hair Style & Hair Decoration", "Damani, Tikko, Nath Placement", "Eye Lashes & Eye Lenses", "Saree Draping"]
     },
     {
       title: "BRIDAL GLASS MAKEOVER",
@@ -93,31 +119,6 @@ export default function ServicesPage() {
       tag: "GLASS GLOW SPECIAL"
     },
     {
-      title: "NORMAL SIDER GLAM",
-      price: "₹3,500/-",
-      features: ["Normal Makeup", "Hair Straightening / Curling & Pinup", "Saree Draping"]
-    },
-    {
-      title: "HD SIDER / PARTY GLAM",
-      price: "₹5,500/-",
-      features: ["High Definition (HD) Makeup", "Hair Styling & Hair Extension", "Eye Lashes", "Saree Draping"]
-    },
-    {
-      title: "WATER RESISTANT PARTY GLAM",
-      price: "₹10,000/-",
-      features: ["Water Resistant Long-Wear Makeup", "Hair Style with Real Flowers & Decoration", "Eye Lashes & Eye Lenses", "Tikko & Nath Placement", "Saree Draping"]
-    },
-    {
-      title: "PRE-FUNCTION WATER RESISTANT GLAM",
-      price: "₹18,000/-",
-      features: ["Water Resistant Makeup (Haldi/Sangeet/Roka/Engagement)", "Hair Style & Hair Decoration", "Damani, Tikko, Nath Placement", "Eye Lashes & Eye Lenses", "Saree Draping"]
-    },
-    {
-      title: "HD BRIDAL MAKEOVER",
-      price: "₹17,000/-",
-      features: ["HD Bridal Makeup", "Hair Style (Real Flowers)", "Eye Lashes & Lenses", "Tikko & Nath Styling", "Saree / Dupatta Draping"]
-    },
-    {
       title: "AIR BRUSH LUXURY BRIDAL GLAM",
       price: "₹28,000/-",
       features: ["Flawless Airbrush Bridal Makeup", "Couture Hair Accessories & Real Flowers", "Eye Lashes & Eye Lenses", "Damani, Tikko, Nath Draping", "Hair Extensions", "Nail Extensions Included"],
@@ -125,7 +126,7 @@ export default function ServicesPage() {
     }
   ];
 
-  // EXACT KOREAN HAIR SPA THERAPY & PRICING BY LENGTH
+  // KOREAN HAIR SPA THERAPY & PRICING BY LENGTH
   const koreanSpaPricing = [
     { length: "Hair up to Neck", price: "₹2,000/-" },
     { length: "Hair up to Shoulder", price: "₹2,600/-" },
