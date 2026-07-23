@@ -75,7 +75,7 @@ export default function AboutPage() {
             <div className="relative w-full h-[520px] rounded-sm overflow-hidden shadow-sm bg-gray-100">
               {/* Apni photo ka path public folder mein /images/artist.jpg rakhein */}
               <Image
-                src="/images/artist.jpg"
+                src="/Khushi.jpeg"
                 alt="Khushi Patel - Makeup Artist"
                 fill
                 className="object-cover"
