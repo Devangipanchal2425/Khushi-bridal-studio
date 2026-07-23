@@ -45,7 +45,7 @@ export default function AboutPage() {
           <div className="lg:col-span-5">
             <div className="overflow-hidden rounded-xs shadow-sm">
               <img
-                src="/your-about-image.jpg" // Apni image ka exact path yahan daal do
+                src="/Khushi.jpeg" // Apni image ka exact path yahan daal do
                 alt="Khushi Patel - Makeup Artist"
                 className="w-full h-auto object-cover"
               />
