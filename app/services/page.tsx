@@ -258,16 +258,22 @@ export default function ServicesPage() {
       },
     ],
 
-    "salon-menu": [
+"salon-menu": [
       {
-        title: "SKIN THREADING & CLEANUP",
+        title: "SKIN THREADING, CLEANUP & NAIL SERVICES",
         price: "From ₹30/-",
         btnText: "BOOK SERVICE",
         features: [
           "Upper Lips — ₹30/-",
           "Eyebrow & Forehead — ₹70/-",
+          "Real Nail Gel Polish — ₹199/-",
           "Full Face Threading — ₹250/-",
+          "Real Nail Gel Polish & Art — ₹399/-",
           "Cleanup (Acne / Normal / Oily Skin) — ₹500/-",
+          "Temporary Extensions & Gel Polish — ₹699/-",
+          "Temporary Extensions & Art — ₹999/-",
+          "Gel / Acrylic Extensions — ₹1,499 to ₹2,399/-",
+          "Protein Treatment — ₹5,000/-",
         ],
       },
       {
@@ -379,21 +385,7 @@ export default function ServicesPage() {
           "Nano Plastia Treatment — ₹3,900 to ₹9,900/-",
         ],
       },
-      {
-        title: "NAIL ART & EXTENSIONS",
-        price: "From ₹199/-",
-        btnText: "BOOK NAIL SERVICE",
-        features: [
-          "Real Nail Gel Polish — ₹199/-",
-          "Real Nail Gel Polish & Art — ₹399/-",
-          "Temporary Extensions & Gel Polish — ₹699/-",
-          "Temporary Extensions & Art — ₹999/-",
-          "Gel / Acrylic Extensions — ₹1,499 to ₹2,399/-",
-          "Protein Treatment — ₹5,000/-",
-        ],
-      },
-    ],
-  };
+    ],  };
 
   const currentServices = servicesData[activeTab] || [];
 
