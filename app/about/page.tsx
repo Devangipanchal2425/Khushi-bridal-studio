@@ -1,5 +1,6 @@
+'use client';
 import React from 'react';
-import Sidebar from '../../components/Sidebar';
+import Sidebar from '../../src/components/Sidebar';
 
 export default function AboutPage() {
   return (
@@ -8,14 +9,14 @@ export default function AboutPage() {
       <Sidebar />
 
       {/* Main Content Area */}
-      <main className="flex-1 p-10 lg:p-16 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <main className="flex-1 p-6 md:p-12 lg:p-16 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
           {/* Left Column: Image */}
           <div className="lg:col-span-5">
-            <div className="relative overflow-hidden rounded-sm shadow-sm">
+            <div className="overflow-hidden rounded-sm shadow-sm">
               <img
-                src="/path-to-your-about-image.jpg" // Apni image ka path yahan badlein
+                src="/your-about-image.jpg" // Apni image ka exact path yahan rakhein
                 alt="Khushi Patel - Makeup Artist"
                 className="w-full h-auto object-cover"
               />
@@ -24,21 +25,23 @@ export default function AboutPage() {
 
           {/* Right Column: Details Content */}
           <div className="lg:col-span-7 space-y-6">
-            {/* Header Title */}
+            
+            {/* Header Title & Social Icons */}
             <div>
-              <p className="text-pink-400 tracking-widest text-xs font-semibold uppercase mb-1">
+              <p className="text-[#f2a6bb] tracking-widest text-xs font-semibold uppercase mb-1">
                 KHUSHI PATEL
               </p>
               <div className="flex justify-between items-center">
-                <h1 className="text-4xl lg:text-5xl font-serif text-gray-900 tracking-tight">
+                <h1 className="text-3xl lg:text-5xl font-serif text-gray-900 tracking-tight">
                   MAKEUP ARTIST
                 </h1>
-                {/* Social Icons Right-Aligned */}
-                <div className="flex gap-3 text-gray-600">
-                  <a href="#" className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition text-xs">
+                
+                {/* Social Icons */}
+                <div className="flex gap-2 text-gray-600">
+                  <a href="#" className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition text-xs">
                     📷
                   </a>
-                  <a href="#" className="p-2 bg-gray-100 rounded-full hover:bg-gray-200 transition text-xs">
+                  <a href="#" className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition text-xs">
                     f
                   </a>
                 </div>
@@ -46,8 +49,8 @@ export default function AboutPage() {
               <hr className="border-pink-200 my-4 w-full" />
             </div>
 
-            {/* Paragraphs */}
-            <div className="text-gray-600 text-sm leading-relaxed space-y-4">
+            {/* Paragraphs (Exact Text from Screenshot) */}
+            <div className="text-gray-600 text-sm leading-relaxed space-y-4 font-sans">
               <p>
                 Welcome to my creative universe of luxury bridal artistry. I am <strong className="text-gray-800">Khushi Patel</strong>, a high-definition makeup artist devoted to crafting timeless, ethereal, and personalized wedding transformations. My philosophy revolves around celebrating your natural elegance and enhancing the unique grace you already possess.
               </p>
@@ -61,45 +64,45 @@ export default function AboutPage() {
 
             {/* Highlights & Specialties Section */}
             <div className="pt-6">
-              <h3 className="text-pink-400 text-xs font-semibold tracking-widest uppercase mb-4">
+              <h3 className="text-[#f2a6bb] text-xs font-semibold tracking-widest uppercase mb-4">
                 HIGHLIGHTS & SPECIALTIES
               </h3>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {/* Card 1 */}
-                <div className="border border-gray-100 p-4 rounded-md text-center hover:shadow-sm transition">
+                <div className="border border-gray-100 p-4 rounded-md text-center shadow-xs">
                   <span className="text-2xl mb-2 block">✨</span>
-                  <h4 className="font-serif text-xs font-bold text-gray-800 uppercase">
+                  <h4 className="font-serif text-[11px] font-bold text-gray-800 uppercase">
                     LUXURY BRIDAL
                   </h4>
-                  <p className="text-[10px] text-gray-400 mt-1 uppercase">COUTURE LOOKS</p>
+                  <p className="text-[9px] text-gray-400 mt-1 uppercase">COUTURE LOOKS</p>
                 </div>
 
                 {/* Card 2 */}
-                <div className="border border-gray-100 p-4 rounded-md text-center hover:shadow-sm transition">
+                <div className="border border-gray-100 p-4 rounded-md text-center shadow-xs">
                   <span className="text-2xl mb-2 block">👑</span>
-                  <h4 className="font-serif text-xs font-bold text-gray-800 uppercase">
+                  <h4 className="font-serif text-[11px] font-bold text-gray-800 uppercase">
                     ULTRA HD SKIN
                   </h4>
-                  <p className="text-[10px] text-gray-400 mt-1 uppercase">CAMERA READY</p>
+                  <p className="text-[9px] text-gray-400 mt-1 uppercase">CAMERA READY</p>
                 </div>
 
                 {/* Card 3 */}
-                <div className="border border-gray-100 p-4 rounded-md text-center hover:shadow-sm transition">
+                <div className="border border-gray-100 p-4 rounded-md text-center shadow-xs">
                   <span className="text-2xl mb-2 block">💎</span>
-                  <h4 className="font-serif text-xs font-bold text-gray-800 uppercase">
+                  <h4 className="font-serif text-[11px] font-bold text-gray-800 uppercase">
                     PREMIUM PRODUCTS
                   </h4>
-                  <p className="text-[10px] text-gray-400 mt-1 uppercase">GLOBAL BRANDS</p>
+                  <p className="text-[9px] text-gray-400 mt-1 uppercase">GLOBAL BRANDS</p>
                 </div>
 
                 {/* Card 4 */}
-                <div className="border border-gray-100 p-4 rounded-md text-center hover:shadow-sm transition">
+                <div className="border border-gray-100 p-4 rounded-md text-center shadow-xs">
                   <span className="text-2xl mb-2 block">🕊️</span>
-                  <h4 className="font-serif text-xs font-bold text-gray-800 uppercase">
+                  <h4 className="font-serif text-[11px] font-bold text-gray-800 uppercase">
                     CUSTOM GLAM
                   </h4>
-                  <p className="text-[10px] text-gray-400 mt-1 uppercase">TAILORED BEAUTY</p>
+                  <p className="text-[9px] text-gray-400 mt-1 uppercase">TAILORED BEAUTY</p>
                 </div>
               </div>
             </div>
