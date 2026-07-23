@@ -10,6 +10,9 @@ export default function AboutPage() {
     "Hello Khushi! I would like to inquire about your makeup services."
   );
 
+  const instagramLink = "https://www.instagram.com/khushiimakeover_official";
+  const facebookLink = "https://www.facebook.com/share/18wh4hPmkN/";
+
   return (
     <div className="flex min-h-screen bg-white text-gray-800 font-sans">
       
@@ -49,7 +52,7 @@ export default function AboutPage() {
         <div className="text-xs text-gray-400 space-y-4 border-t border-gray-800 pt-4">
           <div className="flex space-x-4 text-white">
             <a 
-              href="khushiimakeover_official" 
+              href={instagramLink} 
               target="_blank" 
               rel="noreferrer" 
               className="text-gray-400 hover:text-[#f3a0ad] transition-colors"
@@ -60,7 +63,7 @@ export default function AboutPage() {
               </svg>
             </a>
             <a 
-              href="https://www.facebook.com/share/18wh4hPmkN/" 
+              href={facebookLink} 
               target="_blank" 
               rel="noreferrer" 
               className="text-gray-400 hover:text-[#f3a0ad] transition-colors"
@@ -80,7 +83,7 @@ export default function AboutPage() {
         {/* Top Right Social Icons */}
         <div className="absolute top-8 right-12 flex space-x-3">
           <a 
-            href="khushiimakeover_official" 
+            href={instagramLink} 
             target="_blank" 
             rel="noreferrer" 
             className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-[#f3a0ad] hover:text-black transition-all shadow-sm"
@@ -91,7 +94,7 @@ export default function AboutPage() {
             </svg>
           </a>
           <a 
-            href="https://www.facebook.com/share/18wh4hPmkN/" 
+            href={facebookLink} 
             target="_blank" 
             rel="noreferrer" 
             className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-[#f3a0ad] hover:text-black transition-all shadow-sm"
@@ -110,7 +113,7 @@ export default function AboutPage() {
           <div className="lg:col-span-5">
             <div className="relative w-full h-[520px] rounded-sm overflow-hidden shadow-sm bg-gray-100">
               <Image
-                src="/Khushi.jpeg"
+                src="/images/Khushi.jpeg"
                 alt="Khushi Patel - Makeup Artist"
                 fill
                 className="object-cover"
