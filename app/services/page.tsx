@@ -125,7 +125,6 @@ const servicesData: CategoryData[] = [
 ];
 
 export default function ServicesPage() {
-  // Default selected tab as per screenshot (4th option: SALON MENU)
   const [activeTab, setActiveTab] = useState("salon");
   const whatsappNumber = "919870085600";
 
@@ -140,7 +139,7 @@ export default function ServicesPage() {
 
   return (
     <div style={{ display: "flex", minHeight: "100vh", backgroundColor: "#ffffff" }}>
-      {/* LEFT SIDEBAR */}
+      {/* LEFT SIDEBAR (No extra nav tabs inside) */}
       <aside
         style={{
           width: "240px",
@@ -152,43 +151,27 @@ export default function ServicesPage() {
           justifyContent: "space-between",
         }}
       >
-        <div>
-          {/* Brand Logo Box */}
-          <div
-            style={{
-              backgroundColor: "#F4A3B4",
-              color: "#000",
-              textAlign: "center",
-              padding: "25px 15px",
-              marginBottom: "40px",
-            }}
-          >
-            <h2 style={{ fontSize: "28px", fontWeight: "900", margin: 0, letterSpacing: "2px" }}>
-              KP
-            </h2>
-            <h3 style={{ fontSize: "14px", fontWeight: "bold", margin: "5px 0 0 0", letterSpacing: "1px" }}>
-              KHUSHI PATEL
-            </h3>
-            <span style={{ fontSize: "9px", textTransform: "uppercase", letterSpacing: "1px" }}>
-              Bridal Studio & Salon
-            </span>
-          </div>
-
-          {/* Navigation Links */}
-          <nav style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-            <a href="#" style={{ color: "#fff", textDecoration: "none", fontSize: "13px", fontWeight: "bold", letterSpacing: "2px" }}>
-              HOME
-            </a>
-            <a href="#" style={{ color: "#fff", textDecoration: "none", fontSize: "13px", fontWeight: "bold", letterSpacing: "2px" }}>
-              ABOUT
-            </a>
-            <a href="#" style={{ color: "#F4A3B4", textDecoration: "none", fontSize: "13px", fontWeight: "bold", letterSpacing: "2px" }}>
-              SERVICES
-            </a>
-          </nav>
+        {/* Brand Logo Box Only */}
+        <div
+          style={{
+            backgroundColor: "#F4A3B4",
+            color: "#000",
+            textAlign: "center",
+            padding: "25px 15px",
+          }}
+        >
+          <h2 style={{ fontSize: "28px", fontWeight: "900", margin: 0, letterSpacing: "2px" }}>
+            KP
+          </h2>
+          <h3 style={{ fontSize: "14px", fontWeight: "bold", margin: "5px 0 0 0", letterSpacing: "1px" }}>
+            KHUSHI PATEL
+          </h3>
+          <span style={{ fontSize: "9px", textTransform: "uppercase", letterSpacing: "1px" }}>
+            Bridal Studio & Salon
+          </span>
         </div>
 
-        {/* Footer info in sidebar */}
+        {/* Footer Info */}
         <div style={{ fontSize: "10px", color: "#888" }}>
           <p style={{ margin: "0 0 5px 0" }}>📍 South Bopal, Ahmedabad</p>
           <p style={{ margin: 0 }}>©2026 KHUSHI MAKEOVER</p>
