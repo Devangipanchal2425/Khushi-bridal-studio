@@ -16,7 +16,7 @@ export default function ServicesPage() {
   const instagramLink = "https://www.instagram.com/khushiimakeover_official";
   const facebookLink = "https://www.facebook.com/share/18wh4hPmkN/";
 
-  const [activeTab, setActiveTab] = useState<string>("bridal");
+  const [activeTab, setActiveTab] = useState<string>("salon-menu");
 
   // Category Tabs List
   const tabs = [
@@ -26,7 +26,7 @@ export default function ServicesPage() {
     { id: "salon-menu", label: "SALON MENU (HAIR, SKIN, NAILS)", icon: "💄" },
   ];
 
-  // Services Data
+  // Complete Services Data
   const servicesData: Record<string, ServiceItem[]> = {
     bridal: [
       {
@@ -254,7 +254,7 @@ export default function ServicesPage() {
       },
     ],
 
-"salon-menu": [
+    "salon-menu": [
       {
         title: "SKIN THREADING",
         price: "From ₹30/-",
@@ -445,24 +445,17 @@ export default function ServicesPage() {
           "Protein Treatment — ₹5,000/-",
         ],
       },
-    ],      {
-        title: "SKIN GLOW FACIAL & CLEANUP",
-        price: "₹2,500/-",
-        tag: "SKINCARE",
-        btnText: "INQUIRE NOW",
-        features: [
-          "Deep Pore Cleansing",
-          "Fruit / Gold Pack Facial",
-          "Face & Neck Massage",
-        ],
-      },
     ],
   };
 
   const currentServices = servicesData[activeTab] || [];
 
-  // 3 Columns Grid setup for 'bridal' and 'hair-spa', 2 Columns for 'pre-bridal'
-  const isThreeColumnLayout = activeTab === "bridal" || activeTab === "hair-spa";
+  // Layout Logic: 3 Columns for Bridal, Hair Spa & Salon Menu
+  const isThreeColumnLayout =
+    activeTab === "bridal" ||
+    activeTab === "hair-spa" ||
+    activeTab === "salon-menu";
+
   const gridClasses = isThreeColumnLayout
     ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
     : "grid grid-cols-1 md:grid-cols-2 gap-6";
@@ -589,7 +582,7 @@ export default function ServicesPage() {
           })}
         </div>
 
-        {/* --- DYNAMIC GRID (3-BOXES FOR BRIDAL & HAIR SPA) --- */}
+        {/* --- DYNAMIC GRID --- */}
         <div className={gridClasses}>
           {currentServices.map((item, index) => (
             <div
@@ -597,9 +590,9 @@ export default function ServicesPage() {
               className="border border-gray-100 bg-white p-6 rounded-sm hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
-                {/* Package Title */}
+                {/* Title */}
                 {item.title && (
-                  <h3 className="text-sm font-serif font-bold text-gray-950 uppercase leading-snug mb-2 min-h-[40px] flex items-center">
+                  <h3 className="text-sm font-serif font-bold text-gray-950 uppercase leading-snug mb-2 min-h-[36px] flex items-center">
                     {item.title}
                   </h3>
                 )}
@@ -609,7 +602,7 @@ export default function ServicesPage() {
                   {item.price}
                 </p>
 
-                {/* Features / Services Included */}
+                {/* Features / Included Items */}
                 {item.features && item.features.length > 0 && (
                   <ul className="space-y-2 mb-6">
                     {item.features.map((feat, fIdx) => (
@@ -646,7 +639,7 @@ export default function ServicesPage() {
           ))}
         </div>
 
-        {/* Floating WhatsApp Icon */}
+        {/* Floating WhatsApp Button */}
         <a
           href={`https://wa.me/91${whatsappNumber}?text=${encodeURIComponent(
             "Hello Khushi! I would like to inquire about your studio services."
