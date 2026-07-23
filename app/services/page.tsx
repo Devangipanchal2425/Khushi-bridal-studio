@@ -2,212 +2,205 @@
 
 import React from "react";
 
-// Types for Package Data
 interface ServicePackage {
   id: string;
-  name: string;
+  badge: string;
+  title: string;
   price: string;
-  description: string;
   features: string[];
-  popular?: boolean;
 }
 
-// Packages Data List
 const packages: ServicePackage[] = [
   {
-    id: "basic",
-    name: "Basic Plan",
-    price: "₹999",
-    description: "Perfect for getting started with essential features.",
-    features: ["Core Features Included", "Standard Support", "1 Week Turnaround"],
-  },
-  {
-    id: "pro",
-    name: "Pro Plan",
-    price: "₹2,499",
-    description: "Most popular choice for growing projects & teams.",
+    id: "1",
+    badge: "TRENDING LOOK",
+    title: "KOREAN GLASS MAKEUP (SIDER / PARTY)",
+    price: "₹7,500/-",
     features: [
-      "All Basic Features",
-      "Priority Support",
-      "Advanced Customization",
-      "3 Days Turnaround",
+      "Glass Glow Finish Makeup",
+      "Hairstyle (Real Flower styling)",
+      "Eye Lashes & Premium Eye Lenses",
+      "Saree / Outfit Draping",
+      "Hair Extension Included",
     ],
-    popular: true,
   },
   {
-    id: "premium",
-    name: "Premium Plan",
-    price: "₹4,999",
-    description: "Complete end-to-end solution with dedicated assistance.",
+    id: "2",
+    badge: "MOST POPULAR",
+    title: "PRE-FUNCTION KOREAN GLASS GLAM",
+    price: "₹13,000/-",
     features: [
-      "All Pro Features",
-      "24/7 Dedicated Support",
-      "Full Custom Integration",
-      "Express Delivery",
+      "Korean Glass Makeup (Sangeet/Haldi/Mahendi/Engagement)",
+      "Hair Style with Real Flowers & Decoration",
+      "Eye Lashes & Eye Lenses",
+      "Saree / Outfit Draping",
+    ],
+  },
+  {
+    id: "3",
+    badge: "LUXURY BRIDAL",
+    title: "BRIDAL KOREAN GLASS MAKEOVER",
+    price: "₹22,000/-",
+    features: [
+      "Signature Korean Glass Skin Makeup",
+      "Hair Style (Brooch Decoration / Real Flowers)",
+      "Damani, Tikko & Nath Placement",
+      "Eye Lashes & Eye Lenses",
+      "Hair Accessories & Extensions",
+      "Saree / Dupatta Draping",
+    ],
+  },
+  {
+    id: "4",
+    badge: "FULL TREATMENT",
+    title: "ULTIMATE KOREAN PRE-BRIDAL PACKAGE",
+    price: "₹19,000/-",
+    features: [
+      "Korean Glass Glowing Skin Facial & Face Pack",
+      "Korean Hair Spa Therapy (With Face Mask & Massage)",
+      "Rica Full Body Waxing & Body Polishing",
+      "Full Body Oil Massage, Scrubbing & Pack",
+      "Clean Up, D-Tan, Manicure, Pedicure, Threading",
     ],
   },
 ];
 
 export default function ServicesPage() {
-  const whatsappNumber = "919870085600"; // Country Code + WhatsApp Number
+  const whatsappNumber = "919870085600";
 
-  // Function to handle direct WhatsApp redirect with pre-filled message
-  const handleWhatsAppRedirect = (packageName: string, packagePrice: string) => {
+  const handleBookNow = (packageName: string, packagePrice: string) => {
     const message = `Hello, I am interested in this package:\n\n📦 *Package Name:* ${packageName}\n💰 *Price:* ${packagePrice}`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-    
+
     window.open(whatsappURL, "_blank", "noopener,noreferrer");
   };
 
   return (
-    <main style={styles.container}>
-      <section style={styles.header}>
-        <h1 style={styles.title}>Our Services & Packages</h1>
-        <p style={styles.subtitle}>
-          Choose the best plan for your needs and connect with us directly on WhatsApp.
-        </p>
-      </section>
+    <main style={styles.pageBackground}>
+      <div style={styles.container}>
+        <div style={styles.grid}>
+          {packages.map((pkg) => (
+            <div key={pkg.id} style={styles.card}>
+              {/* Top Right Badge */}
+              <div style={styles.badge}>{pkg.badge}</div>
 
-      {/* Package Cards Grid */}
-      <div style={styles.grid}>
-        {packages.map((pkg) => (
-          <div
-            key={pkg.id}
-            style={{
-              ...styles.card,
-              ...(pkg.popular ? styles.popularCard : {}),
-            }}
-          >
-            {pkg.popular && <span style={styles.badge}>Most Popular</span>}
-            
-            <h2 style={styles.packageName}>{pkg.name}</h2>
-            <div style={styles.price}>{pkg.price}</div>
-            <p style={styles.description}>{pkg.description}</p>
+              {/* Package Content */}
+              <div style={styles.cardContent}>
+                <h2 style={styles.title}>{pkg.title}</h2>
+                <div style={styles.price}>{pkg.price}</div>
 
-            <ul style={styles.featureList}>
-              {pkg.features.map((feature, idx) => (
-                <li key={idx} style={styles.featureItem}>
-                  ✓ {feature}
-                </li>
-              ))}
-            </ul>
+                {/* Features List */}
+                <ul style={styles.featureList}>
+                  {pkg.features.map((feature, idx) => (
+                    <li key={idx} style={styles.featureItem}>
+                      <span style={styles.starIcon}>✦</span> {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            <button
-              onClick={() => handleWhatsAppRedirect(pkg.name, pkg.price)}
-              style={{
-                ...styles.button,
-                ...(pkg.popular ? styles.popularButton : styles.defaultButton),
-              }}
-            >
-              Enquire on WhatsApp
-            </button>
-          </div>
-        ))}
+              {/* Full Width Booking Button */}
+              <button
+                onClick={() => handleBookNow(pkg.title, pkg.price)}
+                style={styles.bookButton}
+              >
+                BOOK KOREAN GLAM
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
     </main>
   );
 }
 
-// Inline styles for easy copy-paste without external CSS dependencies
 const styles: { [key: string]: React.CSSProperties } = {
-  container: {
-    maxWidth: "1200px",
-    margin: "0 auto",
+  pageBackground: {
+    backgroundColor: "#ffffff",
+    minHeight: "100vh",
     padding: "40px 20px",
-    fontFamily: "system-ui, -apple-system, sans-serif",
+    fontFamily: "'Playfair Display', Georgia, serif", // Aesthetic Serif font like screenshot
   },
-  header: {
-    textAlign: "center",
-    marginBottom: "50px",
-  },
-  title: {
-    fontSize: "2.5rem",
-    fontWeight: "bold",
-    color: "#1a1a1a",
-    marginBottom: "10px",
-  },
-  subtitle: {
-    fontSize: "1.1rem",
-    color: "#666",
+  container: {
+    maxWidth: "1100px",
+    margin: "0 auto",
   },
   grid: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
     gap: "30px",
-    alignItems: "stretch",
   },
   card: {
-    border: "1px solid #e2e8f0",
-    borderRadius: "16px",
-    padding: "30px",
-    backgroundColor: "#ffffff",
-    boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+    border: "1.5px solid #FBCFE8", // Soft Pink Border
+    backgroundColor: "#fff",
+    position: "relative",
     display: "flex",
     flexDirection: "column",
-    position: "relative",
-  },
-  popularCard: {
-    borderColor: "#25D366",
-    borderWidth: "2px",
-    transform: "scale(1.02)",
+    justify: "space-between",
+    paddingTop: "35px",
+    boxShadow: "0 2px 10px rgba(0,0,0,0.02)",
   },
   badge: {
     position: "absolute",
-    top: "-12px",
-    right: "20px",
-    backgroundColor: "#25D366",
-    color: "#ffffff",
-    padding: "4px 12px",
-    borderRadius: "20px",
-    fontSize: "0.8rem",
+    top: "0",
+    right: "0",
+    backgroundColor: "#FCE7F3", // Light Pink Badge
+    color: "#9D174D", // Dark Pink Text
+    fontSize: "0.7rem",
     fontWeight: "bold",
+    padding: "6px 14px",
+    letterSpacing: "1px",
+    textTransform: "uppercase",
   },
-  packageName: {
-    fontSize: "1.5rem",
-    fontWeight: "bold",
-    marginBottom: "10px",
-    color: "#0f172a",
+  cardContent: {
+    padding: "20px 25px 30px 25px",
+    flexGrow: 1,
+  },
+  title: {
+    fontSize: "1.25rem",
+    fontWeight: "800",
+    color: "#000000",
+    lineHeight: "1.3",
+    marginBottom: "12px",
+    letterSpacing: "0.5px",
   },
   price: {
-    fontSize: "2rem",
-    fontWeight: "800",
-    color: "#0f172a",
-    marginBottom: "15px",
-  },
-  description: {
-    color: "#64748b",
+    fontSize: "1.6rem",
+    fontWeight: "700",
+    color: "#DB2777", // Signature Pink Price Color
     marginBottom: "20px",
-    fontSize: "0.95rem",
-    lineHeight: "1.5",
   },
   featureList: {
     listStyle: "none",
     padding: 0,
-    margin: "0 0 30px 0",
-    flexGrow: 1,
+    margin: 0,
+    fontFamily: "system-ui, -apple-system, sans-serif", // Clean font for features list
   },
   featureItem: {
-    padding: "8px 0",
-    color: "#334155",
-    fontSize: "0.95rem",
+    fontSize: "0.88rem",
+    color: "#4B5563",
+    marginBottom: "10px",
+    lineHeight: "1.4",
+    display: "flex",
+    alignItems: "flex-start",
   },
-  button: {
+  starIcon: {
+    color: "#F472B6",
+    marginRight: "8px",
+    fontSize: "0.8rem",
+    marginTop: "2px",
+  },
+  bookButton: {
     width: "100%",
-    padding: "14px 20px",
-    borderRadius: "8px",
+    backgroundColor: "#000000", // Solid Black Button as per screenshot
+    color: "#ffffff",
+    padding: "14px",
     border: "none",
-    fontWeight: "600",
-    fontSize: "1rem",
+    fontSize: "0.85rem",
+    fontWeight: "bold",
+    letterSpacing: "1px",
     cursor: "pointer",
-    transition: "background-color 0.2s ease",
-  },
-  defaultButton: {
-    backgroundColor: "#25D366",
-    color: "#ffffff",
-  },
-  popularButton: {
-    backgroundColor: "#128C7E",
-    color: "#ffffff",
+    textTransform: "uppercase",
   },
 };
