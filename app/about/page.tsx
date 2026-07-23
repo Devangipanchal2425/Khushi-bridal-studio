@@ -80,7 +80,7 @@ export default function AboutPage() {
         {/* Top Right Social Icons */}
         <div className="absolute top-8 right-12 flex space-x-3">
           <a 
-            href="https://instagram.com" 
+            href="khushiimakeover_official" 
             target="_blank" 
             rel="noreferrer" 
             className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-[#f3a0ad] hover:text-black transition-all shadow-sm"
@@ -91,7 +91,7 @@ export default function AboutPage() {
             </svg>
           </a>
           <a 
-            href="https://facebook.com" 
+            href="https://www.facebook.com/share/18wh4hPmkN/" 
             target="_blank" 
             rel="noreferrer" 
             className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-[#f3a0ad] hover:text-black transition-all shadow-sm"
@@ -110,7 +110,7 @@ export default function AboutPage() {
           <div className="lg:col-span-5">
             <div className="relative w-full h-[520px] rounded-sm overflow-hidden shadow-sm bg-gray-100">
               <Image
-                src="/images/artist.jpg"
+                src="/Khushi.jpeg"
                 alt="Khushi Patel - Makeup Artist"
                 fill
                 className="object-cover"
