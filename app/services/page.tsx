@@ -203,6 +203,7 @@ export default function ServicesPage() {
       {
         price: "₹6,500/-",
         btnText: "BOOK PRE-BRIDAL",
+        sectionGroup: "ESSENTIAL & SILVER SPA PACKAGES",
         features: [
           "Threading (Eyebrow, Forehead, Upper Lips)",
           "Normal Waxing (Full Hands, Legs, Underarms)",
@@ -214,6 +215,7 @@ export default function ServicesPage() {
       {
         price: "₹10,000/-",
         btnText: "BOOK PRE-BRIDAL",
+        sectionGroup: "ESSENTIAL & SILVER SPA PACKAGES",
         features: [
           "Threading (Eyebrow, Forehead, Upper Lips)",
           "Rica Waxing (Full Hands, Full Legs, Underarms)",
@@ -227,6 +229,7 @@ export default function ServicesPage() {
       {
         price: "₹13,000/-",
         btnText: "BOOK PRE-BRIDAL",
+        sectionGroup: "GOLD & DIAMOND KOREAN SPA PACKAGES",
         features: [
           "Threading (Eyebrow, Forehead, Upper Lips)",
           "Rica Waxing (Full Hands, Legs, Underarms)",
@@ -241,6 +244,7 @@ export default function ServicesPage() {
       {
         price: "₹19,000/-",
         btnText: "BOOK ROYAL PRE-BRIDAL",
+        sectionGroup: "GOLD & DIAMOND KOREAN SPA PACKAGES",
         features: [
           "Threading (Eyebrow, Forehead, Upper Lips)",
           "Rica Waxing (Full Body)",
