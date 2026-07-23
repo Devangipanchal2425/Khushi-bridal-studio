@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Instagram, Facebook, MessageCircle } from "lucide-react";
 
 export default function AboutPage() {
   const whatsappNumber = "9870085600";
@@ -45,11 +46,27 @@ export default function AboutPage() {
           </nav>
         </div>
 
-        {/* Sidebar Footer */}
+        {/* Sidebar Footer Social Icons */}
         <div className="text-xs text-gray-400 space-y-4 border-t border-gray-800 pt-4">
-          <div className="flex space-x-4 text-white text-sm">
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-[#f3a0ad]">📸</a>
-            <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-[#f3a0ad]">🌐</a>
+          <div className="flex space-x-4 text-white">
+            <a 
+              href="https://instagram.com" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="text-gray-400 hover:text-[#f3a0ad] transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram size={18} />
+            </a>
+            <a 
+              href="https://facebook.com" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="text-gray-400 hover:text-[#f3a0ad] transition-colors"
+              aria-label="Facebook"
+            >
+              <Facebook size={18} />
+            </a>
           </div>
         </div>
       </aside>
@@ -58,12 +75,24 @@ export default function AboutPage() {
       <main className="ml-[260px] flex-1 p-8 md:p-14 max-w-6xl mx-auto relative">
         
         {/* Top Right Social Icons */}
-        <div className="absolute top-8 right-12 flex space-x-3 text-gray-500 text-sm">
-          <a href="https://instagram.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-[#f3a0ad] hover:text-black transition-all">
-            📷
+        <div className="absolute top-8 right-12 flex space-x-3">
+          <a 
+            href="https://instagram.com" 
+            target="_blank" 
+            rel="noreferrer" 
+            className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-[#f3a0ad] hover:text-black transition-all shadow-sm"
+            aria-label="Instagram"
+          >
+            <Instagram size={17} />
           </a>
-          <a href="https://facebook.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-[#f3a0ad] hover:text-black transition-all">
-            f
+          <a 
+            href="https://facebook.com" 
+            target="_blank" 
+            rel="noreferrer" 
+            className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-[#f3a0ad] hover:text-black transition-all shadow-sm"
+            aria-label="Facebook"
+          >
+            <Facebook size={17} />
           </a>
         </div>
 
@@ -73,9 +102,8 @@ export default function AboutPage() {
           {/* Artist Portrait Image */}
           <div className="lg:col-span-5">
             <div className="relative w-full h-[520px] rounded-sm overflow-hidden shadow-sm bg-gray-100">
-              {/* Apni photo ka path public folder mein /images/artist.jpg rakhein */}
               <Image
-                src="/Khushi.jpeg"
+                src="/images/artist.jpg"
                 alt="Khushi Patel - Makeup Artist"
                 fill
                 className="object-cover"
@@ -152,10 +180,10 @@ export default function AboutPage() {
           href={`https://wa.me/91${whatsappNumber}?text=${whatsappMessage}`}
           target="_blank"
           rel="noreferrer"
-          className="fixed bottom-6 right-6 bg-green-500 text-white p-3.5 rounded-full shadow-lg hover:bg-green-600 transition-all z-30 flex items-center justify-center text-xl"
-          title="Chat on WhatsApp"
+          className="fixed bottom-6 right-6 bg-[#25D366] text-white p-3.5 rounded-full shadow-xl hover:bg-[#20ba5a] hover:scale-105 transition-all z-30 flex items-center justify-center"
+          aria-label="Chat on WhatsApp"
         >
-          💬
+          <MessageCircle size={26} className="fill-white text-[#25D366]" />
         </a>
 
       </main>
