@@ -26,7 +26,7 @@ export default function ServicesPage() {
     { id: "salon-menu", label: "SALON MENU (HAIR, SKIN, NAILS)", icon: "💄" },
   ];
 
-  // Complete Services Data
+  // Complete Services Data with Merged Salon Categories
   const servicesData: Record<string, ServiceItem[]> = {
     bridal: [
       {
@@ -200,6 +200,7 @@ export default function ServicesPage() {
 
     "pre-bridal": [
       {
+        title: "PRE-BRIDAL PACKAGE 1",
         price: "₹6,500/-",
         btnText: "BOOK PRE-BRIDAL",
         features: [
@@ -211,6 +212,7 @@ export default function ServicesPage() {
         ],
       },
       {
+        title: "PRE-BRIDAL PACKAGE 2",
         price: "₹10,000/-",
         btnText: "BOOK PRE-BRIDAL",
         features: [
@@ -224,6 +226,7 @@ export default function ServicesPage() {
         ],
       },
       {
+        title: "PRE-BRIDAL PACKAGE 3",
         price: "₹13,000/-",
         btnText: "BOOK PRE-BRIDAL",
         features: [
@@ -238,6 +241,7 @@ export default function ServicesPage() {
         ],
       },
       {
+        title: "ROYAL PRE-BRIDAL PACKAGE 4",
         price: "₹19,000/-",
         btnText: "BOOK ROYAL PRE-BRIDAL",
         features: [
@@ -254,7 +258,7 @@ export default function ServicesPage() {
       },
     ],
 
-"salon-menu": [
+    "salon-menu": [
       {
         title: "SKIN THREADING & CLEANUP",
         price: "From ₹30/-",
@@ -263,7 +267,7 @@ export default function ServicesPage() {
           "Upper Lips — ₹30/-",
           "Eyebrow & Forehead — ₹70/-",
           "Full Face Threading — ₹250/-",
-          "Cleanup (Acne / Dry / Oily Skin) — ₹500/-",
+          "Cleanup (Acne / Normal / Oily Skin) — ₹500/-",
         ],
       },
       {
@@ -285,7 +289,7 @@ export default function ServicesPage() {
       },
       {
         title: "FACIAL CARE (BASIC, ADVANCE & LUXURY)",
-        price: "From ₹800/-",
+        price: "From ₹350/-",
         btnText: "BOOK FACIAL",
         features: [
           "Korean Glass Face Mask — ₹350/-",
@@ -389,9 +393,11 @@ export default function ServicesPage() {
         ],
       },
     ],
+  };
+
   const currentServices = servicesData[activeTab] || [];
 
-  // Layout Logic: 3 Columns for Bridal, Hair Spa & Salon Menu
+  // Responsive Grid Layout
   const isThreeColumnLayout =
     activeTab === "bridal" ||
     activeTab === "hair-spa" ||
