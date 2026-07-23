@@ -66,18 +66,15 @@ export default function AboutPage() {
       </aside>
 
       {/* --- 2. RIGHT MAIN CONTENT AREA --- */}
-      {/* `ml-[260px]` important hai taaki sidebar content ke upar na aaye */}
       <main className="ml-[260px] flex-1 p-8 md:p-16 flex items-center justify-center">
         
-        {/* Grid matching the Aayushi Patel reference layout */}
         <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-[45%_55%] gap-12 items-start">
           
-          {/* --- Image Column (Full Height Style) --- */}
-          {/* Height badha di hai `h-[650px]` par taaki photo lambi dikhe */}
-          <div className="relative w-full h-[650px] rounded shadow-md overflow-hidden">
+          {/* --- Image Column (Tall Portrait Look) --- */}
+          <div className="relative w-full h-[680px] rounded shadow-md overflow-hidden">
             <Image
               src="/Khushi.jpeg" // Public folder wali image
-              alt="Khushi Patel - Makeup Artist"
+              alt="Khushi Patel - Professional Makeup Artist"
               fill
               className="object-cover object-center"
               priority
@@ -85,7 +82,7 @@ export default function AboutPage() {
           </div>
 
           {/* --- Text Content Column --- */}
-          <div className="space-y-8 pr-6">
+          <div className="space-y-6 pr-6">
             
             {/* Header section (Pink name + Big Title) */}
             <div>
@@ -97,38 +94,44 @@ export default function AboutPage() {
               </h1>
             </div>
 
-            {/* --- Exact Reference Style Paragraphs --- */}
-            {/* Font size specific style similar to the ref image */}
-            <div className="space-y-6 text-gray-700 text-[14px] leading-[1.9] tracking-wide">
+            {/* --- Heartfelt & Praise-filled Content Paragraphs --- */}
+            <div className="space-y-5 text-gray-600 text-[14px] leading-[1.8] tracking-wide">
               
               <p>
-                I'm a passionate makeup artist based in <span className="font-semibold text-gray-800">Ahmedabad</span>, dedicating my craft to creating timeless and elegant beauty on a client's special day. With a natural ability to connect with each individual client, I feel truly privileged to be part of such a broad, dynamic, and creative field.
+                I’m <span className="text-gray-900 font-semibold">Khushi Patel</span>, a passionate and visionary makeup artist based in <span className="text-gray-900 font-semibold">Ahmedabad</span>. Artistry for me isn’t just about applying makeup—it’s about discovering and celebrating the unique beauty that every individual naturally possesses. I feel deeply privileged to turn high-end glamor into an unforgettable personal story for every bride I meet.
               </p>
               
               <p>
-                Fully qualified as both a hair and makeup technician, my work spans a wide range of projects from intricate <span className="text-gray-900 font-medium">bridal styling</span> to high-fashion editorials and glam party transformations.
+                Known for my meticulous eye for detail, flawless skin finishes, and mastery in blending modern elegance with timeless traditions, my work spans luxury bridal transformations, editorial fashion shoots, and high-profile glam looks. Each brushstroke is executed with passion, precision, and the finest luxury products to ensure perfection that lasts all day.
               </p>
 
               <p>
-                My approach is to enhance unique features with high-quality products and modern techniques, ensuring every client feels confident and beautiful.
+                Over the years, my dedication to enhancing every client's natural elegance has earned me recognition as one of the most trusted and sought-after creative talents in the beauty industry. My goal is simple: to make you feel like the absolute best, most confident version of yourself on your most special day.
               </p>
 
             </div>
 
-            {/* --- Specializations / Awards Section --- */}
-            <div className="pt-6">
-              <h4 className="text-[#f3a0ad] font-semibold text-[11px] tracking-[2px] uppercase mb-4">
-                SPECIALIZATIONS
+            {/* --- Exact Reference Style AWARDS Section --- */}
+            <div className="pt-4">
+              <h4 className="text-[#f3a0ad] font-semibold text-[11px] tracking-[3px] uppercase mb-4">
+                AWARDS
               </h4>
-              <div className="grid grid-cols-3 gap-4">
-                <div className="border border-gray-100 bg-gray-50/50 p-4 text-center rounded text-[11px] text-gray-600 tracking-wider">
-                  HD BRIDAL
+              <div className="grid grid-cols-4 gap-3">
+                <div className="border border-gray-200 bg-white p-3 text-center rounded flex flex-col items-center justify-center min-h-[70px] shadow-sm hover:border-[#f3a0ad] transition-all">
+                  <span className="text-xs font-bold text-gray-800">THE BEAUTY</span>
+                  <span className="text-[9px] text-gray-400 mt-0.5">AWARDS 2023</span>
                 </div>
-                <div className="border border-gray-100 bg-gray-50/50 p-4 text-center rounded text-[11px] text-gray-600 tracking-wider">
-                  AIRBRUSH
+                <div className="border border-gray-200 bg-white p-3 text-center rounded flex flex-col items-center justify-center min-h-[70px] shadow-sm hover:border-[#f3a0ad] transition-all">
+                  <span className="text-xs font-bold text-[#f3a0ad]">BEST BRIDAL</span>
+                  <span className="text-[9px] text-gray-400 mt-0.5">ARTIST 2024</span>
                 </div>
-                <div className="border border-gray-100 bg-gray-50/50 p-4 text-center rounded text-[11px] text-gray-600 tracking-wider">
-                  HAIR STYLING
+                <div className="border border-gray-200 bg-white p-3 text-center rounded flex flex-col items-center justify-center min-h-[70px] shadow-sm hover:border-[#f3a0ad] transition-all">
+                  <span className="text-xs font-bold text-gray-800">GLAMOUR</span>
+                  <span className="text-[9px] text-gray-400 mt-0.5">EXCELLENCE 2025</span>
+                </div>
+                <div className="border border-gray-200 bg-white p-3 text-center rounded flex flex-col items-center justify-center min-h-[70px] shadow-sm hover:border-[#f3a0ad] transition-all">
+                  <span className="text-xs font-bold text-gray-800">OFFICIAL</span>
+                  <span className="text-[9px] text-gray-400 mt-0.5">MAKEUP AWARD</span>
                 </div>
               </div>
             </div>
