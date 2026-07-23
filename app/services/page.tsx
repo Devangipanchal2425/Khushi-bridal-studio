@@ -16,7 +16,7 @@ export default function ServicesPage() {
   const instagramLink = "https://www.instagram.com/khushiimakeover_official";
   const facebookLink = "https://www.facebook.com/share/18wh4hPmkN/";
 
-  const [activeTab, setActiveTab] = useState<string>("pre-bridal");
+  const [activeTab, setActiveTab] = useState<string>("bridal");
 
   // Category Tabs List
   const tabs = [
@@ -282,6 +282,12 @@ export default function ServicesPage() {
 
   const currentServices = servicesData[activeTab] || [];
 
+  // 3 Columns Grid setup for 'bridal' and 'hair-spa', 2 Columns for 'pre-bridal'
+  const isThreeColumnLayout = activeTab === "bridal" || activeTab === "hair-spa";
+  const gridClasses = isThreeColumnLayout
+    ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+    : "grid grid-cols-1 md:grid-cols-2 gap-6";
+
   return (
     <div className="flex min-h-screen bg-white text-gray-800 font-sans">
       {/* --- 1. LEFT SIDEBAR NAVIGATION --- */}
@@ -404,27 +410,27 @@ export default function ServicesPage() {
           })}
         </div>
 
-        {/* --- ALL PACKAGES GRID (UNIFIED DIRECT LAYOUT) --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        {/* --- DYNAMIC GRID (3-BOXES FOR BRIDAL & HAIR SPA) --- */}
+        <div className={gridClasses}>
           {currentServices.map((item, index) => (
             <div
               key={index}
               className="border border-gray-100 bg-white p-6 rounded-sm hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
-                {/* Optional Title (Only for other tabs if exists) */}
+                {/* Package Title */}
                 {item.title && (
-                  <h3 className="text-base font-serif font-bold text-gray-950 uppercase leading-snug mb-1">
+                  <h3 className="text-sm font-serif font-bold text-gray-950 uppercase leading-snug mb-2 min-h-[40px] flex items-center">
                     {item.title}
                   </h3>
                 )}
 
-                {/* Direct Price */}
+                {/* Price */}
                 <p className="text-2xl font-serif font-bold text-[#d8586c] mb-4">
                   {item.price}
                 </p>
 
-                {/* Description Features */}
+                {/* Features / Services Included */}
                 {item.features && item.features.length > 0 && (
                   <ul className="space-y-2 mb-6">
                     {item.features.map((feat, fIdx) => (
@@ -442,7 +448,7 @@ export default function ServicesPage() {
                 )}
               </div>
 
-              {/* Book Button */}
+              {/* Booking Action Button */}
               <div className="pt-4">
                 <a
                   href={`https://wa.me/91${whatsappNumber}?text=${encodeURIComponent(
