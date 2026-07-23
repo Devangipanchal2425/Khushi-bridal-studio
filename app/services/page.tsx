@@ -159,78 +159,48 @@ export default function ServicesPage() {
 
 "hair-spa": [
       {
-        title: "KOREAN HAIR SPA (NECK LENGTH)",
+        title: "KOREAN HAIR SPA",
         price: "₹2,000/-",
         tag: "HAIR UP TO NECK",
         btnText: "BOOK HAIR SPA",
-        features: [
-          "Scalp Exfoliation & Deep Cleansing",
-          "Korean Herbal Steaming",
-          "Hair Length: Up to Neck",
-          "Blow Dry & Hair Shine Finish",
-        ],
+        features: [],
       },
       {
-        title: "KOREAN HAIR SPA (SHOULDER LENGTH)",
+        title: "KOREAN HAIR SPA",
         price: "₹2,600/-",
         tag: "HAIR UP TO SHOULDER",
         btnText: "BOOK HAIR SPA",
-        features: [
-          "Scalp Exfoliation & Deep Cleansing",
-          "Korean Herbal Steaming",
-          "Hair Length: Up to Shoulder",
-          "Blow Dry & Hair Shine Finish",
-        ],
+        features: [],
       },
       {
-        title: "KOREAN HAIR SPA (BELOW SHOULDER)",
+        title: "KOREAN HAIR SPA",
         price: "₹3,600/-",
         tag: "HAIR BELOW SHOULDER",
         btnText: "BOOK HAIR SPA",
-        features: [
-          "Scalp Exfoliation & Deep Cleansing",
-          "Korean Herbal Steaming",
-          "Hair Length: Below Shoulder",
-          "Blow Dry & Hair Shine Finish",
-        ],
+        features: [],
       },
       {
-        title: "KOREAN HAIR SPA (WAIST LENGTH)",
+        title: "KOREAN HAIR SPA",
         price: "₹4,600/-",
         tag: "HAIR UP TO WAIST",
         btnText: "BOOK HAIR SPA",
-        features: [
-          "Scalp Exfoliation & Deep Cleansing",
-          "Korean Herbal Steaming",
-          "Hair Length: Up to Waist",
-          "Blow Dry & Hair Shine Finish",
-        ],
+        features: [],
       },
       {
-        title: "KOREAN HAIR SPA (BELOW WAIST)",
+        title: "KOREAN HAIR SPA",
         price: "₹5,600/-",
         tag: "HAIR BELOW WAIST",
         btnText: "BOOK HAIR SPA",
-        features: [
-          "Scalp Exfoliation & Deep Cleansing",
-          "Korean Herbal Steaming",
-          "Hair Length: Below Waist",
-          "Blow Dry & Hair Shine Finish",
-        ],
+        features: [],
       },
       {
         title: "FACE MASK WITH HAIR SPA (MASSAGE)",
         price: "₹8,900/-",
         tag: "LUXURY SPA COMBO",
         btnText: "BOOK SPECIAL COMBO",
-        features: [
-          "Full Korean Hair Spa Treatment",
-          "Korean Hydrating Face Mask",
-          "Relaxing Head, Neck & Face Massage",
-          "Blow Dry & Hair Shine Finish",
-        ],
+        features: [],
       },
-    ],    "pre-bridal": [
+    ],    ],    "pre-bridal": [
       {
         title: "GLOW & RADIANCE PRE-BRIDAL",
         price: "₹12,000/-",
