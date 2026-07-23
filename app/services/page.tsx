@@ -423,15 +423,8 @@ export default function ServicesPage() {
                     className="border border-gray-100 bg-white p-6 rounded-sm hover:shadow-md transition-all flex flex-col justify-between"
                   >
                     <div>
-                      <div className="flex justify-between items-start mb-2">
-                        <span className="text-[9px] bg-[#f3a0ad]/25 text-[#c24b5d] font-bold px-2 py-0.5 rounded-sm tracking-widest uppercase">
-                          {item.tag}
-                        </span>
-                      </div>
-                      <h3 className="text-base font-serif font-bold text-gray-950 mt-1 uppercase leading-snug">
-                        {item.title}
-                      </h3>
-                      <p className="text-2xl font-serif font-bold text-[#d8586c] mt-1 mb-4">
+                      {/* Direct Price & Description without package title or tag */}
+                      <p className="text-2xl font-serif font-bold text-[#d8586c] mb-4">
                         {item.price}
                       </p>
 
@@ -450,7 +443,7 @@ export default function ServicesPage() {
                     <div className="pt-4">
                       <a
                         href={`https://wa.me/91${whatsappNumber}?text=${encodeURIComponent(
-                          `Hello Khushi! I would like to book: ${item.title} (${item.price}).`
+                          `Hello Khushi! I would like to book Pre-Bridal Package (${item.price}).`
                         )}`}
                         target="_blank"
                         rel="noreferrer"
@@ -483,15 +476,8 @@ export default function ServicesPage() {
                     className="border border-gray-100 bg-white p-6 rounded-sm hover:shadow-md transition-all flex flex-col justify-between"
                   >
                     <div>
-                      <div className="flex justify-between items-start mb-2">
-                        <span className="text-[9px] bg-[#f3a0ad]/25 text-[#c24b5d] font-bold px-2 py-0.5 rounded-sm tracking-widest uppercase">
-                          {item.tag}
-                        </span>
-                      </div>
-                      <h3 className="text-base font-serif font-bold text-gray-950 mt-1 uppercase leading-snug">
-                        {item.title}
-                      </h3>
-                      <p className="text-2xl font-serif font-bold text-[#d8586c] mt-1 mb-4">
+                      {/* Direct Price & Description without package title or tag */}
+                      <p className="text-2xl font-serif font-bold text-[#d8586c] mb-4">
                         {item.price}
                       </p>
 
@@ -510,7 +496,7 @@ export default function ServicesPage() {
                     <div className="pt-4">
                       <a
                         href={`https://wa.me/91${whatsappNumber}?text=${encodeURIComponent(
-                          `Hello Khushi! I would like to book: ${item.title} (${item.price}).`
+                          `Hello Khushi! I would like to book Luxury Pre-Bridal Package (${item.price}).`
                         )}`}
                         target="_blank"
                         rel="noreferrer"
