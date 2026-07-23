@@ -227,14 +227,16 @@ export default function ServicesPage() {
       {/* --- 2. MAIN SERVICES CONTENT AREA --- */}
       <main className="ml-[260px] flex-1 p-8 md:p-12 max-w-6xl mx-auto relative">
         
-        {/* Top Header */}
-        <div className="mb-8">
+        {/* Top Header with Underline */}
+        <div className="mb-8 border-b border-gray-100 pb-5">
           <span className="text-[#f3a0ad] font-semibold tracking-[3px] text-[11px] uppercase block mb-1">
             STUDIO MENU & RATES
           </span>
           <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-wider text-gray-950 uppercase">
             SERVICES & PACKAGES
           </h1>
+          {/* Accent Underline Line */}
+          <div className="w-16 h-1 bg-[#f3a0ad] mt-3 rounded-full"></div>
         </div>
 
         {/* --- TABS BAR --- */}
@@ -266,7 +268,7 @@ export default function ServicesPage() {
               className="border border-gray-100 bg-white p-7 rounded-sm hover:shadow-md transition-all flex flex-col justify-between relative"
             >
               <div>
-                {/* Tag & Price Header */}
+                {/* Tag Header */}
                 <div className="flex justify-between items-start mb-2">
                   <span className="text-[9px] bg-[#f3a0ad]/25 text-[#c24b5d] font-bold px-2 py-0.5 rounded-sm tracking-widest uppercase">
                     {item.tag}
