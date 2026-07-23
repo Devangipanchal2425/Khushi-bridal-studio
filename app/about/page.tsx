@@ -1,140 +1,314 @@
-'use client';
-import React from 'react';
-import Link from 'next/link';
+"use client";
 
-export default function AboutPage() {
+import React, { useState } from "react";
+import Link from "next/link";
+
+interface ServiceItem {
+  name: string;
+  price: string;
+  highlighted?: boolean;
+}
+
+interface ServiceSubCategory {
+  title: string;
+  items: ServiceItem[];
+}
+
+interface CategoryData {
+  id: string;
+  tabLabel: string;
+  icon: string;
+  subCategories: ServiceSubCategory[];
+}
+
+const servicesData: CategoryData[] = [
+  {
+    id: "korean",
+    tabLabel: "KOREAN GLASS PACKAGES",
+    icon: "🧚‍♀️",
+    subCategories: [
+      {
+        title: "KOREAN GLASS GLAM",
+        items: [
+          { name: "Korean Glass Makeup (Sider / Party)", price: "₹7,500" },
+          { name: "Pre-Function Korean Glass Glam", price: "₹13,000", highlighted: true },
+          { name: "Bridal Korean Glass Makeover", price: "₹22,000" },
+        ],
+      },
+      {
+        title: "KOREAN SPECIALS",
+        items: [
+          { name: "Korean Glass Glowing Skin Facial", price: "₹5,600", highlighted: true },
+          { name: "Korean Hair Spa Therapy", price: "₹2,000 - ₹5,600" },
+          { name: "Ultimate Korean Pre-Bridal Package", price: "₹19,000" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "bridal",
+    tabLabel: "BRIDAL & PRE-FUNCTION",
+    icon: "👑",
+    subCategories: [
+      {
+        title: "BRIDAL MAKEOVERS",
+        items: [
+          { name: "Traditional Bridal Makeup", price: "₹15,000" },
+          { name: "HD Premium Bridal Makeup", price: "₹18,000", highlighted: true },
+          { name: "Airbrush Luxury Bridal", price: "₹25,000" },
+        ],
+      },
+      {
+        title: "PRE-FUNCTION EVENTS",
+        items: [
+          { name: "Engagement / Ring Ceremony", price: "₹8,500" },
+          { name: "Sangeet / Mehendi Look", price: "₹7,000" },
+          { name: "Reception Look", price: "₹10,000", highlighted: true },
+        ],
+      },
+    ],
+  },
+  {
+    id: "spa",
+    tabLabel: "PRE-BRIDAL SPA",
+    icon: "🌸",
+    subCategories: [
+      {
+        title: "BODY POLISHING & SPA",
+        items: [
+          { name: "Rica Full Body Waxing", price: "₹3,500" },
+          { name: "Full Body Polish & Pack", price: "₹4,500", highlighted: true },
+          { name: "Aroma Body Oil Massage", price: "₹2,500" },
+        ],
+      },
+      {
+        title: "HANDS & FEET CARE",
+        items: [
+          { name: "Luxury Manicure", price: "₹1,200" },
+          { name: "Pedicure Care Spa", price: "₹1,500" },
+          { name: "D-Tan Hand & Feet Glow", price: "₹1,800", highlighted: true },
+        ],
+      },
+    ],
+  },
+  {
+    id: "salon",
+    tabLabel: "SALON MENU (HAIR, SKIN, NAILS)",
+    icon: "💄",
+    subCategories: [
+      {
+        title: "FACIALS & SKIN TREATMENTS",
+        items: [
+          { name: "Tan Clear Facial (Tanned Skin)", price: "₹800" },
+          { name: "Glovite Facial (Dry Skin)", price: "₹1,200" },
+          { name: "Sensi Glow Facial (Sensitive Skin)", price: "₹1,800" },
+          { name: "Light & Bright Facial", price: "₹2,100" },
+          { name: "O3+ Glowing Skin Facial", price: "₹2,500" },
+          { name: "Hydra Boost Skin Facial", price: "₹5,000", highlighted: true },
+          { name: "Korean Glass Skin Facial", price: "₹5,600", highlighted: true },
+        ],
+      },
+      {
+        title: "HAIR SPA & TREATMENTS",
+        items: [
+          { name: "L'Oreal Professional Spa", price: "₹600 - ₹2,100" },
+          { name: "Korean Hair Spa Therapy (Massage)", price: "₹2,000 - ₹5,600", highlighted: true },
+          { name: "Hair Straightening Treatment", price: "₹2,500 - ₹8,900" },
+          { name: "Botox Hair Treatment", price: "₹2,500 - ₹7,500" },
+          { name: "Pro Keratin Treatment", price: "₹2,900 - ₹8,900" },
+          { name: "Nanoplastia Treatment", price: "₹3,900 - ₹9,900" },
+        ],
+      },
+    ],
+  },
+];
+
+export default function ServicesPage() {
+  const [activeTab, setActiveTab] = useState("salon");
+  const whatsappNumber = "919870085600";
+
+  const handleServiceClick = (serviceName: string, servicePrice: string) => {
+    const message = `Hello, I am interested in this package:\n\n📦 *Package Name:* ${serviceName}\n💰 *Price:* ${servicePrice}`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    window.open(whatsappURL, "_blank", "noopener,noreferrer");
+  };
+
+  const currentCategory = servicesData.find((cat) => cat.id === activeTab);
+
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-white">
-      
-      {/* LEFT SIDEBAR (Inline Navigation & Logo) */}
-      <aside className="w-full md:w-64 bg-black text-white flex flex-col justify-between p-6 shrink-0 md:min-h-screen">
+    <div style={{ display: "flex", minHeight: "100vh", backgroundColor: "#ffffff" }}>
+      {/* LEFT SIDEBAR (Matching About Page Layout) */}
+      <aside
+        style={{
+          width: "240px",
+          backgroundColor: "#000000",
+          color: "#ffffff",
+          padding: "30px 20px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          flexShrink: 0,
+        }}
+      >
         <div>
-          {/* As-it-is Pink Logo Box from Screenshot */}
-          <div className="bg-[#f2a6bb] p-6 text-center text-black mb-10 shadow-md rounded-xs">
-            <h2 className="font-serif text-3xl font-bold tracking-widest leading-none">KP</h2>
-            <p className="font-sans text-[10px] tracking-widest font-bold uppercase mt-2">
+          {/* Logo Box */}
+          <div
+            style={{
+              backgroundColor: "#F4A3B4",
+              color: "#000",
+              textAlign: "center",
+              padding: "25px 15px",
+              marginBottom: "40px",
+            }}
+          >
+            <h2 style={{ fontSize: "28px", fontWeight: "900", margin: 0, letterSpacing: "2px" }}>
+              KP
+            </h2>
+            <h3 style={{ fontSize: "14px", fontWeight: "bold", margin: "5px 0 0 0", letterSpacing: "1px" }}>
               KHUSHI PATEL
-            </p>
-            <p className="font-sans text-[7px] tracking-wider uppercase text-gray-800 font-semibold mt-0.5">
+            </h3>
+            <span style={{ fontSize: "8px", textTransform: "uppercase", letterSpacing: "1px" }}>
               MAKE-UP ARTIST
-            </p>
+            </span>
           </div>
 
-          {/* Navigation Links */}
-          <nav className="flex flex-col gap-6 font-medium text-xs tracking-[0.2em] uppercase text-gray-300">
-            <Link href="/" className="hover:text-[#f2a6bb] transition">HOME</Link>
-            <Link href="/about" className="text-[#f2a6bb] font-bold">ABOUT</Link>
-            <Link href="/services" className="hover:text-[#f2a6bb] transition">SERVICES</Link>
-            <Link href="/portfolio" className="hover:text-[#f2a6bb] transition">PORTFOLIO</Link>
-            <Link href="/contact" className="hover:text-[#f2a6bb] transition">CONTACT</Link>
+          {/* Navigation Links (Matching About Section Design) */}
+          <nav style={{ display: "flex", flexDirection: "column", gap: "22px" }}>
+            <Link href="/" style={{ color: "#ffffff", textDecoration: "none", fontSize: "13px", fontWeight: "bold", letterSpacing: "2px" }}>
+              HOME
+            </Link>
+            <Link href="/about" style={{ color: "#ffffff", textDecoration: "none", fontSize: "13px", fontWeight: "bold", letterSpacing: "2px" }}>
+              ABOUT
+            </Link>
+            {/* SERVICES Highlighted Pink */}
+            <Link href="/services" style={{ color: "#F4A3B4", textDecoration: "none", fontSize: "13px", fontWeight: "bold", letterSpacing: "2px" }}>
+              SERVICES
+            </Link>
+            <Link href="/portfolio" style={{ color: "#ffffff", textDecoration: "none", fontSize: "13px", fontWeight: "bold", letterSpacing: "2px" }}>
+              PORTFOLIO
+            </Link>
+            <Link href="/contact" style={{ color: "#ffffff", textDecoration: "none", fontSize: "13px", fontWeight: "bold", letterSpacing: "2px" }}>
+              CONTACT
+            </Link>
           </nav>
         </div>
 
-        {/* Bottom Social Icons */}
-        <div className="flex gap-4 text-white text-xs pt-8 border-t border-gray-900 mt-10 md:mt-0">
-          <a href="#" className="hover:text-[#f2a6bb] transition">📷</a>
-          <a href="#" className="hover:text-[#f2a6bb] transition">f</a>
+        {/* Footer info in sidebar */}
+        <div style={{ fontSize: "10px", color: "#888888" }}>
+          <p style={{ margin: "0 0 5px 0" }}>📍 South Bopal, Ahmedabad</p>
+          <p style={{ margin: 0 }}>©2026 KHUSHI MAKEOVER</p>
         </div>
       </aside>
 
       {/* RIGHT MAIN CONTENT AREA */}
-      <main className="flex-1 p-6 md:p-12 lg:p-16 max-w-6xl">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          
-          {/* Image Section */}
-          <div className="lg:col-span-5">
-            <div className="overflow-hidden rounded-xs shadow-sm">
-              <img
-                src="/Khushi.jpeg" // Apni image ka exact path yahan daal do
-                alt="Khushi Patel - Makeup Artist"
-                className="w-full h-auto object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Text Content Section */}
-          <div className="lg:col-span-7 space-y-6">
-            
-            {/* Header Title & Socials */}
-            <div>
-              <p className="text-[#f2a6bb] tracking-widest text-xs font-semibold uppercase mb-1">
-                KHUSHI PATEL
-              </p>
-              <div className="flex justify-between items-center">
-                <h1 className="text-3xl lg:text-5xl font-serif text-gray-900 tracking-tight">
-                  MAKEUP ARTIST
-                </h1>
-                
-                <div className="flex gap-2 text-gray-600">
-                  <a href="#" className="w-7 h-7 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-100 transition text-xs">
-                    📷
-                  </a>
-                  <a href="#" className="w-7 h-7 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-100 transition text-xs">
-                    f
-                  </a>
-                </div>
-              </div>
-              <hr className="border-pink-100 my-4 w-full" />
-            </div>
-
-            {/* Paragraphs */}
-            <div className="text-gray-600 text-sm leading-relaxed space-y-4 font-sans">
-              <p>
-                Welcome to my creative universe of luxury bridal artistry. I am <strong className="text-gray-800 font-semibold">Khushi Patel</strong>, a high-definition makeup artist devoted to crafting timeless, ethereal, and personalized wedding transformations. My philosophy revolves around celebrating your natural elegance and enhancing the unique grace you already possess.
-              </p>
-              <p>
-                Specializing in couture bridal looks, soft glam finishes, and contemporary hair sculpting, every makeover is thoughtfully designed to complement your wedding couture, personal aesthetic, and individual aura. From delicate skin-prep rituals to long-wear luxury cosmetics, every detail is seamlessly curated to ensure you look effortlessly radiant and feel truly unforgettable.
-              </p>
-              <p>
-                To me, bridal makeup is far more than a technique—it is an intimate art form of capturing emotions, confidence, and joy. It is an absolute privilege to walk alongside you on your most cherished journey and make your dream bridal look come alive.
-              </p>
-            </div>
-
-            {/* Highlights & Specialties Grid */}
-            <div className="pt-6">
-              <h3 className="text-[#f2a6bb] text-xs font-semibold tracking-widest uppercase mb-4">
-                HIGHLIGHTS & SPECIALTIES
-              </h3>
-
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                <div className="border border-gray-100 p-4 rounded-xs text-center bg-gray-50/30">
-                  <span className="text-xl mb-2 block">✨</span>
-                  <h4 className="font-serif text-[10px] font-bold text-gray-800 uppercase">
-                    LUXURY BRIDAL
-                  </h4>
-                  <p className="text-[8px] text-gray-400 mt-1 uppercase">COUTURE LOOKS</p>
-                </div>
-
-                <div className="border border-gray-100 p-4 rounded-xs text-center bg-gray-50/30">
-                  <span className="text-xl mb-2 block">👑</span>
-                  <h4 className="font-serif text-[10px] font-bold text-gray-800 uppercase">
-                    ULTRA HD SKIN
-                  </h4>
-                  <p className="text-[8px] text-gray-400 mt-1 uppercase">CAMERA READY</p>
-                </div>
-
-                <div className="border border-gray-100 p-4 rounded-xs text-center bg-gray-50/30">
-                  <span className="text-xl mb-2 block">💎</span>
-                  <h4 className="font-serif text-[10px] font-bold text-gray-800 uppercase">
-                    PREMIUM PRODUCTS
-                  </h4>
-                  <p className="text-[8px] text-gray-400 mt-1 uppercase">GLOBAL BRANDS</p>
-                </div>
-
-                <div className="border border-gray-100 p-4 rounded-xs text-center bg-gray-50/30">
-                  <span className="text-xl mb-2 block">🕊️</span>
-                  <h4 className="font-serif text-[10px] font-bold text-gray-800 uppercase">
-                    CUSTOM GLAM
-                  </h4>
-                  <p className="text-[8px] text-gray-400 mt-1 uppercase">TAILORED BEAUTY</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
+      <main style={{ flex: 1, padding: "50px 40px" }}>
+        {/* Sub Header */}
+        <div style={{ marginBottom: "30px" }}>
+          <span style={{ fontSize: "12px", color: "#DB2777", letterSpacing: "2px", fontWeight: "bold" }}>
+            STUDIO MENU & RATES
+          </span>
+          <h1 style={{ fontSize: "32px", fontFamily: "serif", fontWeight: "bold", margin: "5px 0 10px 0" }}>
+            SERVICES & PACKAGES
+          </h1>
+          <div style={{ width: "50px", height: "2px", backgroundColor: "#F4A3B4" }}></div>
         </div>
-      </main>
 
+        {/* Category Tabs */}
+        <div
+          style={{
+            display: "flex",
+            gap: "10px",
+            marginBottom: "40px",
+            flexWrap: "wrap",
+            borderBottom: "1px solid #f0f0f0",
+            paddingBottom: "15px",
+          }}
+        >
+          {servicesData.map((cat) => {
+            const isActive = cat.id === activeTab;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setActiveTab(cat.id)}
+                style={{
+                  backgroundColor: isActive ? "#FCE7F3" : "#F3F4F6",
+                  color: isActive ? "#9D174D" : "#374151",
+                  border: isActive ? "1px solid #FBCFE8" : "1px solid transparent",
+                  padding: "10px 18px",
+                  fontSize: "12px",
+                  fontWeight: "bold",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  transition: "all 0.2s ease",
+                }}
+              >
+                <span>{cat.icon}</span>
+                <span>{cat.tabLabel}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Services List Content */}
+        {currentCategory && (
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(380px, 1fr))",
+              gap: "30px",
+            }}
+          >
+            {currentCategory.subCategories.map((sub, index) => (
+              <div
+                key={index}
+                style={{
+                  border: "1px solid #E5E7EB",
+                  padding: "25px",
+                  backgroundColor: "#ffffff",
+                }}
+              >
+                <h3
+                  style={{
+                    fontSize: "16px",
+                    fontFamily: "serif",
+                    fontWeight: "bold",
+                    marginBottom: "15px",
+                    borderBottom: "1px solid #000",
+                    paddingBottom: "8px",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {sub.title}
+                </h3>
+
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                  {sub.items.map((item, idx) => (
+                    <div
+                      key={idx}
+                      onClick={() => handleServiceClick(item.name, item.price)}
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        cursor: "pointer",
+                        fontSize: "13px",
+                        color: item.highlighted ? "#DB2777" : "#374151",
+                        fontWeight: item.highlighted ? "bold" : "normal",
+                        padding: "4px 0",
+                      }}
+                    >
+                      <span>{item.name}</span>
+                      <span style={{ fontWeight: "bold" }}>{item.price}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </main>
     </div>
   );
 }
