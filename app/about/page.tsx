@@ -8,8 +8,8 @@ export default function AboutPage() {
   return (
     <div className="flex min-h-screen bg-white text-gray-800">
       
-      {/* 1. LEFT SIDEBAR NAVIGATION */}
-      <aside className="w-64 bg-black text-white flex flex-col justify-between p-6 fixed h-full z-20 left-0 top-0">
+      {/* --- 1. LEFT SIDEBAR NAVIGATION --- */}
+      <aside className="w-[260px] bg-black text-white flex flex-col justify-between p-6 fixed h-full z-20 left-0 top-0">
         
         {/* Logo Section */}
         <div>
@@ -20,30 +20,30 @@ export default function AboutPage() {
           </div>
 
           {/* Navigation Links */}
-          <nav className="mt-10">
-            <ul className="space-y-5 text-sm tracking-widest font-medium">
+          <nav className="mt-12">
+            <ul className="space-y-6 text-[13px] tracking-[3px] font-medium text-gray-300">
               <li>
-                <Link href="/" className="hover:text-[#f3a0ad] transition-colors">
+                <Link href="/" className="hover:text-white transition-colors">
                   HOME
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-[#f3a0ad] font-semibold">
+                <Link href="/about" className="text-white font-semibold">
                   ABOUT
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-[#f3a0ad] transition-colors">
+                <Link href="/services" className="hover:text-white transition-colors">
                   SERVICES
                 </Link>
               </li>
               <li>
-                <Link href="/portfolio" className="hover:text-[#f3a0ad] transition-colors">
+                <Link href="/portfolio" className="hover:text-white transition-colors">
                   PORTFOLIO
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[#f3a0ad] transition-colors">
+                <Link href="/contact" className="hover:text-white transition-colors">
                   CONTACT
                 </Link>
               </li>
@@ -52,8 +52,8 @@ export default function AboutPage() {
         </div>
 
         {/* Sidebar Footer & Socials */}
-        <div className="text-center text-xs text-gray-400 space-y-3">
-          <div className="flex justify-center space-x-4 text-white text-base">
+        <div className="text-center text-xs text-gray-500 space-y-4">
+          <div className="flex justify-center space-x-5 text-white text-lg">
             <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-[#f3a0ad]">
               📸
             </a>
@@ -61,58 +61,74 @@ export default function AboutPage() {
               🌐
             </a>
           </div>
-          <p className="text-[10px] tracking-wider">© 2026 MAKEUP ARTIST.</p>
+          <p className="text-[10px] tracking-widest">© 2026 MAKEUP ARTIST.</p>
         </div>
       </aside>
 
-      {/* 2. RIGHT MAIN CONTENT AREA */}
-      <main className="ml-64 flex-1 p-8 lg:p-16 flex items-center justify-center">
-        <div className="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      {/* --- 2. RIGHT MAIN CONTENT AREA --- */}
+      {/* `ml-[260px]` important hai taaki sidebar content ke upar na aaye */}
+      <main className="ml-[260px] flex-1 p-8 md:p-16 flex items-center justify-center">
+        
+        {/* Grid matching the Aayushi Patel reference layout */}
+        <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-[45%_55%] gap-12 items-start">
           
-          {/* Image Box */}
-          <div className="relative w-full h-[500px] rounded-lg overflow-hidden shadow-lg">
+          {/* --- Image Column (Full Height Style) --- */}
+          {/* Height badha di hai `h-[650px]` par taaki photo lambi dikhe */}
+          <div className="relative w-full h-[650px] rounded shadow-md overflow-hidden">
             <Image
-              src="/Khushi.jpeg" // Public folder se image call ho rahi hai
+              src="/Khushi.jpeg" // Public folder wali image
               alt="Khushi Patel - Makeup Artist"
               fill
-              className="object-cover"
+              className="object-cover object-center"
               priority
             />
           </div>
 
-          {/* Text Content */}
-          <div className="space-y-6">
+          {/* --- Text Content Column --- */}
+          <div className="space-y-8 pr-6">
+            
+            {/* Header section (Pink name + Big Title) */}
             <div>
-              <span className="text-[#f3a0ad] font-semibold tracking-widest text-sm uppercase">
-                Khushi Patel
+              <span className="text-[#f3a0ad] font-semibold tracking-[3px] text-xs uppercase">
+                KHUSHI PATEL
               </span>
-              <h1 className="text-3xl lg:text-4xl font-bold tracking-wider text-gray-900 mt-1">
+              <h1 className="text-4xl lg:text-5xl font-extrabold tracking-wider text-gray-950 mt-2">
                 MAKEUP ARTIST
               </h1>
             </div>
 
-            <p className="text-gray-600 text-sm leading-relaxed">
-              I'm a passionate makeup artist based in Ahmedabad, dedicated to creating timeless and elegant looks for brides on their special day. With a keen eye for detail and high-quality techniques, I strive to highlight each client's unique features.
-            </p>
+            {/* --- Exact Reference Style Paragraphs --- */}
+            {/* Font size specific style similar to the ref image */}
+            <div className="space-y-6 text-gray-700 text-[14px] leading-[1.9] tracking-wide">
+              
+              <p>
+                I'm a passionate makeup artist based in <span className="font-semibold text-gray-800">Ahmedabad</span>, dedicating my craft to creating timeless and elegant beauty on a client's special day. With a natural ability to connect with each individual client, I feel truly privileged to be part of such a broad, dynamic, and creative field.
+              </p>
+              
+              <p>
+                Fully qualified as both a hair and makeup technician, my work spans a wide range of projects from intricate <span className="text-gray-900 font-medium">bridal styling</span> to high-fashion editorials and glam party transformations.
+              </p>
 
-            <p className="text-gray-600 text-sm leading-relaxed">
-              Fully qualified in modern bridal hair and makeup styling, my work spans across pre-wedding shoots, grand bridal makeovers, and glam party looks.
-            </p>
+              <p>
+                My approach is to enhance unique features with high-quality products and modern techniques, ensuring every client feels confident and beautiful.
+              </p>
 
-            {/* Highlights / Awards Section */}
-            <div className="pt-4">
-              <h4 className="text-[#f3a0ad] font-semibold text-xs tracking-widest uppercase mb-3">
+            </div>
+
+            {/* --- Specializations / Awards Section --- */}
+            <div className="pt-6">
+              <h4 className="text-[#f3a0ad] font-semibold text-[11px] tracking-[2px] uppercase mb-4">
                 SPECIALIZATIONS
               </h4>
-              <div className="grid grid-cols-3 gap-3">
-                <div className="border border-gray-200 p-3 text-center rounded text-xs text-gray-600">
-                  HD Bridal
+              <div className="grid grid-cols-3 gap-4">
+                <div className="border border-gray-100 bg-gray-50/50 p-4 text-center rounded text-[11px] text-gray-600 tracking-wider">
+                  HD BRIDAL
                 </div>
-                <div className="border border-gray-200 p-3 text-center rounded text-xs text-gray-600">
-                  Airbrush
+                <div className="border border-gray-100 bg-gray-50/50 p-4 text-center rounded text-[11px] text-gray-600 tracking-wider">
+                  AIRBRUSH
                 </div>
-                <div className="border border-gray-200 p-3 text-center rounded text-xs text-gray-600">
-                  Hair Styling
+                <div className="border border-gray-100 bg-gray-50/50 p-4 text-center rounded text-[11px] text-gray-600 tracking-wider">
+                  HAIR STYLING
                 </div>
               </div>
             </div>
