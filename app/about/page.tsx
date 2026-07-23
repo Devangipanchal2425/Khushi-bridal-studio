@@ -23,6 +23,29 @@ interface CategoryData {
 
 const servicesData: CategoryData[] = [
   {
+    id: "korean",
+    tabLabel: "KOREAN GLASS PACKAGES",
+    icon: "🧚‍♀️",
+    subCategories: [
+      {
+        title: "KOREAN GLASS GLAM",
+        items: [
+          { name: "Korean Glass Makeup (Sider / Party)", price: "₹7,500" },
+          { name: "Pre-Function Korean Glass Glam", price: "₹13,000", highlighted: true },
+          { name: "Bridal Korean Glass Makeover", price: "₹22,000" },
+        ],
+      },
+      {
+        title: "KOREAN SPECIALS",
+        items: [
+          { name: "Korean Glass Glowing Skin Facial", price: "₹5,600", highlighted: true },
+          { name: "Korean Hair Spa Therapy", price: "₹2,000 - ₹5,600" },
+          { name: "Ultimate Korean Pre-Bridal Package", price: "₹19,000" },
+        ],
+      },
+    ],
+  },
+  {
     id: "bridal",
     tabLabel: "BRIDAL & PRE-FUNCTION",
     icon: "👑",
@@ -41,28 +64,6 @@ const servicesData: CategoryData[] = [
           { name: "Engagement / Ring Ceremony", price: "₹8,500" },
           { name: "Sangeet / Mehendi Look", price: "₹7,000" },
           { name: "Reception Look", price: "₹10,000", highlighted: true },
-        ],
-      },
-    ],
-  },
-  {
-    id: "korean",
-    tabLabel: "KOREAN GLASS & SPA",
-    icon: "✨",
-    subCategories: [
-      {
-        title: "KOREAN GLASS GLAM",
-        items: [
-          { name: "Korean Glass Makeup (Sider / Party)", price: "₹7,500" },
-          { name: "Pre-Function Korean Glass Glam", price: "₹13,000", highlighted: true },
-          { name: "Bridal Korean Glass Makeover", price: "₹22,000" },
-        ],
-      },
-      {
-        title: "KOREAN SPECIALS",
-        items: [
-          { name: "Korean Glass Glowing Skin Facial", price: "₹5,600", highlighted: true },
-          { name: "Korean Hair Spa Therapy", price: "₹2,000 - ₹5,600" },
         ],
       },
     ],
@@ -92,7 +93,7 @@ const servicesData: CategoryData[] = [
   },
   {
     id: "salon",
-    tabLabel: "SALON MENU (FULL SKIN, HAIR & NAILS)",
+    tabLabel: "SALON MENU (HAIR, SKIN, NAILS)",
     icon: "💄",
     subCategories: [
       {
@@ -123,7 +124,8 @@ const servicesData: CategoryData[] = [
 ];
 
 export default function ServicesPage() {
-  const [activeTab, setActiveTab] = useState("bridal");
+  // Default selected tab as per Image 2 (SALON MENU)
+  const [activeTab, setActiveTab] = useState("salon");
   const whatsappNumber = "919870085600";
 
   const handleServiceClick = (serviceName: string, servicePrice: string) => {
@@ -137,13 +139,13 @@ export default function ServicesPage() {
 
   return (
     <div style={{ display: "flex", minHeight: "100vh", backgroundColor: "#ffffff" }}>
-      {/* LEFT SIDEBAR (EXACT IMAGE MATCH) */}
+      {/* LEFT PERSISTENT SIDEBAR */}
       <aside
         style={{
-          width: "260px",
+          width: "250px",
           backgroundColor: "#000000",
           color: "#ffffff",
-          padding: "30px 20px",
+          padding: "35px 25px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
@@ -151,42 +153,28 @@ export default function ServicesPage() {
         }}
       >
         <div>
-          {/* Beige/Nude Box Logo */}
+          {/* Logo Container */}
           <div
             style={{
-              backgroundColor: "#CBB3A2",
-              padding: "30px 15px",
+              backgroundColor: "#F4A3B4",
+              color: "#000000",
               textAlign: "center",
-              marginBottom: "40px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
+              padding: "25px 15px",
+              marginBottom: "45px",
             }}
           >
-            <div
-              style={{
-                backgroundColor: "#ffffff",
-                padding: "15px 20px",
-                textAlign: "center",
-                width: "100%",
-              }}
-            >
-              <h2
-                style={{
-                  fontSize: "18px",
-                  fontWeight: "400",
-                  color: "#000000",
-                  margin: 0,
-                  fontFamily: "serif",
-                  letterSpacing: "1px",
-                }}
-              >
-                KHUSHI MAKEOVER
-              </h2>
-            </div>
+            <h2 style={{ fontSize: "28px", fontWeight: "900", margin: 0, letterSpacing: "2px" }}>
+              KP
+            </h2>
+            <h3 style={{ fontSize: "13px", fontWeight: "bold", margin: "6px 0 0 0", letterSpacing: "1px" }}>
+              KHUSHI PATEL
+            </h3>
+            <span style={{ fontSize: "8px", textTransform: "uppercase", letterSpacing: "1px", display: "block", marginTop: "2px" }}>
+              BRIDAL STUDIO & SALON
+            </span>
           </div>
 
-          {/* Navigation */}
+          {/* Navigation Links (Clickable & Active Styling) */}
           <nav style={{ display: "flex", flexDirection: "column", gap: "22px" }}>
             <Link
               href="/"
@@ -194,58 +182,84 @@ export default function ServicesPage() {
                 color: "#ffffff",
                 textDecoration: "none",
                 fontSize: "12px",
+                fontWeight: "600",
                 letterSpacing: "2px",
-                fontWeight: "500",
               }}
             >
               HOME
             </Link>
+
             <Link
               href="/about"
               style={{
                 color: "#ffffff",
                 textDecoration: "none",
                 fontSize: "12px",
+                fontWeight: "600",
                 letterSpacing: "2px",
-                fontWeight: "500",
               }}
             >
               ABOUT
             </Link>
+
             <Link
               href="/services"
               style={{
-                color: "#E8A3B6",
+                color: "#F4A3B4", // Highlighted for current page
                 textDecoration: "none",
                 fontSize: "12px",
+                fontWeight: "bold",
                 letterSpacing: "2px",
-                fontWeight: "600",
-                borderBottom: "1px solid #333",
-                paddingBottom: "10px",
               }}
             >
               SERVICES
             </Link>
+
+            <Link
+              href="/portfolio"
+              style={{
+                color: "#ffffff",
+                textDecoration: "none",
+                fontSize: "12px",
+                fontWeight: "600",
+                letterSpacing: "2px",
+              }}
+            >
+              PORTFOLIO
+            </Link>
+
+            <Link
+              href="/contact"
+              style={{
+                color: "#ffffff",
+                textDecoration: "none",
+                fontSize: "12px",
+                fontWeight: "600",
+                letterSpacing: "2px",
+              }}
+            >
+              CONTACT
+            </Link>
           </nav>
         </div>
 
-        {/* Footer */}
-        <div style={{ fontSize: "10px", color: "#777777" }}>
-          <p style={{ margin: "0 0 6px 0" }}>📍 South Bopal, Ahmedabad</p>
+        {/* Sidebar Footer */}
+        <div style={{ fontSize: "10px", color: "#888888", borderTop: "1px solid #222", paddingTop: "15px" }}>
+          <p style={{ margin: "0 0 5px 0" }}>📍 South Bopal, Ahmedabad</p>
           <p style={{ margin: 0 }}>©2026 KHUSHI MAKEOVER</p>
         </div>
       </aside>
 
-      {/* RIGHT MAIN SECTION */}
-      <main style={{ flex: 1, padding: "50px 40px" }}>
-        {/* Title */}
-        <div style={{ textAlign: "center", marginBottom: "35px" }}>
+      {/* RIGHT MAIN SERVICES SECTION */}
+      <main style={{ flex: 1, padding: "50px 45px", backgroundColor: "#ffffff" }}>
+        {/* Header Titles */}
+        <div style={{ marginBottom: "35px" }}>
           <span
             style={{
               fontSize: "11px",
-              color: "#E8A3B6",
-              letterSpacing: "3px",
-              fontWeight: "600",
+              color: "#F4A3B4",
+              letterSpacing: "2px",
+              fontWeight: "bold",
               textTransform: "uppercase",
             }}
           >
@@ -253,33 +267,28 @@ export default function ServicesPage() {
           </span>
           <h1
             style={{
-              fontSize: "30px",
+              fontSize: "36px",
               fontFamily: "serif",
-              fontWeight: "400",
-              margin: "8px 0 12px 0",
+              fontWeight: "bold",
+              margin: "6px 0 12px 0",
+              color: "#000000",
               letterSpacing: "1px",
             }}
           >
             SERVICES & PACKAGES
           </h1>
-          <div
-            style={{
-              width: "50px",
-              height: "2px",
-              backgroundColor: "#E8A3B6",
-              margin: "0 auto",
-            }}
-          ></div>
+          <div style={{ width: "55px", height: "2px", backgroundColor: "#F4A3B4" }}></div>
         </div>
 
-        {/* VERTICAL CENTERED TABS (Exact Screenshot Match) */}
+        {/* Horizontal Category Tabs (Exactly like Image 2) */}
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
             gap: "12px",
-            marginBottom: "45px",
+            marginBottom: "40px",
+            flexWrap: "wrap",
+            borderBottom: "1px solid #f0f0f0",
+            paddingBottom: "18px",
           }}
         >
           {servicesData.map((cat) => {
@@ -289,23 +298,19 @@ export default function ServicesPage() {
                 key={cat.id}
                 onClick={() => setActiveTab(cat.id)}
                 style={{
-                  backgroundColor: isActive ? "#F4B3C2" : "#F3F4F6",
-                  color: isActive ? "#000000" : "#4B5563",
-                  border: "none",
-                  padding: "12px 28px",
+                  backgroundColor: isActive ? "#FCE7F3" : "#F3F4F6",
+                  color: isActive ? "#9D174D" : "#374151",
+                  border: isActive ? "1px solid #FBCFE8" : "1px solid transparent",
+                  padding: "11px 20px",
                   fontSize: "11px",
-                  fontWeight: "600",
-                  letterSpacing: "1.5px",
+                  fontWeight: "bold",
                   cursor: "pointer",
-                  width: "100%",
-                  maxWidth: "420px",
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                  transition: "all 0.2s ease-in-out",
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: "center",
-                  gap: "10px",
+                  gap: "8px",
+                  letterSpacing: "0.5px",
+                  textTransform: "uppercase",
+                  transition: "all 0.2s ease-in-out",
                 }}
               >
                 <span>{cat.icon}</span>
@@ -315,12 +320,12 @@ export default function ServicesPage() {
           })}
         </div>
 
-        {/* ACTIVE SECTION DISPLAY */}
+        {/* Sub-Categories Menu Cards */}
         {currentCategory && (
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(360px, 1fr))",
               gap: "30px",
             }}
           >
@@ -329,7 +334,7 @@ export default function ServicesPage() {
                 key={index}
                 style={{
                   border: "1px solid #E5E7EB",
-                  padding: "25px",
+                  padding: "25px 30px",
                   backgroundColor: "#ffffff",
                 }}
               >
@@ -343,12 +348,13 @@ export default function ServicesPage() {
                     paddingBottom: "8px",
                     textTransform: "uppercase",
                     letterSpacing: "0.5px",
+                    color: "#000000",
                   }}
                 >
                   {sub.title}
                 </h3>
 
-                <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                   {sub.items.map((item, idx) => (
                     <div
                       key={idx}
@@ -358,13 +364,13 @@ export default function ServicesPage() {
                         justifyContent: "space-between",
                         cursor: "pointer",
                         fontSize: "13px",
-                        color: item.highlighted ? "#E8A3B6" : "#374151",
-                        fontWeight: item.highlighted ? "bold" : "400",
+                        color: item.highlighted ? "#DB2777" : "#374151",
+                        fontWeight: item.highlighted ? "bold" : "normal",
                         padding: "4px 0",
                       }}
                     >
                       <span>{item.name}</span>
-                      <span style={{ fontWeight: "600" }}>{item.price}</span>
+                      <span style={{ fontWeight: "bold" }}>{item.price}</span>
                     </div>
                   ))}
                 </div>
