@@ -229,7 +229,7 @@ export default function ServicesPage() {
         ],
       },
       {
-        title: "GOLD PRE-BRIDAL SPA",
+        
         price: "₹13,000/-",
         tag: "ADVANCED CARE",
         btnText: "BOOK PRE-BRIDAL",
@@ -246,7 +246,7 @@ export default function ServicesPage() {
         ],
       },
       {
-        title: "DIAMOND KOREAN PRE-BRIDAL SPA",
+        
         price: "₹19,000/-",
         tag: "ROYAL LUXURY",
         btnText: "BOOK ROYAL PRE-BRIDAL",
