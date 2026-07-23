@@ -25,6 +25,7 @@ export default function ServicesPage() {
     tag: string;
     features?: string[];
     btnText: string;
+    sectionGroup?: string;
   }>> = {
     bridal: [
       {
@@ -202,6 +203,7 @@ export default function ServicesPage() {
         price: "₹6,500/-",
         tag: "BASIC GLOW",
         btnText: "BOOK PRE-BRIDAL",
+        sectionGroup: "ESSENTIAL & SILVER SPA PACKAGES",
         features: [
           "Threading (Eyebrow, Forehead, Upper Lips)",
           "Normal Waxing (Full Hands, Legs, Underarms)",
@@ -215,6 +217,7 @@ export default function ServicesPage() {
         price: "₹10,000/-",
         tag: "POPULAR CHOICE",
         btnText: "BOOK PRE-BRIDAL",
+        sectionGroup: "ESSENTIAL & SILVER SPA PACKAGES",
         features: [
           "Threading (Eyebrow, Forehead, Upper Lips)",
           "Rica Waxing (Full Hands, Full Legs, Underarms)",
@@ -230,6 +233,7 @@ export default function ServicesPage() {
         price: "₹13,000/-",
         tag: "ADVANCED CARE",
         btnText: "BOOK PRE-BRIDAL",
+        sectionGroup: "GOLD & DIAMOND KOREAN SPA PACKAGES",
         features: [
           "Threading (Eyebrow, Forehead, Upper Lips)",
           "Rica Waxing (Full Hands, Legs, Underarms)",
@@ -246,6 +250,7 @@ export default function ServicesPage() {
         price: "₹19,000/-",
         tag: "ROYAL LUXURY",
         btnText: "BOOK ROYAL PRE-BRIDAL",
+        sectionGroup: "GOLD & DIAMOND KOREAN SPA PACKAGES",
         features: [
           "Threading (Eyebrow, Forehead, Upper Lips)",
           "Rica Waxing (Full Body)",
@@ -285,6 +290,14 @@ export default function ServicesPage() {
       },
     ],
   };
+
+  // Pre-Bridal Sections grouping helper
+  const essentialPackages = servicesData["pre-bridal"].filter(
+    (item) => item.sectionGroup === "ESSENTIAL & SILVER SPA PACKAGES"
+  );
+  const luxuryPackages = servicesData["pre-bridal"].filter(
+    (item) => item.sectionGroup === "GOLD & DIAMOND KOREAN SPA PACKAGES"
+  );
 
   return (
     <div className="flex min-h-screen bg-white text-gray-800 font-sans">
@@ -387,58 +400,181 @@ export default function ServicesPage() {
           })}
         </div>
 
-        {/* --- SERVICES CARDS GRID --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {servicesData[activeTab]?.map((item, index) => (
-            <div
-              key={index}
-              className="border border-gray-100 bg-white p-6 rounded-sm hover:shadow-md transition-all flex flex-col justify-between"
-            >
-              <div>
-                {/* Tag Header */}
-                <div className="flex justify-between items-start mb-2">
-                  <span className="text-[9px] bg-[#f3a0ad]/25 text-[#c24b5d] font-bold px-2 py-0.5 rounded-sm tracking-widest uppercase">
-                    {item.tag}
-                  </span>
+        {/* --- SERVICES CONTENT --- */}
+        {activeTab === "pre-bridal" ? (
+          <div className="space-y-12">
+            
+            {/* SECTION 1: ESSENTIAL & SILVER */}
+            <div>
+              <div className="mb-6 flex items-center space-x-3">
+                <span className="text-xl">🌸</span>
+                <div>
+                  <h2 className="text-lg font-serif font-bold text-gray-900 uppercase tracking-wide">
+                    ESSENTIAL & SILVER SPA PACKAGES
+                  </h2>
+                  <p className="text-xs text-gray-500">Perfect for foundational skin & hair prep</p>
                 </div>
-
-                {/* Service Title & Price */}
-                <h3 className="text-base font-serif font-bold text-gray-950 mt-1 uppercase leading-snug">
-                  {item.title}
-                </h3>
-                <p className="text-2xl font-serif font-bold text-[#d8586c] mt-1 mb-4">
-                  {item.price}
-                </p>
-
-                {/* Render features ONLY if array exists and is not empty */}
-                {item.features && item.features.length > 0 && (
-                  <ul className="space-y-2 mb-6">
-                    {item.features.map((feat, fIdx) => (
-                      <li key={fIdx} className="flex items-start text-xs text-gray-600 leading-snug">
-                        <span className="text-[#f3a0ad] mr-1.5 text-xs">✦</span>
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
               </div>
 
-              {/* Action Button */}
-              <div className="pt-4">
-                <a
-                  href={`https://wa.me/91${whatsappNumber}?text=${encodeURIComponent(
-                    `Hello Khushi! I would like to book: ${item.title} (${item.price}).`
-                  )}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-full inline-block text-center bg-black text-white py-2.5 text-[10px] font-bold tracking-[2px] uppercase hover:bg-[#f3a0ad] hover:text-black transition-all rounded-sm"
-                >
-                  {item.btnText}
-                </a>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {essentialPackages.map((item, index) => (
+                  <div
+                    key={index}
+                    className="border border-gray-100 bg-white p-6 rounded-sm hover:shadow-md transition-all flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="flex justify-between items-start mb-2">
+                        <span className="text-[9px] bg-[#f3a0ad]/25 text-[#c24b5d] font-bold px-2 py-0.5 rounded-sm tracking-widest uppercase">
+                          {item.tag}
+                        </span>
+                      </div>
+                      <h3 className="text-base font-serif font-bold text-gray-950 mt-1 uppercase leading-snug">
+                        {item.title}
+                      </h3>
+                      <p className="text-2xl font-serif font-bold text-[#d8586c] mt-1 mb-4">
+                        {item.price}
+                      </p>
+
+                      {item.features && item.features.length > 0 && (
+                        <ul className="space-y-2 mb-6">
+                          {item.features.map((feat, fIdx) => (
+                            <li key={fIdx} className="flex items-start text-xs text-gray-600 leading-snug">
+                              <span className="text-[#f3a0ad] mr-1.5 text-xs">✦</span>
+                              <span>{feat}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+
+                    <div className="pt-4">
+                      <a
+                        href={`https://wa.me/91${whatsappNumber}?text=${encodeURIComponent(
+                          `Hello Khushi! I would like to book: ${item.title} (${item.price}).`
+                        )}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-full inline-block text-center bg-black text-white py-2.5 text-[10px] font-bold tracking-[2px] uppercase hover:bg-[#f3a0ad] hover:text-black transition-all rounded-sm"
+                      >
+                        {item.btnText}
+                      </a>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          ))}
-        </div>
+
+            {/* SECTION 2: GOLD & DIAMOND KOREAN */}
+            <div>
+              <div className="mb-6 flex items-center space-x-3">
+                <span className="text-xl">✨</span>
+                <div>
+                  <h2 className="text-lg font-serif font-bold text-gray-900 uppercase tracking-wide">
+                    GOLD & DIAMOND KOREAN SPA PACKAGES
+                  </h2>
+                  <p className="text-xs text-gray-500">Ultimate full-body luxury & Korean Glass skin therapy</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {luxuryPackages.map((item, index) => (
+                  <div
+                    key={index}
+                    className="border border-gray-100 bg-white p-6 rounded-sm hover:shadow-md transition-all flex flex-col justify-between"
+                  >
+                    <div>
+                      <div className="flex justify-between items-start mb-2">
+                        <span className="text-[9px] bg-[#f3a0ad]/25 text-[#c24b5d] font-bold px-2 py-0.5 rounded-sm tracking-widest uppercase">
+                          {item.tag}
+                        </span>
+                      </div>
+                      <h3 className="text-base font-serif font-bold text-gray-950 mt-1 uppercase leading-snug">
+                        {item.title}
+                      </h3>
+                      <p className="text-2xl font-serif font-bold text-[#d8586c] mt-1 mb-4">
+                        {item.price}
+                      </p>
+
+                      {item.features && item.features.length > 0 && (
+                        <ul className="space-y-2 mb-6">
+                          {item.features.map((feat, fIdx) => (
+                            <li key={fIdx} className="flex items-start text-xs text-gray-600 leading-snug">
+                              <span className="text-[#f3a0ad] mr-1.5 text-xs">✦</span>
+                              <span>{feat}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+
+                    <div className="pt-4">
+                      <a
+                        href={`https://wa.me/91${whatsappNumber}?text=${encodeURIComponent(
+                          `Hello Khushi! I would like to book: ${item.title} (${item.price}).`
+                        )}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-full inline-block text-center bg-black text-white py-2.5 text-[10px] font-bold tracking-[2px] uppercase hover:bg-[#f3a0ad] hover:text-black transition-all rounded-sm"
+                      >
+                        {item.btnText}
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        ) : (
+          /* STANDARD GRID FOR OTHER TABS */
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {servicesData[activeTab]?.map((item, index) => (
+              <div
+                key={index}
+                className="border border-gray-100 bg-white p-6 rounded-sm hover:shadow-md transition-all flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex justify-between items-start mb-2">
+                    <span className="text-[9px] bg-[#f3a0ad]/25 text-[#c24b5d] font-bold px-2 py-0.5 rounded-sm tracking-widest uppercase">
+                      {item.tag}
+                    </span>
+                  </div>
+
+                  <h3 className="text-base font-serif font-bold text-gray-950 mt-1 uppercase leading-snug">
+                    {item.title}
+                  </h3>
+                  <p className="text-2xl font-serif font-bold text-[#d8586c] mt-1 mb-4">
+                    {item.price}
+                  </p>
+
+                  {item.features && item.features.length > 0 && (
+                    <ul className="space-y-2 mb-6">
+                      {item.features.map((feat, fIdx) => (
+                        <li key={fIdx} className="flex items-start text-xs text-gray-600 leading-snug">
+                          <span className="text-[#f3a0ad] mr-1.5 text-xs">✦</span>
+                          <span>{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+
+                <div className="pt-4">
+                  <a
+                    href={`https://wa.me/91${whatsappNumber}?text=${encodeURIComponent(
+                      `Hello Khushi! I would like to book: ${item.title} (${item.price}).`
+                    )}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="w-full inline-block text-center bg-black text-white py-2.5 text-[10px] font-bold tracking-[2px] uppercase hover:bg-[#f3a0ad] hover:text-black transition-all rounded-sm"
+                  >
+                    {item.btnText}
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Floating WhatsApp Icon */}
         <a
