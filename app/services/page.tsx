@@ -77,33 +77,108 @@ export default function ServicesPage() {
   };
 
   return (
-    <main style={styles.pageBackground}>
-      <div style={styles.container}>
-        <div style={styles.grid}>
+    <main style={{ backgroundColor: "#ffffff", minHeight: "100vh", padding: "40px 20px" }}>
+      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: "30px",
+          }}
+        >
           {packages.map((pkg) => (
-            <div key={pkg.id} style={styles.card}>
-              {/* Top Right Badge */}
-              <div style={styles.badge}>{pkg.badge}</div>
+            <div
+              key={pkg.id}
+              style={{
+                border: "1.5px solid #FBCFE8",
+                backgroundColor: "#ffffff",
+                position: "relative",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                paddingTop: "35px",
+              }}
+            >
+              {/* Badge */}
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  right: 0,
+                  backgroundColor: "#FCE7F3",
+                  color: "#9D174D",
+                  fontSize: "11px",
+                  fontWeight: "bold",
+                  padding: "6px 14px",
+                  letterSpacing: "1px",
+                  textTransform: "uppercase",
+                }}
+              >
+                {pkg.badge}
+              </div>
 
               {/* Package Content */}
-              <div style={styles.cardContent}>
-                <h2 style={styles.title}>{pkg.title}</h2>
-                <div style={styles.price}>{pkg.price}</div>
+              <div style={{ padding: "20px 25px 30px 25px", flexGrow: 1 }}>
+                <h2
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: "800",
+                    color: "#000000",
+                    lineHeight: "1.3",
+                    marginBottom: "12px",
+                    fontFamily: "serif",
+                  }}
+                >
+                  {pkg.title}
+                </h2>
+                <div
+                  style={{
+                    fontSize: "24px",
+                    fontWeight: "700",
+                    color: "#DB2777",
+                    marginBottom: "20px",
+                    fontFamily: "serif",
+                  }}
+                >
+                  {pkg.price}
+                </div>
 
                 {/* Features List */}
-                <ul style={styles.featureList}>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                   {pkg.features.map((feature, idx) => (
-                    <li key={idx} style={styles.featureItem}>
-                      <span style={styles.starIcon}>✦</span> {feature}
+                    <li
+                      key={idx}
+                      style={{
+                        fontSize: "13px",
+                        color: "#4B5563",
+                        marginBottom: "10px",
+                        display: "flex",
+                        alignItems: "flex-start",
+                        fontFamily: "sans-serif",
+                      }}
+                    >
+                      <span style={{ color: "#F472B6", marginRight: "8px" }}>✦</span>
+                      {feature}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Full Width Booking Button */}
+              {/* Book Button */}
               <button
                 onClick={() => handleBookNow(pkg.title, pkg.price)}
-                style={styles.bookButton}
+                style={{
+                  width: "100%",
+                  backgroundColor: "#000000",
+                  color: "#ffffff",
+                  padding: "14px",
+                  border: "none",
+                  fontSize: "13px",
+                  fontWeight: "bold",
+                  letterSpacing: "1px",
+                  cursor: "pointer",
+                  textTransform: "uppercase",
+                }}
               >
                 BOOK KOREAN GLAM
               </button>
@@ -114,93 +189,3 @@ export default function ServicesPage() {
     </main>
   );
 }
-
-const styles: { [key: string]: React.CSSProperties } = {
-  pageBackground: {
-    backgroundColor: "#ffffff",
-    minHeight: "100vh",
-    padding: "40px 20px",
-    fontFamily: "'Playfair Display', Georgia, serif", // Aesthetic Serif font like screenshot
-  },
-  container: {
-    maxWidth: "1100px",
-    margin: "0 auto",
-  },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-    gap: "30px",
-  },
-  card: {
-    border: "1.5px solid #FBCFE8", // Soft Pink Border
-    backgroundColor: "#fff",
-    position: "relative",
-    display: "flex",
-    flexDirection: "column",
-    justify: "space-between",
-    paddingTop: "35px",
-    boxShadow: "0 2px 10px rgba(0,0,0,0.02)",
-  },
-  badge: {
-    position: "absolute",
-    top: "0",
-    right: "0",
-    backgroundColor: "#FCE7F3", // Light Pink Badge
-    color: "#9D174D", // Dark Pink Text
-    fontSize: "0.7rem",
-    fontWeight: "bold",
-    padding: "6px 14px",
-    letterSpacing: "1px",
-    textTransform: "uppercase",
-  },
-  cardContent: {
-    padding: "20px 25px 30px 25px",
-    flexGrow: 1,
-  },
-  title: {
-    fontSize: "1.25rem",
-    fontWeight: "800",
-    color: "#000000",
-    lineHeight: "1.3",
-    marginBottom: "12px",
-    letterSpacing: "0.5px",
-  },
-  price: {
-    fontSize: "1.6rem",
-    fontWeight: "700",
-    color: "#DB2777", // Signature Pink Price Color
-    marginBottom: "20px",
-  },
-  featureList: {
-    listStyle: "none",
-    padding: 0,
-    margin: 0,
-    fontFamily: "system-ui, -apple-system, sans-serif", // Clean font for features list
-  },
-  featureItem: {
-    fontSize: "0.88rem",
-    color: "#4B5563",
-    marginBottom: "10px",
-    lineHeight: "1.4",
-    display: "flex",
-    alignItems: "flex-start",
-  },
-  starIcon: {
-    color: "#F472B6",
-    marginRight: "8px",
-    fontSize: "0.8rem",
-    marginTop: "2px",
-  },
-  bookButton: {
-    width: "100%",
-    backgroundColor: "#000000", // Solid Black Button as per screenshot
-    color: "#ffffff",
-    padding: "14px",
-    border: "none",
-    fontSize: "0.85rem",
-    fontWeight: "bold",
-    letterSpacing: "1px",
-    cursor: "pointer",
-    textTransform: "uppercase",
-  },
-};
