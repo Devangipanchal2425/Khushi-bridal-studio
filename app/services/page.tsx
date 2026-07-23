@@ -1,11 +1,11 @@
-'use client';
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Sidebar from '@/components/Sidebar';
+import Sidebar from '../../components/Sidebar'; // Path updated here
 
 export default function ServicesPage() {
   const phoneNumber = "919870085600";
   
+  // Baaki aapka purana services page ka code...  
   type TabType = 'bridal' | 'korean' | 'prebridal' | 'salon';
   const [activeTab, setActiveTab] = useState<TabType>('bridal');
   const [showCustomModal, setShowCustomModal] = useState(false);
