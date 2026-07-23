@@ -8,7 +8,7 @@ export default function ServicesPage() {
   const instagramLink = "https://www.instagram.com/khushiimakeover_official";
   const facebookLink = "https://www.facebook.com/share/18wh4hPmkN/";
 
-  const [activeTab, setActiveTab] = useState("bridal");
+  const [activeTab, setActiveTab] = useState("hair-spa");
 
   // Category Tabs List
   const tabs = [
@@ -23,7 +23,7 @@ export default function ServicesPage() {
     title: string;
     price: string;
     tag: string;
-    features: string[];
+    features?: string[];
     btnText: string;
   }>> = {
     bridal: [
@@ -157,50 +157,47 @@ export default function ServicesPage() {
       },
     ],
 
-"hair-spa": [
+    // Simple Korean Hair Spa List without any extra description bullet points
+    "hair-spa": [
       {
-        title: "KOREAN HAIR SPA",
+        title: "KOREAN HAIR SPA (NECK LENGTH)",
         price: "₹2,000/-",
         tag: "HAIR UP TO NECK",
         btnText: "BOOK HAIR SPA",
-        features: [],
       },
       {
-        title: "KOREAN HAIR SPA",
+        title: "KOREAN HAIR SPA (SHOULDER LENGTH)",
         price: "₹2,600/-",
         tag: "HAIR UP TO SHOULDER",
         btnText: "BOOK HAIR SPA",
-        features: [],
       },
       {
-        title: "KOREAN HAIR SPA",
+        title: "KOREAN HAIR SPA (BELOW SHOULDER)",
         price: "₹3,600/-",
         tag: "HAIR BELOW SHOULDER",
         btnText: "BOOK HAIR SPA",
-        features: [],
       },
       {
-        title: "KOREAN HAIR SPA",
+        title: "KOREAN HAIR SPA (WAIST LENGTH)",
         price: "₹4,600/-",
         tag: "HAIR UP TO WAIST",
         btnText: "BOOK HAIR SPA",
-        features: [],
       },
       {
-        title: "KOREAN HAIR SPA",
+        title: "KOREAN HAIR SPA (BELOW WAIST)",
         price: "₹5,600/-",
         tag: "HAIR BELOW WAIST",
         btnText: "BOOK HAIR SPA",
-        features: [],
       },
       {
         title: "FACE MASK WITH HAIR SPA (MASSAGE)",
         price: "₹8,900/-",
         tag: "LUXURY SPA COMBO",
         btnText: "BOOK SPECIAL COMBO",
-        features: [],
       },
-    ],    ],    "pre-bridal": [
+    ],
+
+    "pre-bridal": [
       {
         title: "GLOW & RADIANCE PRE-BRIDAL",
         price: "₹12,000/-",
@@ -322,7 +319,7 @@ export default function ServicesPage() {
       {/* --- 2. MAIN SERVICES CONTENT AREA --- */}
       <main className="ml-[260px] flex-1 p-8 md:p-12 max-w-7xl mx-auto relative">
         
-        {/* Top Header with Underline */}
+        {/* Top Header */}
         <div className="mb-8 border-b border-gray-100 pb-5">
           <span className="text-[#f3a0ad] font-semibold tracking-[3px] text-[11px] uppercase block mb-1">
             STUDIO MENU & RATES
@@ -354,12 +351,12 @@ export default function ServicesPage() {
           })}
         </div>
 
-        {/* --- SERVICES CARDS GRID (3-BOXES PER ROW) --- */}
+        {/* --- SERVICES CARDS GRID --- */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {servicesData[activeTab]?.map((item, index) => (
             <div
               key={index}
-              className="border border-gray-100 bg-white p-6 rounded-sm hover:shadow-md transition-all flex flex-col justify-between relative"
+              className="border border-gray-100 bg-white p-6 rounded-sm hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 {/* Tag Header */}
@@ -377,22 +374,24 @@ export default function ServicesPage() {
                   {item.price}
                 </p>
 
-                {/* Features List */}
-                <ul className="space-y-2 mb-6">
-                  {item.features.map((feat, fIdx) => (
-                    <li key={fIdx} className="flex items-start text-xs text-gray-600 leading-snug">
-                      <span className="text-[#f3a0ad] mr-1.5 text-xs">✦</span>
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Render features ONLY if array exists and is not empty */}
+                {item.features && item.features.length > 0 && (
+                  <ul className="space-y-2 mb-6">
+                    {item.features.map((feat, fIdx) => (
+                      <li key={fIdx} className="flex items-start text-xs text-gray-600 leading-snug">
+                        <span className="text-[#f3a0ad] mr-1.5 text-xs">✦</span>
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
 
               {/* Action Button */}
-              <div className="pt-2">
+              <div className="pt-4">
                 <a
                   href={`https://wa.me/91${whatsappNumber}?text=${encodeURIComponent(
-                    `Hello Khushi! I would like to book the package: ${item.title} (${item.price}).`
+                    `Hello Khushi! I would like to book: ${item.title} (${item.price}).`
                   )}`}
                   target="_blank"
                   rel="noreferrer"
@@ -405,7 +404,7 @@ export default function ServicesPage() {
           ))}
         </div>
 
-        {/* Floating WhatsApp Action Icon */}
+        {/* Floating WhatsApp Icon */}
         <a
           href={`https://wa.me/91${whatsappNumber}?text=${encodeURIComponent(
             "Hello Khushi! I would like to inquire about your studio services."
