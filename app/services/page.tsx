@@ -8,7 +8,7 @@ export default function ServicesPage() {
   const instagramLink = "https://www.instagram.com/khushiimakeover_official";
   const facebookLink = "https://www.facebook.com/share/18wh4hPmkN/";
 
-  const [activeTab, setActiveTab] = useState("hair-spa");
+  const [activeTab, setActiveTab] = useState("pre-bridal");
 
   // Category Tabs List
   const tabs = [
@@ -157,7 +157,6 @@ export default function ServicesPage() {
       },
     ],
 
-    // Simple Korean Hair Spa List without any extra description bullet points
     "hair-spa": [
       {
         title: "KOREAN HAIR SPA (NECK LENGTH)",
@@ -199,27 +198,64 @@ export default function ServicesPage() {
 
     "pre-bridal": [
       {
-        title: "GLOW & RADIANCE PRE-BRIDAL",
-        price: "₹12,000/-",
-        tag: "ESSENTIAL",
-        btnText: "BOOK SPA",
+        title: "ESSENTIAL PRE-BRIDAL PACKAGE",
+        price: "₹6,500/-",
+        tag: "BASIC GLOW",
+        btnText: "BOOK PRE-BRIDAL",
         features: [
-          "Full Body Waxing & Polishing",
-          "Bridal Facial Treatment",
-          "Deluxe Manicure & Pedicure",
-          "Hair Spa & Deep Conditioning",
+          "Threading (Eyebrow, Forehead, Upper Lips)",
+          "Normal Waxing (Full Hands, Legs, Underarms)",
+          "Clean Up",
+          "Manicure & Pedicure (Regular)",
+          "Facial (O3+)",
         ],
       },
       {
-        title: "LUXURY ROYAL PRE-BRIDAL SPA",
-        price: "₹20,000/-",
-        tag: "ALL-INCLUSIVE",
-        btnText: "BOOK ROYAL SPA",
+        title: "SILVER PRE-BRIDAL SPA",
+        price: "₹10,000/-",
+        tag: "POPULAR CHOICE",
+        btnText: "BOOK PRE-BRIDAL",
         features: [
-          "2-Day Complete Body Pampering",
-          "Korean Glass Skin Facial Routine",
-          "Body Scrub, Wrap & Massage",
-          "Bridal Nail Art & Gel Extensions",
+          "Threading (Eyebrow, Forehead, Upper Lips)",
+          "Rica Waxing (Full Hands, Full Legs, Underarms)",
+          "Bikini Wax",
+          "Cleanup",
+          "Facial (Haydry) & D-Tan (Face)",
+          "Manicure & Pedicure (Regular)",
+          "Hair Spa (L'Oreal)",
+        ],
+      },
+      {
+        title: "GOLD PRE-BRIDAL SPA",
+        price: "₹13,000/-",
+        tag: "ADVANCED CARE",
+        btnText: "BOOK PRE-BRIDAL",
+        features: [
+          "Threading (Eyebrow, Forehead, Upper Lips)",
+          "Rica Waxing (Full Hands, Legs, Underarms)",
+          "Bikini Wax & Clean Up",
+          "Facial (Haydry Bust.O3+ Raga)",
+          "D-Tan (Face, Neck) & Face Mask",
+          "Manicure & Pedicure",
+          "Hair Spa (L'Oreal)",
+          "Body Polishing (Full Body Scrubbing, Cream Massage, Full Body Pack)",
+        ],
+      },
+      {
+        title: "DIAMOND KOREAN PRE-BRIDAL SPA",
+        price: "₹19,000/-",
+        tag: "ROYAL LUXURY",
+        btnText: "BOOK ROYAL PRE-BRIDAL",
+        features: [
+          "Threading (Eyebrow, Forehead, Upper Lips)",
+          "Rica Waxing (Full Body)",
+          "Clean Up",
+          "Facial (Korean Glass / Glowing Skin)",
+          "Korean Glass Face Pack & D-Tan",
+          "Manicure & Pedicure",
+          "Body Oil Massage",
+          "Body Polishing (Full Body Scrubbing, Cream Massage, Full Body Pack)",
+          "Korean Hair Spa Therapy (With Face Mask & Massage)",
         ],
       },
     ],
