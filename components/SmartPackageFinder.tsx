@@ -20,7 +20,7 @@ export default function SmartPackageFinder() {
   // Logic to calculate recommendation
   const getRecommendation = (): Recommendation | null => {
     if (!occasion || !skinType || !budget) return null;
-
+ 
     // 1. BRIDAL OCCASIONS
     if (occasion === "bridal") {
       if (budget === "luxury") {
