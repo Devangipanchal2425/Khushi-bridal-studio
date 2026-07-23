@@ -9,7 +9,7 @@ interface ServiceItem {
   highlighted?: boolean;
 }
 
-interface ServiceSubCategory {
+interface ServiceSubCategory { 
   title: string;
   items: ServiceItem[];
 }
