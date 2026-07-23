@@ -1,191 +1,308 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
-interface ServicePackage {
-  id: string;
-  badge: string;
-  title: string;
+// Types
+interface ServiceItem {
+  name: string;
   price: string;
-  features: string[];
+  highlighted?: boolean;
 }
 
-const packages: ServicePackage[] = [
+interface ServiceSubCategory {
+  title: string;
+  items: ServiceItem[];
+}
+
+interface CategoryData {
+  id: string;
+  tabLabel: string;
+  icon: string;
+  subCategories: ServiceSubCategory[];
+}
+
+// 4 Categories Data Structure
+const servicesData: CategoryData[] = [
   {
-    id: "1",
-    badge: "TRENDING LOOK",
-    title: "KOREAN GLASS MAKEUP (SIDER / PARTY)",
-    price: "₹7,500/-",
-    features: [
-      "Glass Glow Finish Makeup",
-      "Hairstyle (Real Flower styling)",
-      "Eye Lashes & Premium Eye Lenses",
-      "Saree / Outfit Draping",
-      "Hair Extension Included",
+    id: "korean",
+    tabLabel: "KOREAN GLASS PACKAGES",
+    icon: "🧚‍♀️",
+    subCategories: [
+      {
+        title: "KOREAN GLASS GLAM",
+        items: [
+          { name: "Korean Glass Makeup (Sider / Party)", price: "₹7,500" },
+          { name: "Pre-Function Korean Glass Glam", price: "₹13,000", highlighted: true },
+          { name: "Bridal Korean Glass Makeover", price: "₹22,000" },
+        ],
+      },
+      {
+        title: "KOREAN SPECIALS",
+        items: [
+          { name: "Korean Glass Glowing Skin Facial", price: "₹5,600", highlighted: true },
+          { name: "Korean Hair Spa Therapy", price: "₹2,000 - ₹5,600" },
+          { name: "Ultimate Korean Pre-Bridal Package", price: "₹19,000" },
+        ],
+      },
     ],
   },
   {
-    id: "2",
-    badge: "MOST POPULAR",
-    title: "PRE-FUNCTION KOREAN GLASS GLAM",
-    price: "₹13,000/-",
-    features: [
-      "Korean Glass Makeup (Sangeet/Haldi/Mahendi/Engagement)",
-      "Hair Style with Real Flowers & Decoration",
-      "Eye Lashes & Eye Lenses",
-      "Saree / Outfit Draping",
+    id: "bridal",
+    tabLabel: "BRIDAL & PRE-FUNCTION",
+    icon: "👑",
+    subCategories: [
+      {
+        title: "BRIDAL MAKEOVERS",
+        items: [
+          { name: "Traditional Bridal Makeup", price: "₹15,000" },
+          { name: "HD Premium Bridal Makeup", price: "₹18,000", highlighted: true },
+          { name: "Airbrush Luxury Bridal", price: "₹25,000" },
+        ],
+      },
+      {
+        title: "PRE-FUNCTION EVENTS",
+        items: [
+          { name: "Engagement / Ring Ceremony", price: "₹8,500" },
+          { name: "Sangeet / Mehendi Look", price: "₹7,000" },
+          { name: "Reception Look", price: "₹10,000", highlighted: true },
+        ],
+      },
     ],
   },
   {
-    id: "3",
-    badge: "LUXURY BRIDAL",
-    title: "BRIDAL KOREAN GLASS MAKEOVER",
-    price: "₹22,000/-",
-    features: [
-      "Signature Korean Glass Skin Makeup",
-      "Hair Style (Brooch Decoration / Real Flowers)",
-      "Damani, Tikko & Nath Placement",
-      "Eye Lashes & Eye Lenses",
-      "Hair Accessories & Extensions",
-      "Saree / Dupatta Draping",
+    id: "spa",
+    tabLabel: "PRE-BRIDAL SPA",
+    icon: "🌸",
+    subCategories: [
+      {
+        title: "BODY POLISHING & SPA",
+        items: [
+          { name: "Rica Full Body Waxing", price: "₹3,500" },
+          { name: "Full Body Polish & Pack", price: "₹4,500", highlighted: true },
+          { name: "Aroma Body Oil Massage", price: "₹2,500" },
+        ],
+      },
+      {
+        title: "HANDS & FEET CARE",
+        items: [
+          { name: "Luxury Manicure", price: "₹1,200" },
+          { name: "Pedicure Care Spa", price: "₹1,500" },
+          { name: "D-Tan Hand & Feet Glow", price: "₹1,800", highlighted: true },
+        ],
+      },
     ],
   },
   {
-    id: "4",
-    badge: "FULL TREATMENT",
-    title: "ULTIMATE KOREAN PRE-BRIDAL PACKAGE",
-    price: "₹19,000/-",
-    features: [
-      "Korean Glass Glowing Skin Facial & Face Pack",
-      "Korean Hair Spa Therapy (With Face Mask & Massage)",
-      "Rica Full Body Waxing & Body Polishing",
-      "Full Body Oil Massage, Scrubbing & Pack",
-      "Clean Up, D-Tan, Manicure, Pedicure, Threading",
+    id: "salon",
+    tabLabel: "SALON MENU (HAIR, SKIN, NAILS)",
+    icon: "💄",
+    subCategories: [
+      {
+        title: "FACIALS & SKIN TREATMENTS",
+        items: [
+          { name: "Tan Clear Facial (Tanned Skin)", price: "₹800" },
+          { name: "Glovite Facial (Dry Skin)", price: "₹1,200" },
+          { name: "Sensi Glow Facial (Sensitive Skin)", price: "₹1,800" },
+          { name: "Light & Bright Facial", price: "₹2,100" },
+          { name: "O3+ Glowing Skin Facial", price: "₹2,500" },
+          { name: "Hydra Boost Skin Facial", price: "₹5,000", highlighted: true },
+          { name: "Korean Glass Skin Facial", price: "₹5,600", highlighted: true },
+        ],
+      },
+      {
+        title: "HAIR SPA & TREATMENTS",
+        items: [
+          { name: "L'Oreal Professional Spa", price: "₹600 - ₹2,100" },
+          { name: "Korean Hair Spa Therapy (Massage)", price: "₹2,000 - ₹5,600", highlighted: true },
+          { name: "Hair Straightening Treatment", price: "₹2,500 - ₹8,900" },
+          { name: "Botox Hair Treatment", price: "₹2,500 - ₹7,500" },
+          { name: "Pro Keratin Treatment", price: "₹2,900 - ₹8,900" },
+          { name: "Nanoplastia Treatment", price: "₹3,900 - ₹9,900" },
+        ],
+      },
     ],
   },
 ];
 
 export default function ServicesPage() {
+  // Default selected tab as per screenshot (4th option: SALON MENU)
+  const [activeTab, setActiveTab] = useState("salon");
   const whatsappNumber = "919870085600";
 
-  const handleBookNow = (packageName: string, packagePrice: string) => {
-    const message = `Hello, I am interested in this package:\n\n📦 *Package Name:* ${packageName}\n💰 *Price:* ${packagePrice}`;
+  const handleServiceClick = (serviceName: string, servicePrice: string) => {
+    const message = `Hello, I am interested in this package:\n\n📦 *Package Name:* ${serviceName}\n💰 *Price:* ${servicePrice}`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-
     window.open(whatsappURL, "_blank", "noopener,noreferrer");
   };
 
+  const currentCategory = servicesData.find((cat) => cat.id === activeTab);
+
   return (
-    <main style={{ backgroundColor: "#ffffff", minHeight: "100vh", padding: "40px 20px" }}>
-      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+    <div style={{ display: "flex", minHeight: "100vh", backgroundColor: "#ffffff" }}>
+      {/* LEFT SIDEBAR */}
+      <aside
+        style={{
+          width: "240px",
+          backgroundColor: "#000000",
+          color: "#ffffff",
+          padding: "30px 20px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+        }}
+      >
+        <div>
+          {/* Brand Logo Box */}
+          <div
+            style={{
+              backgroundColor: "#F4A3B4",
+              color: "#000",
+              textAlign: "center",
+              padding: "25px 15px",
+              marginBottom: "40px",
+            }}
+          >
+            <h2 style={{ fontSize: "28px", fontWeight: "900", margin: 0, letterSpacing: "2px" }}>
+              KP
+            </h2>
+            <h3 style={{ fontSize: "14px", fontWeight: "bold", margin: "5px 0 0 0", letterSpacing: "1px" }}>
+              KHUSHI PATEL
+            </h3>
+            <span style={{ fontSize: "9px", textTransform: "uppercase", letterSpacing: "1px" }}>
+              Bridal Studio & Salon
+            </span>
+          </div>
+
+          {/* Navigation Links */}
+          <nav style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+            <a href="#" style={{ color: "#fff", textDecoration: "none", fontSize: "13px", fontWeight: "bold", letterSpacing: "2px" }}>
+              HOME
+            </a>
+            <a href="#" style={{ color: "#fff", textDecoration: "none", fontSize: "13px", fontWeight: "bold", letterSpacing: "2px" }}>
+              ABOUT
+            </a>
+            <a href="#" style={{ color: "#F4A3B4", textDecoration: "none", fontSize: "13px", fontWeight: "bold", letterSpacing: "2px" }}>
+              SERVICES
+            </a>
+          </nav>
+        </div>
+
+        {/* Footer info in sidebar */}
+        <div style={{ fontSize: "10px", color: "#888" }}>
+          <p style={{ margin: "0 0 5px 0" }}>📍 South Bopal, Ahmedabad</p>
+          <p style={{ margin: 0 }}>©2026 KHUSHI MAKEOVER</p>
+        </div>
+      </aside>
+
+      {/* RIGHT MAIN CONTENT AREA */}
+      <main style={{ flex: 1, padding: "50px 40px" }}>
+        {/* Header Title */}
+        <div style={{ marginBottom: "30px" }}>
+          <span style={{ fontSize: "12px", color: "#DB2777", letterSpacing: "2px", fontWeight: "bold" }}>
+            STUDIO MENU & RATES
+          </span>
+          <h1 style={{ fontSize: "32px", fontFamily: "serif", fontWeight: "bold", margin: "5px 0 10px 0" }}>
+            SERVICES & PACKAGES
+          </h1>
+          <div style={{ width: "50px", height: "2px", backgroundColor: "#F4A3B4" }}></div>
+        </div>
+
+        {/* Category Tabs */}
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: "30px",
+            display: "flex",
+            gap: "10px",
+            marginBottom: "40px",
+            flexWrap: "wrap",
+            borderBottom: "1px solid #f0f0f0",
+            paddingBottom: "15px",
           }}
         >
-          {packages.map((pkg) => (
-            <div
-              key={pkg.id}
-              style={{
-                border: "1.5px solid #FBCFE8",
-                backgroundColor: "#ffffff",
-                position: "relative",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                paddingTop: "35px",
-              }}
-            >
-              {/* Badge */}
-              <div
+          {servicesData.map((cat) => {
+            const isActive = cat.id === activeTab;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setActiveTab(cat.id)}
                 style={{
-                  position: "absolute",
-                  top: 0,
-                  right: 0,
-                  backgroundColor: "#FCE7F3",
-                  color: "#9D174D",
-                  fontSize: "11px",
+                  backgroundColor: isActive ? "#FCE7F3" : "#F3F4F6",
+                  color: isActive ? "#9D174D" : "#374151",
+                  border: isActive ? "1px solid #FBCFE8" : "1px solid transparent",
+                  padding: "10px 18px",
+                  fontSize: "12px",
                   fontWeight: "bold",
-                  padding: "6px 14px",
-                  letterSpacing: "1px",
-                  textTransform: "uppercase",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  transition: "all 0.2s ease",
                 }}
               >
-                {pkg.badge}
-              </div>
+                <span>{cat.icon}</span>
+                <span>{cat.tabLabel}</span>
+              </button>
+            );
+          })}
+        </div>
 
-              {/* Package Content */}
-              <div style={{ padding: "20px 25px 30px 25px", flexGrow: 1 }}>
-                <h2
+        {/* Active Tab Sub-Categories Content */}
+        {currentCategory && (
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(380px, 1fr))",
+              gap: "30px",
+            }}
+          >
+            {currentCategory.subCategories.map((sub, index) => (
+              <div
+                key={index}
+                style={{
+                  border: "1px solid #E5E7EB",
+                  padding: "25px",
+                  backgroundColor: "#ffffff",
+                }}
+              >
+                <h3
                   style={{
-                    fontSize: "18px",
-                    fontWeight: "800",
-                    color: "#000000",
-                    lineHeight: "1.3",
-                    marginBottom: "12px",
+                    fontSize: "16px",
                     fontFamily: "serif",
+                    fontWeight: "bold",
+                    marginBottom: "15px",
+                    borderBottom: "1px solid #000",
+                    paddingBottom: "8px",
+                    textTransform: "uppercase",
                   }}
                 >
-                  {pkg.title}
-                </h2>
-                <div
-                  style={{
-                    fontSize: "24px",
-                    fontWeight: "700",
-                    color: "#DB2777",
-                    marginBottom: "20px",
-                    fontFamily: "serif",
-                  }}
-                >
-                  {pkg.price}
-                </div>
+                  {sub.title}
+                </h3>
 
-                {/* Features List */}
-                <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-                  {pkg.features.map((feature, idx) => (
-                    <li
+                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                  {sub.items.map((item, idx) => (
+                    <div
                       key={idx}
+                      onClick={() => handleServiceClick(item.name, item.price)}
                       style={{
-                        fontSize: "13px",
-                        color: "#4B5563",
-                        marginBottom: "10px",
                         display: "flex",
-                        alignItems: "flex-start",
-                        fontFamily: "sans-serif",
+                        justifyContent: "space-between",
+                        cursor: "pointer",
+                        fontSize: "13px",
+                        color: item.highlighted ? "#DB2777" : "#374151",
+                        fontWeight: item.highlighted ? "bold" : "normal",
+                        padding: "4px 0",
                       }}
                     >
-                      <span style={{ color: "#F472B6", marginRight: "8px" }}>✦</span>
-                      {feature}
-                    </li>
+                      <span>{item.name}</span>
+                      <span style={{ fontWeight: "bold" }}>{item.price}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
-
-              {/* Book Button */}
-              <button
-                onClick={() => handleBookNow(pkg.title, pkg.price)}
-                style={{
-                  width: "100%",
-                  backgroundColor: "#000000",
-                  color: "#ffffff",
-                  padding: "14px",
-                  border: "none",
-                  fontSize: "13px",
-                  fontWeight: "bold",
-                  letterSpacing: "1px",
-                  cursor: "pointer",
-                  textTransform: "uppercase",
-                }}
-              >
-                BOOK KOREAN GLAM
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
-    </main>
+            ))}
+          </div>
+        )}
+      </main>
+    </div>
   );
 }
