@@ -55,7 +55,7 @@ export default function AboutPage() {
           <div className="lg:col-span-5 w-full max-w-md mx-auto lg:max-w-none">
             <div className="w-full aspect-[3/4] bg-gray-100 overflow-hidden shadow-sm rounded-sm">
               <img 
-                src="/bride.jpeg" 
+                src="/Khushi.jpeg" 
                 alt="Khushi Patel - Makeup Artist" 
                 className="w-full h-full object-cover object-center"
               />
