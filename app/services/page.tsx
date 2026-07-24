@@ -394,7 +394,7 @@ export default function ServicesPage() {
     activeTab === "bridal" ||
     activeTab === "hair-spa" ||
     activeTab === "salon-menu";
-
+ 
   const gridClasses = isThreeColumnLayout
     ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
     : "grid grid-cols-1 md:grid-cols-2 gap-6";
