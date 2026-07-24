@@ -113,7 +113,7 @@ export default function AboutPage() {
           <div className="lg:col-span-5">
             <div className="relative w-full h-[520px] rounded-sm overflow-hidden shadow-sm bg-gray-100">
               <Image
-                src="/images/Khushi.jpeg"
+                src="/Khushi.jpeg"
                 alt="Khushi Patel - Makeup Artist"
                 fill
                 className="object-cover"
