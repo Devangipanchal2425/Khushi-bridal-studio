@@ -400,8 +400,7 @@ export default function ServicesPage() {
     : "grid grid-cols-1 md:grid-cols-2 gap-6";
 
   return (
-    <div className="flex min-h-screen bg-white text-gray-800 font-sans">
-      {/* --- 1. LEFT SIDEBAR NAVIGATION --- */}
+<div className="flex flex-col md:flex-row min-h-screen bg-white text-gray-800 font-sans">      {/* --- 1. LEFT SIDEBAR NAVIGATION --- */}
       <aside className="w-[260px] bg-black text-white flex flex-col justify-between p-6 fixed h-full z-20 left-0 top-0">
         <div>
           {/* Logo Badge */}
