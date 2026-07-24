@@ -401,10 +401,16 @@ export default function ServicesPage() {
 
   return (
 <div className="flex w-full min-h-screen overflow-x-hidden">
-<aside className="w-[38%] bg-black text-white p-2 sm:p-4 flex flex-col justify-between shrink-0 min-h-screen">
-  {/* Aapka Left Sidebar ka Baaki Code */}
-</aside>
-  <div>
+  {/* Left Sidebar (38%) */}
+  <aside className="w-[38%] bg-black text-white p-2 sm:p-4 flex flex-col justify-between shrink-0 min-h-screen">
+    {/* Aapka Left Sidebar ka Baaki Code */}
+  </aside>
+
+  {/* CHANGE HERE: '<div>' ko is tarah replace karein (62% width + auto scroll) */}
+  <main className="w-[62%] bg-[#1e1e1e] text-white p-3 sm:p-6 overflow-y-auto min-h-screen">
+    {/* Aapka Right Side (Services & Packages) ka Code yahan aayega */}
+  </main>
+</div>  <div>
     {/* Logo Badge */}
           <div className="bg-[#f3a0ad] text-black text-center p-5 rounded-sm">
             <h2 className="text-2xl font-serif font-bold tracking-wider">KP</h2>
@@ -490,9 +496,9 @@ export default function ServicesPage() {
 
       {/* --- 2. MAIN SERVICES CONTENT AREA --- */}
 <main className="w-[62%] bg-[#1e1e1e] text-white p-3 sm:p-6 overflow-y-auto min-h-screen">
-  {/* Aapka Right Content ka Baaki Code */}
-</main>       <div className="mb-8 border-b border-gray-100 pb-5">
-          <span className="text-[#f3a0ad] font-semibold tracking-[3px] text-[11px] uppercase block mb-1">
+    {/* Aapka Right Side (Services & Packages) ka Code yahan aayega */}
+  </main>
+</div>          <span className="text-[#f3a0ad] font-semibold tracking-[3px] text-[11px] uppercase block mb-1">
             STUDIO MENU & RATES
           </span>
           <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-wider text-gray-950 uppercase">
