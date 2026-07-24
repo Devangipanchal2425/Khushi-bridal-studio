@@ -19,9 +19,9 @@ export default function AboutPage() {
       {/* --- 1. LEFT SIDEBAR NAVIGATION --- */}
       <aside className="w-[260px] bg-black text-white flex flex-col justify-left p-6 fixed h-full z-20 left-0 top-0">
         <div>
-          {/* Logo Badge */}
-<div className="bg-[#f3a0ad] text-black text-center p-5 rounded-sm absolute top-6 left-6 z-50">
-  <h2 className="text-2xl font-serif font-bold tracking-wider">KP</h2>
+          {/* Logo Badge (FIXED: Wapas normal kar diya hai) */}
+          <div className="bg-[#f3a0ad] text-black text-center p-5 rounded-sm mb-8">
+            <h2 className="text-2xl font-serif font-bold tracking-wider">KP</h2>
             <p className="text-xs font-semibold tracking-widest mt-1">KHUSHI PATEL</p>
             <span className="text-[9px] tracking-widest block mt-0.5">MAKE-UP ARTIST</span>
           </div>
