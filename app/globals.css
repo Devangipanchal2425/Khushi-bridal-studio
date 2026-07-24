@@ -19,6 +19,24 @@
     display: inline-block;
   }
 }
+/* Mobile Screen Responsive Fix */
+@media (max-width: 768px) {
+  html, body {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    position: relative !important;
+  }
+
+  body * {
+    max-width: 100vw !important;
+  }
+
+  /* Force side-by-side elements to stack vertically on mobile */
+  div, main, section {
+    flex-direction: column !important;
+  }
+}
 html, body {
   max-width: 100vw;
   overflow-x: hidden;
