@@ -11,9 +11,7 @@ export default function Home() {
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=Hello%20Khushi,%20I%20would%20like%20to%20inquire%20about%20your%20bridal%20makeup%20services.`;
 
   return (
-    <div className="min-h-screen w-full bg-black relative flex flex-col justify-between p-4 sm:p-6 overflow-hidden animate-fadeIn select-none">
-      
-      {/* Full Screen Background Image Layer */}
+<div className="min-h-screen w-full max-w-[100vw] bg-black relative flex flex-col justify-between p-4 sm:p-6 overflow-x-hidden animate-fadeIn select-none">      {/* Full Screen Background Image Layer */}
       <div 
         className="absolute inset-0 bg-cover bg-center z-0 transition-all duration-500"
         style={{ 
