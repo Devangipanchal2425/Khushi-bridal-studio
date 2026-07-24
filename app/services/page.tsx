@@ -401,8 +401,8 @@ export default function ServicesPage() {
 
   return (
 <div className="flex flex-col md:flex-row min-h-screen bg-white text-gray-800 font-sans">      {/* --- 1. LEFT SIDEBAR NAVIGATION --- */}
-      <aside className="w-[260px] bg-black text-white flex flex-col justify-between p-6 fixed h-full z-20 left-0 top-0">
-        <div>
+// Existing sidebar
+<aside className="hidden md:flex w-[260px] bg-black text-white flex-col justify-between p-6 fixed h-full z-20 left-0 top-0">        <div>
           {/* Logo Badge */}
           <div className="bg-[#f3a0ad] text-black text-center p-5 rounded-sm">
             <h2 className="text-2xl font-serif font-bold tracking-wider">KP</h2>
@@ -487,8 +487,8 @@ export default function ServicesPage() {
       </aside>
 
       {/* --- 2. MAIN SERVICES CONTENT AREA --- */}
-      <main className="ml-[260px] flex-1 p-8 md:p-12 max-w-7xl mx-auto relative">
-        {/* Top Header */}
+// Existing main
+<main className="w-full md:ml-[260px] flex-1 p-5 sm:p-8 md:p-12 max-w-7xl mx-auto relative">        {/* Top Header */}
         <div className="mb-8 border-b border-gray-100 pb-5">
           <span className="text-[#f3a0ad] font-semibold tracking-[3px] text-[11px] uppercase block mb-1">
             STUDIO MENU & RATES
