@@ -1,4 +1,4 @@
-"use client";
+services ka code                       "use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -401,7 +401,8 @@ export default function ServicesPage() {
 
   return (
 <div className="flex flex-col md:flex-row min-h-screen bg-white text-gray-800 font-sans">      {/* --- 1. LEFT SIDEBAR NAVIGATION --- */}
-<aside className="w-[38%] bg-black text-white flex flex-col justify-between p-3 sm:p-6 shrink-0 min-h-screen">  <div>
+<aside className="w-[260px] bg-black text-white flex flex-col justify-between p-6 fixed h-full z-20 left-0 top-0">  
+  <div>
     {/* Logo Badge */}
           <div className="bg-[#f3a0ad] text-black text-center p-5 rounded-sm">
             <h2 className="text-2xl font-serif font-bold tracking-wider">KP</h2>
@@ -486,62 +487,68 @@ export default function ServicesPage() {
       </aside>
 
       {/* --- 2. MAIN SERVICES CONTENT AREA --- */}
-{/* --- RIGHT MAIN CONTENT AREA (EXACT 62% WIDTH) --- */}
-      <main className="w-[62%] p-3 sm:p-8 bg-[#1e1e1e] text-white overflow-y-auto min-h-screen">
-        <div className="mb-6 border-b border-gray-800 pb-3">
-          <span className="text-[#f3a0ad] font-semibold tracking-[2px] text-[9px] sm:text-[11px] uppercase block mb-1">
+<main className="ml-[260px] flex-1 p-8 md:p-12 max-w-7xl mx-auto relative">        <div className="mb-8 border-b border-gray-100 pb-5">
+          <span className="text-[#f3a0ad] font-semibold tracking-[3px] text-[11px] uppercase block mb-1">
             STUDIO MENU & RATES
           </span>
-          <h1 className="text-base sm:text-3xl font-serif font-bold tracking-wider text-white uppercase">
+          <h1 className="text-3xl md:text-4xl font-serif font-bold tracking-wider text-gray-950 uppercase">
             SERVICES & PACKAGES
           </h1>
-          <div className="w-12 h-1 bg-[#f3a0ad] mt-2 rounded-full"></div>
+          <div className="w-16 h-1 bg-[#f3a0ad] mt-3 rounded-full"></div>
         </div>
 
         {/* --- TABS BAR --- */}
-        <div className="flex flex-col gap-2 mb-6 border-b border-gray-800 pb-4">
+        <div className="flex flex-wrap gap-2.5 mb-10 border-b border-gray-100 pb-4">
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
             return (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`text-[9px] sm:text-[11px] font-bold tracking-wider p-2 sm:px-4 sm:py-2.5 rounded-sm transition-all flex items-center justify-start space-x-1.5 uppercase text-left ${
+                className={`text-[11px] font-bold tracking-wider px-4 py-2.5 rounded-sm transition-all flex items-center space-x-1.5 uppercase ${
                   isActive
-                    ? "bg-[#5c0f1c] text-white shadow-sm"
-                    : "bg-zinc-800 text-gray-300 hover:bg-zinc-700"
+                    ? "bg-[#f3a0ad] text-black shadow-sm"
+                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                 }`}
               >
                 <span>{tab.icon}</span>
-                <span className="truncate">{tab.label}</span>
+                <span>{tab.label}</span>
               </button>
             );
           })}
         </div>
 
-        {/* --- DYNAMIC SERVICES GRID --- */}
-        <div className="grid grid-cols-1 gap-4">
+        {/* --- DYNAMIC GRID --- */}
+        <div className={gridClasses}>
           {currentServices.map((item, index) => (
             <div
               key={index}
-              className="border border-zinc-800 bg-zinc-900 p-4 rounded-sm hover:border-[#f3a0ad] transition-all flex flex-col justify-between"
+              className="border border-gray-100 bg-white p-6 rounded-sm hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
+                {/* Title */}
                 {item.title && (
-                  <h3 className="text-xs sm:text-sm font-serif font-bold text-white uppercase leading-snug mb-2">
+                  <h3 className="text-sm font-serif font-bold text-gray-950 uppercase leading-snug mb-2 min-h-[36px] flex items-center">
                     {item.title}
                   </h3>
                 )}
 
-                <p className="text-base sm:text-2xl font-serif font-bold text-[#f3a0ad] mb-3">
+                {/* Price */}
+                <p className="text-2xl font-serif font-bold text-[#d8586c] mb-4">
                   {item.price}
                 </p>
 
+                {/* Features / Included Items */}
                 {item.features && item.features.length > 0 && (
-                  <ul className="space-y-1.5 mb-4">
+                  <ul className="space-y-2 mb-6">
                     {item.features.map((feat, fIdx) => (
-                      <li key={fIdx} className="flex items-start text-[10px] sm:text-xs text-gray-300 leading-tight">
-                        <span className="text-[#f3a0ad] mr-1">✦</span>
+                      <li
+                        key={fIdx}
+                        className="flex items-start text-xs text-gray-600 leading-snug"
+                      >
+                        <span className="text-[#f3a0ad] mr-1.5 text-xs">
+                          ✦
+                        </span>
                         <span>{feat}</span>
                       </li>
                     ))}
@@ -549,14 +556,17 @@ export default function ServicesPage() {
                 )}
               </div>
 
-              <div className="pt-2">
+              {/* Booking Action Button */}
+              <div className="pt-4">
                 <a
                   href={`https://wa.me/91${whatsappNumber}?text=${encodeURIComponent(
-                    `Hello Khushi! I would like to book: ${item.title || "Package"} (${item.price}).`
+                    `Hello Khushi! I would like to book: ${
+                      item.title || "Package"
+                    } (${item.price}).`
                   )}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full inline-block text-center bg-[#5c0f1c] text-white py-2 text-[9px] font-bold tracking-[1px] uppercase hover:bg-[#f3a0ad] hover:text-black transition-all rounded-sm"
+                  className="w-full inline-block text-center bg-black text-white py-2.5 text-[10px] font-bold tracking-[2px] uppercase hover:bg-[#f3a0ad] hover:text-black transition-all rounded-sm"
                 >
                   {item.btnText}
                 </a>
@@ -564,7 +574,24 @@ export default function ServicesPage() {
             </div>
           ))}
         </div>
-      </main>    </div>
+
+        {/* Floating WhatsApp Button */}
+        <a
+          href={`https://wa.me/91${whatsappNumber}?text=${encodeURIComponent(
+            "Hello Khushi! I would like to inquire about your studio services."
+          )}`}
+          target="_blank"
+          rel="noreferrer"
+          className="fixed bottom-6 right-6 bg-[#25D366] text-white p-3.5 rounded-full shadow-xl hover:bg-[#20ba5a] hover:scale-105 transition-all z-30 flex items-center justify-center"
+          aria-label="Chat on WhatsApp"
+        >
+          <svg className="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+          </svg>
+        </a>
+        <SmartPackageFinder />
+      </main>
+    </div>
   );
 }
 // ----------------------------------------------------
