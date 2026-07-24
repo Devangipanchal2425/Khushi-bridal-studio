@@ -16,36 +16,26 @@ export default function AboutPage() {
   const facebookLink = "https://www.facebook.com/share/18wh4hPmkN/";
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-white text-gray-800 font-sans">
-      
+<div className="relative flex min-h-screen flex-col bg-white text-gray-800 font-sans md:flex-row">      
       {/* --- MOBILE HEADER (Visible on Mobile only) --- */}
       <header className="md:hidden bg-black text-white p-4 flex justify-between items-center sticky top-0 z-40 shadow-md">
-        <div className="flex items-center space-x-2">
-          <div className="bg-[#f3a0ad] text-black font-serif font-bold text-sm px-2.5 py-1 rounded-xs">
-            KP
-          </div>
-          <span className="text-xs font-serif font-semibold tracking-wider text-white">KHUSHI PATEL</span>
-        </div>
         
         <button 
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="text-white focus:outline-none p-1"
           aria-label="Toggle Menu"
         >
-          <svg className="w-6 h-6 fill-current text-[#f3a0ad]" viewBox="0 0 24 24">
-            {mobileMenuOpen ? (
+<svg className="w-7 h-7 fill-current text-white" viewBox="0 0 24 24">            {mobileMenuOpen ? (
               <path fillRule="evenodd" clipRule="evenodd" d="M18.278 16.864a1 1 0 01-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 01-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 011.414-1.414l4.829 4.828 4.828-4.828a1 1 0 111.414 1.414l-4.828 4.829 4.828 4.828z"/>
             ) : (
-              <path fillRule="evenodd" d="M4 5h16a1 1 0 010 2H4a1 1 0 110-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2z"/>
-            )}
+className="flex h-14 w-14 items-center justify-center rounded-full bg-[#9b001b] text-white shadow-lg"            )}
           </svg>
         </button>
       </header>
 
       {/* --- MOBILE DROPDOWN MENU --- */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-zinc-900 text-white px-6 py-4 space-y-4 border-b border-zinc-800 z-30">
-          <nav>
+<div className="absolute inset-x-5 top-24 z-30 space-y-4 rounded-lg border border-zinc-800 bg-zinc-900 px-6 py-4 text-white shadow-xl md:hidden">          <nav>
             <ul className="space-y-3 text-xs tracking-[2px] font-medium text-gray-300">
               <li><Link href="/" className="hover:text-white block py-1">HOME</Link></li>
               <li><Link href="/about" className="text-[#f3a0ad] font-bold block py-1">ABOUT</Link></li>
