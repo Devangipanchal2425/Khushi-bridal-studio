@@ -206,4 +206,60 @@ export default function AboutPage() {
             <section className="pt-3 sm:pt-5">
               <span className="mb-3 block text-[10px] font-semibold tracking-[3px] text-[#f3a0ad] sm:text-[11px]">
                 AWARDS
+                              </span>
+
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-3">
+                <div className="rounded-sm border border-gray-100 bg-gray-50/50 p-3 text-center">
+                  <p className="font-serif text-[10px] font-bold text-gray-900">
+                    LUXURY BRIDAL
+                  </p>
+                  <p className="mt-1 text-[8px] text-gray-400">
+                    COUTURE LOOKS
+                  </p>
+                </div>
+
+                <div className="rounded-sm border border-gray-100 bg-gray-50/50 p-3 text-center">
+                  <p className="font-serif text-[10px] font-bold text-gray-900">
+                    ULTRA HD SKIN
+                  </p>
+                  <p className="mt-1 text-[8px] text-gray-400">
+                    CAMERA READY
+                  </p>
+                </div>
+
+                <div className="rounded-sm border border-gray-100 bg-gray-50/50 p-3 text-center">
+                  <p className="font-serif text-[10px] font-bold text-gray-900">
+                    PREMIUM PRODUCTS
+                  </p>
+                  <p className="mt-1 text-[8px] text-gray-400">
+                    GLOBAL BRANDS
+                  </p>
+                </div>
+
+                <div className="rounded-sm border border-gray-100 bg-gray-50/50 p-3 text-center">
+                  <p className="font-serif text-[10px] font-bold text-gray-900">
+                    CUSTOM GLAM
+                  </p>
+                  <p className="mt-1 text-[8px] text-gray-400">
+                    TAILORED BEAUTY
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+
+      <a
+        href={`https://wa.me/${whatsappNumber}`}
+        target="_blank"
+        rel="noreferrer"
+        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-xl text-white shadow-xl"
+        aria-label="Chat on WhatsApp"
+      >
+        W
+      </a>
+    </div>
+  );
+}
              
