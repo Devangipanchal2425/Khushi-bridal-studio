@@ -25,7 +25,7 @@ export default function Home() {
       <div className="absolute inset-0 bg-black/40 z-0"></div>
 
       {/* Top Header Row with Menu Button */}
-      <div className="relative z-10 flex justify-end items-center w-full mt-2 sm:mt-4">
+      <div className="relative z-10 flex justify-start items-center w-full mt-2 sm:mt-4">
         <Link 
           href="/about"
           aria-label="Open Menu"
