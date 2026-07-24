@@ -11,7 +11,7 @@ export default function Home() {
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=Hello%20Khushi,%20I%20would%20like%20to%20inquire%20about%20your%20bridal%20makeup%20services.`;
 
   return (
-    <div className="min-h-screen w-full bg-black relative flex flex-col justify-between p-4 sm:p-6 overflow-hidden animate-fadeIn select-none max-w-full">
+    <div className="min-h-screen w-full bg-black relative flex flex-col justify-between p-4 sm:p-6 overflow-hidden animate-fadeIn select-none">
       
       {/* Full Screen Background Image Layer */}
       <div 
@@ -24,7 +24,7 @@ export default function Home() {
       ></div>
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/30 z-0"></div>
+      <div className="absolute inset-0 bg-black/40 z-0"></div>
 
       {/* Top Header Row with Menu Button */}
       <div className="relative z-10 flex justify-end items-center w-full mt-2 sm:mt-4">
@@ -40,15 +40,15 @@ export default function Home() {
       </div>
 
       {/* Central Core Branding */}
-      <div className="relative z-10 my-auto text-left pl-2 max-w-full sm:max-w-xl space-y-2 py-6">
+      <div className="relative z-10 my-auto text-left pl-2 w-full max-w-xl space-y-2 py-6">
         <div className="space-y-3">
           <div className="w-12 sm:w-16 h-[2px] bg-[#EFA7B3]"></div>
-          <h2 className="text-[#EFA7B3] text-xs sm:text-sm md:text-base font-medium tracking-[0.25em] sm:tracking-[0.35em] uppercase font-sans">
+          <h2 className="text-[#EFA7B3] text-xs sm:text-sm md:text-base font-medium tracking-[0.2em] sm:tracking-[0.35em] uppercase font-sans">
             KHUSHI PATEL
           </h2>
         </div>
 
-        <h1 className="text-white font-serif text-xl sm:text-4xl md:text-6xl tracking-normal uppercase font-light leading-tight pt-1 break-words">
+        <h1 className="text-white font-serif text-2xl sm:text-4xl md:text-6xl tracking-normal uppercase font-light leading-tight pt-1">
           MAKEUP ARTIST
         </h1>
 
