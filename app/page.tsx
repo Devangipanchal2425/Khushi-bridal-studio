@@ -3,15 +3,14 @@ import React from 'react';
 import Link from 'next/link';
 
 export default function Home() {
-  // Local public directory image path for home screen
   const brideImageUrl = "/bride.jpeg";
-
-  // Phone number & pre-filled WhatsApp message URL
   const phoneNumber = "919870085600";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=Hello%20Khushi,%20I%20would%20like%20to%20inquire%20about%20your%20bridal%20makeup%20services.`;
 
   return (
-<div className="min-h-screen w-full max-w-[100vw] bg-black relative flex flex-col justify-between p-4 sm:p-6 overflow-x-hidden animate-fadeIn select-none">      {/* Full Screen Background Image Layer */}
+    <div className="h-screen h-[100dvh] w-screen max-w-[100vw] bg-black relative flex flex-col justify-between p-4 sm:p-6 md:p-8 overflow-hidden animate-fadeIn select-none">
+      
+      {/* Background Image Layer */}
       <div 
         className="absolute inset-0 bg-cover bg-center z-0 transition-all duration-500"
         style={{ 
@@ -24,8 +23,8 @@ export default function Home() {
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/40 z-0"></div>
 
-      {/* Top Header Row with Menu Button */}
-      <div className="relative z-10 flex justify-start items-center w-full mt-2 sm:mt-4">
+      {/* Top Header Row - Top Left Pink Menu Button */}
+      <div className="relative z-10 flex justify-start items-center w-full pt-1 sm:pt-2">
         <Link 
           href="/about"
           aria-label="Open Menu"
@@ -37,31 +36,31 @@ export default function Home() {
         </Link>
       </div>
 
-      {/* Central Core Branding */}
-      <div className="relative z-10 my-auto text-left pl-2 w-full max-w-xl space-y-2 py-6">
-        <div className="space-y-3">
-          <div className="w-12 sm:w-16 h-[2px] bg-[#EFA7B3]"></div>
-          <h2 className="text-[#EFA7B3] text-xs sm:text-sm md:text-base font-medium tracking-[0.2em] sm:tracking-[0.35em] uppercase font-sans">
+      {/* Central Content (Mobile safe font sizes & line spacing) */}
+      <div className="relative z-10 my-auto text-left pl-1 sm:pl-4 w-full max-w-xl space-y-2 sm:space-y-3 py-4">
+        <div className="space-y-1.5 sm:space-y-3">
+          <div className="w-10 sm:w-16 h-[2px] bg-[#EFA7B3]"></div>
+          <h2 className="text-[#EFA7B3] text-[11px] sm:text-sm md:text-base font-medium tracking-[0.25em] sm:tracking-[0.35em] uppercase font-sans">
             KHUSHI PATEL
           </h2>
         </div>
 
-        <h1 className="text-white font-serif text-2xl sm:text-4xl md:text-6xl tracking-normal uppercase font-light leading-tight pt-1">
+        <h1 className="text-white font-serif text-2xl sm:text-5xl md:text-6xl tracking-wide uppercase font-light leading-tight">
           MAKEUP ARTIST
         </h1>
 
-        <div className="pt-4 sm:pt-6">
+        <div className="pt-3 sm:pt-6">
           <Link 
             href="/about"
-            className="bg-[#EFA7B3] text-black hover:bg-[#d88c99] font-sans tracking-widest text-xs uppercase px-6 sm:px-8 py-3 sm:py-3.5 transition-all shadow-lg rounded-sm font-semibold inline-block"
+            className="bg-[#EFA7B3] text-black hover:bg-[#d88c99] font-sans tracking-widest text-[11px] sm:text-xs uppercase px-5 sm:px-8 py-2.5 sm:py-3.5 transition-all shadow-lg rounded-sm font-semibold inline-block"
           >
             About Me
           </Link>
         </div>
       </div>
 
-      {/* Bottom Bar: Social Links + WhatsApp Logo */}
-      <div className="relative z-10 flex items-center justify-between w-full mb-2 sm:mb-4">
+      {/* Bottom Social Bar & WhatsApp Logo */}
+      <div className="relative z-10 flex items-center justify-between w-full pb-1 sm:pb-2">
         <div className="flex items-center space-x-2 sm:space-x-3">
           <a 
             href="https://instagram.com/khushiimakeover_official" 
