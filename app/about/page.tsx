@@ -8,7 +8,7 @@ const whatsappNumber = "919870085600";
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white font-sans text-gray-800">
-      <aside className="fixed inset-y-0 left-0 z-30 flex w-[30vw] flex-col justify-between bg-black p-3 text-white sm:p-4 md:w-[260px] md:p-6">
+      <aside className="fixed inset-y-0 left-0 z-30 flex w-[25vw] flex-col justify-between bg-black p-3 text-white sm:p-4 md:w-[260px] md:p-6">
         <div>
           <Link
             href="/"
@@ -78,8 +78,7 @@ export default function AboutPage() {
         </div>
       </aside>
 
-      <main className="ml-[30vw] min-h-screen w-[70vw] min-w-0 p-3 sm:p-5 md:ml-[260px] md:w-auto md:p-14">
-        <div className="mx-auto max-w-6xl">
+<main className="ml-[25vw] min-h-screen w-[75vw] min-w-0 p-3 sm:p-5 md:ml-[260px] md:w-auto md:p-14">        <div className="mx-auto max-w-6xl">
           <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-12 lg:gap-10">
             <div className="lg:col-span-5">
               <div className="relative h-[190px] overflow-hidden rounded-sm bg-gray-100 sm:h-[300px] md:h-[420px] lg:h-[520px]">
