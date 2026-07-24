@@ -14,8 +14,7 @@ export default function AboutPage() {
   const facebookLink = "https://www.facebook.com/share/18wh4hPmkN/";
 
   return (
-<div className="flex flex-col md:flex-row min-h-screen bg-white text-gray-800 font-sans">      
-      {/* --- 1. LEFT SIDEBAR NAVIGATION --- */}
+<div className="flex flex-col md:flex-row min-h-screen bg-white text-gray-800 font-sans">      {/* --- 1. LEFT SIDEBAR NAVIGATION --- */}
       <aside className="w-[260px] bg-black text-white flex flex-col justify-between p-6 fixed h-full z-20 left-0 top-0">
         <div>
           {/* Logo Badge */}
