@@ -400,8 +400,10 @@ export default function ServicesPage() {
     : "grid grid-cols-1 md:grid-cols-2 gap-6";
 
   return (
-<div className="flex flex-col md:flex-row min-h-screen bg-white text-gray-800 font-sans">      {/* --- 1. LEFT SIDEBAR NAVIGATION --- */}
-<aside className="w-[260px] bg-black text-white flex flex-col justify-between p-6 fixed h-full z-20 left-0 top-0">  
+<div className="flex w-full min-h-screen overflow-x-hidden">
+<aside className="w-[38%] bg-black text-white p-2 sm:p-4 flex flex-col justify-between shrink-0 min-h-screen">
+  {/* Aapka Left Sidebar ka Baaki Code */}
+</aside>
   <div>
     {/* Logo Badge */}
           <div className="bg-[#f3a0ad] text-black text-center p-5 rounded-sm">
@@ -487,7 +489,9 @@ export default function ServicesPage() {
       </aside>
 
       {/* --- 2. MAIN SERVICES CONTENT AREA --- */}
-<main className="ml-[260px] flex-1 p-8 md:p-12 max-w-7xl mx-auto relative">        <div className="mb-8 border-b border-gray-100 pb-5">
+<main className="w-[62%] bg-[#1e1e1e] text-white p-3 sm:p-6 overflow-y-auto min-h-screen">
+  {/* Aapka Right Content ka Baaki Code */}
+</main>       <div className="mb-8 border-b border-gray-100 pb-5">
           <span className="text-[#f3a0ad] font-semibold tracking-[3px] text-[11px] uppercase block mb-1">
             STUDIO MENU & RATES
           </span>
