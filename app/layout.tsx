@@ -1,10 +1,13 @@
 import './globals.css';
 
-export const metadata = {
-  title: 'Khushi Patel - Makeup Artist',
-  description: 'Bridal Studio & Makeup Artist Portfolio',
-};
+import type { Viewport } from 'next'
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+}
 export default function RootLayout({
   children,
 }: {
