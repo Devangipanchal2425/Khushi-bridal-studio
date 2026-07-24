@@ -17,7 +17,7 @@ export default function AboutPage() {
     <div className="flex min-h-screen bg-white text-gray-800 font-sans">
       
       {/* --- 1. LEFT SIDEBAR NAVIGATION --- */}
-      <aside className="w-[260px] bg-black text-white flex flex-col justify-between p-6 fixed h-full z-20 left-0 top-0">
+      <aside className="w-[260px] bg-black text-white flex flex-col justify-left p-6 fixed h-full z-20 left-0 top-0">
         <div>
           {/* Logo Badge */}
 <div className="bg-[#f3a0ad] text-black text-center p-5 rounded-sm absolute top-6 left-6 z-50">
